@@ -777,7 +777,12 @@ __webpack_require__(9);
 // });
 
 $(function () {
-  alert(123);
+    $(".background-block").mouseover(function () {
+        $(this).addClass("black-background");
+    });
+    $(".background-block").mouseout(function () {
+        $(this).removeClass("black-background");
+    });
 });
 
 /***/ }),
