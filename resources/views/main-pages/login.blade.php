@@ -3,27 +3,21 @@
 
 @section("contents")
 
-
     <div class="container-fluid">
         <div class="row">
             <div id="left-panel">
                 <!--            头像行            -->
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2">
-                        <a href="#">
-                            <img class="center-block img-responsive" src="/profile/u=1611505379,380489200&fm=27&gp=0.jpg" alt="profile" id="profile">
+                        <a href="#" style="color: #5B5B5B;text-decoration: none">
+                            <img class="center-block img-responsive" src="/profile/login.jpg" alt="profile" id="profile">
+                            <br>
+                            <p class="text-center">请先登录</p>
                         </a>
                     </div>
                 </div>
 
-                <!--            用户名行            -->
-                <div class="row">
-                    <div class="col-xs-8 col-xs-offset-2">
-                        <a href="#">
-                            <p class="text-center" id="username">Name</p>
-                        </a>
-                    </div>
-                </div>
+
 
                 <!--            功能列表            -->
                 <div class="row icon-row" style="padding-top:50px">
@@ -31,7 +25,7 @@
                         <div class="center-block">
                             <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
                             <div class="icon-text-list">
-                                <p>推荐</p>
+                                <p>登陆</p>
                             </div>
                         </div>
                     </div>
@@ -46,36 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row icon-row">
-                    <div class="col-xs-10 col-xs-offset-1 background-block">
-                        <div class="center-block">
-                            <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
-                            <div class="icon-text-list">
-                                <p>已购</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row icon-row">
-                    <div class="col-xs-10 col-xs-offset-1  background-block">
-                        <div class="center-block">
-                            <img src="/imgs/history-icon.png" alt="history" class="icon-list center-block">
-                            <div class="icon-text-list">
-                                <p>历史</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row icon-row">
-                    <div class="col-xs-10 col-xs-offset-1 background-block">
-                        <div class="center-block">
-                            <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
-                            <div class="icon-text-list">
-                                <p>消息</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
 

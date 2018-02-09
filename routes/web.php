@@ -11,4 +11,4 @@
 |
 */
 
-Route::get("/","DefaultController@home")->name("home");
+Route::get("/","DefaultController@login")->name("login");
