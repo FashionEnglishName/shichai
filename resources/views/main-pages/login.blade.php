@@ -31,11 +31,11 @@
                     </div>
                 </div>
                 <div class="row icon-row">
-                    <div class="col-xs-10 col-xs-offset-1 background-block">
+                    <div class="col-xs-10 col-xs-offset-1 background-block" id="signUp">
                         <div class="center-block">
                             <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
                             <div class="icon-text-list">
-                                <p>收藏</p>
+                                <p>注册</p>
                             </div>
                         </div>
                     </div>
@@ -152,6 +152,44 @@
             </div>
         </div>
     </div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="myModel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">注册</h4>
+            </div>
+            <form action="#" method="POST">
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">用户名：</label>
+                        <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">邮箱：</label>
+                        <input type="text" name="email" class="form-control" value="{{ old('name') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">密码：</label>
+                        <input type="password" name="password" class="form-control" value="{{ old('name') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password_confirmation">确认密码：</label>
+                        <input type="password" name="password_confirmation" class="form-control" value="{{ old('name') }}">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">注册</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 @stop
 
 @section("style")

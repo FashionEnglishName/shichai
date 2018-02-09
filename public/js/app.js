@@ -783,6 +783,10 @@ $(function () {
     $(".background-block").mouseout(function () {
         $(this).removeClass("black-background");
     });
+
+    $('#signUp').click(function () {
+        $('#myModel').modal();
+    });
 });
 
 /***/ }),
