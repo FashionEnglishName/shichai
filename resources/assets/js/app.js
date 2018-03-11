@@ -30,7 +30,40 @@ $(function(){
     });
 
     $('#signUp').click(function(){
-        $('#myModel').modal();
+        $('#signup-modal').modal();
     });
 
+    $('#login').click(function(){
+       $('#login-modal').modal();
+    });
+
+    /*            改           */
+    $('#login-form').submit(function(e){
+       e.preventDefault();
+        window.location.href = "/home";
+    });
+
+    // $('#signup-form').submit(function(e){
+    //     e.preventDefault();
+    //     var name = $('#name').val();
+    //     var email = $('#email').val();
+    //     var password = $('#password').val();
+    //     var password_confirmation = $('#password_confirmation').val();
+    //
+    //     $.ajax({
+    //         url: 'users',
+    //         type: 'post',
+    //         dataType: 'json',
+    //         data: {
+    //             name: name,
+    //             email: email,
+    //             password: password,
+    //             password_confirmation: password_confirmation
+    //         },
+    //         success: function(){
+    //             window.location='/users';
+    //         }
+    //
+    //     });
+    // });
 });

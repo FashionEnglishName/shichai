@@ -21,6 +21,7 @@
                     <div class="col-xs-8 col-xs-offset-2">
                         <a href="#">
                             <p class="text-center" id="username">Name</p>
+                            <p class="text-center" id="publish-date">发布于8天前</p>
                         </a>
                     </div>
                 </div>
@@ -51,27 +52,27 @@
                         <div class="center-block">
                             <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
                             <div class="icon-text-list">
-                                <p>已购</p>
+                                <p>添柴</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 {{--<div class="row icon-row">--}}
-                    {{--<div class="col-xs-10 col-xs-offset-1  background-block">--}}
-                        {{--<div class="center-block">--}}
-                            {{--<img src="/imgs/history-icon.png" alt="history" class="icon-list center-block">--}}
-                            {{--<div class="icon-text-list">--}}
-                                {{--<p>历史</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                {{--<div class="col-xs-10 col-xs-offset-1  background-block">--}}
+                {{--<div class="center-block">--}}
+                {{--<img src="/imgs/history-icon.png" alt="history" class="icon-list center-block">--}}
+                {{--<div class="icon-text-list">--}}
+                {{--<p>历史</p>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--</div>--}}
                 {{--</div>--}}
                 <div class="row icon-row">
                     <div class="col-xs-10 col-xs-offset-1 background-block">
                         <div class="center-block">
                             <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
                             <div class="icon-text-list">
-                                <p>消息</p>
+                                <p>喜爱</p>
                             </div>
                         </div>
                     </div>
@@ -87,7 +88,7 @@
                         <div class="navbar navbar-default" role="navigation">
                             <div class="container">
                                 <ul class="nav navbar-nav" id="navbar-text">
-                                    <li class="li-active"><a href="#">首页</a></li>
+                                    <li><a href="#">首页</a></li>
                                     <li><a href="#">分类</a></li>
                                     <li><a href="#">搜索</a></li>
                                 </ul>
@@ -110,76 +111,18 @@
                     </div>
                 </div>
 
-                <div class="row" id="carousel-row">
-                    <div class="col-xs-12">
-                        <!--            轮播             -->
-                        <div id="carousel-example-generic" class="carousel slide center-block" data-ride="carousel">
-
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <img src="/imgs/carousel-1.jpg" class="carousel-img" alt="first">
-                                </div>
-                                <div class="item">
-                                    <img src="/imgs/carousel-2.jpg" class="carousel-img" alt="second">
-                                </div>
-                                <div class="item">
-                                    <img src="/imgs/carousel-3.jpg" class="carousel-img" alt="third">
-                                </div>
-
-                                <!-- Controls -->
-                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--            二级导航栏            -->
-                <div class="row">
-                    <div class="col-xs-12" id="second-navbar-row">
-                        <div class="navbar navbar-default" id="second-navbar" role="navigation">
-                            <div class="container">
-                                <ul class="nav navbar-nav" id="second-navbar-text">
-                                    <li class="li-active"><a href="#">已出</a></li>
-                                    <li><a href="#">未出</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!--            主要内容             -->
-                <div class="row page-background">
-                    <div class="col-xs-12">
-                        <div class="center-block" style="width: 1000px;">
-                            <div class="row">
-                                <div class="col-xs-3 thumbnail-col">
-                                    <a href="#" class="thumbnail thumbnail-resize">
-                                        <img src="/imgs/carousel-1.jpg" alt="first">
-                                    </a>
-                                </div>
-                                <div class="col-xs-3 thumbnail-col">
-                                    <a href="#" class="thumbnail">
-                                        <img src="/imgs/carousel-2.jpg" alt="second">
-                                    </a>
-                                </div>
-                                <div class="col-xs-3 thumbnail-col">
-                                    <a href="#" class="thumbnail">
-                                        <img src="/imgs/carousel-1.jpg" alt="third">
-                                    </a>
-                                </div>
-                                <div class="col-xs-3 thumbnail-col">
-                                    <a href="#" class="thumbnail">
-                                        <img src="/imgs/carousel-1.jpg" alt="fourth">
-                                    </a>
-                                </div>
+                <div class="row">
+                    <div class="col-xs-12 content-col">
+                        <div class="center-block content">
+                            <div class="content-info">
+                                <h2>
+                                    给你点颜色看看<br/>
+                                    <small>平面</small>
+                                </h2>
+                            </div>
+                            <div class="content-main">
+                                <img src="/imgs/carousel-1.jpg" alt="">
                             </div>
                         </div>
                     </div>

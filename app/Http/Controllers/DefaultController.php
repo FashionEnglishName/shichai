@@ -13,4 +13,16 @@ class DefaultController extends Controller
     public function login(){
         return view("main-pages.login");
     }
+
+    public function category(){
+        return view("main-pages.category");
+    }
+
+    public function user(){
+        return view("main-pages.user");
+    }
+
+    public function content(){
+        return view("main-pages.content");
+    }
 }

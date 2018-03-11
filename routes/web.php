@@ -12,3 +12,13 @@
 */
 
 Route::get("/","DefaultController@login")->name("login");
+Route::get("home","DefaultController@home");
+Route::get("category","DefaultController@category");
+Route::get("user","DefaultController@user");
+Route::get("content","DefaultController@content");
+
+
+Route::resource('users','UsersController');
+
+Route::post("users/login","UsersController@store");
+
