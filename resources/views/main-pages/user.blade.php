@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2">
                         <a href="#">
-                            <p class="text-center" id="username">Name</p>
+                            <p class="text-center" id="username">{{ $user->name }}</p>
                         </a>
                     </div>
                 </div>

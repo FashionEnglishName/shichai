@@ -22,6 +22,12 @@ require('./bootstrap');
 // });
 
 $(function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('#signup-form input[name="_token"]').val()
+        }
+    });
+
     $(".background-block").mouseover(function(){
         $(this).addClass("black-background");
     });
@@ -39,31 +45,41 @@ $(function(){
 
     /*            改           */
     $('#login-form').submit(function(e){
-       e.preventDefault();
+        e.preventDefault();
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+
         window.location.href = "/home";
     });
 
-    // $('#signup-form').submit(function(e){
-    //     e.preventDefault();
-    //     var name = $('#name').val();
-    //     var email = $('#email').val();
-    //     var password = $('#password').val();
-    //     var password_confirmation = $('#password_confirmation').val();
-    //
-    //     $.ajax({
-    //         url: 'users',
-    //         type: 'post',
-    //         dataType: 'json',
-    //         data: {
-    //             name: name,
-    //             email: email,
-    //             password: password,
-    //             password_confirmation: password_confirmation
-    //         },
-    //         success: function(){
-    //             window.location='/users';
-    //         }
-    //
-    //     });
-    // });
+    $('#signup-form').submit(function(e){
+        e.preventDefault();
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        var password_confirmation = $('#password_confirmation').val();
+
+        $.ajax({
+            url: '/users',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                name: name,
+                email: email,
+                password: password,
+                password_confirmation: password_confirmation
+            },
+            success: function(data){
+                var id = data.id;
+                var url = "users/" + id;
+                window.location.href = url;
+            },
+            error: function(data, json, errorThrown){
+                console.log(data);
+                console.log(404);
+            }
+
+        });
+    });
 });

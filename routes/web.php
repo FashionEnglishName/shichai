@@ -20,5 +20,4 @@ Route::get("content","DefaultController@content");
 
 Route::resource('users','UsersController');
 
-Route::post("users/login","UsersController@store");
 
