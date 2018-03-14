@@ -19,6 +19,7 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
-    "i-rubik": "^0.4.1"
+    "i-rubik": "^0.4.1",
+    "toastr": "^2.1.4"
   }
 }

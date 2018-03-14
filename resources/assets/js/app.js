@@ -43,16 +43,12 @@ $(function(){
        $('#login-modal').modal();
     });
 
-    /*            改           */
-    $('#login-form').submit(function(e){
-        e.preventDefault();
-        var email = $('#email').val();
-        var password = $('#password').val();
-
-
-        window.location.href = "/home";
+    $('#login-img').click(function(){
+        $('#login-modal').modal();
     });
 
+
+    //注册
     $('#signup-form').submit(function(e){
         e.preventDefault();
         var name = $('#name').val();
@@ -74,12 +70,55 @@ $(function(){
                 var id = data.id;
                 var url = "users/" + id;
                 window.location.href = url;
+                toastr.success("注册成功!");
             },
-            error: function(data, json, errorThrown){
+            error: function(data){
                 console.log(data);
-                console.log(404);
+                var errors = data.responseJSON.errors;
+                var errorsHtml= '';
+                $.each( errors, function( key, value ) {
+                    errorsHtml += '<li>' + value[0] + '</li>';
+                });
+                toastr.error( errorsHtml , "Error " + data.status);
             }
 
         });
+    });
+
+    //登陆
+    $("#login-form").submit(function(e){
+        e.preventDefault();
+        var email = $("#login-email").val();
+        var password = $("#login-password").val();
+
+        $.ajax({
+            url: "/login",
+            type: "post",
+            dataType: 'json',
+            data: {
+                email: email,
+                password: password
+            },
+            success: function(data){
+                if(data.status = "success"){
+                    toastr.success("登陆成功！");
+                    setTimeout(function(){
+                        window.location.href = "/";
+                    }, 1000);
+                } else {
+                    toastr.error(data.error);
+                }
+
+            },
+            error: function(data){
+                var errors = data.responseJSON.errors;
+                var errorsHtml= '';
+                $.each( errors, function( key, value ) {
+                    errorsHtml += '<li>' + value[0] + '</li>';
+                });
+                toastr.error( errorsHtml , "Error " + data.status);
+            }
+        });
+
     });
 });

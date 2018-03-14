@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -16,12 +17,18 @@ class UsersController extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
-        $user = new User();
-        $user->email = $request->get('email');
-        $user->name = $request->get('name');
-        $user->password = $request->get('password');
-        $user->save();
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
 
+//        $user->email = $request->get('email');
+//        $user->name = $request->get('name');
+//        $user->password = $request->get('password');
+//        $user->save();
+
+        Auth::login($user);
         return response()->json($user);
 //        return redirect("users/{$user->id}");
     }
