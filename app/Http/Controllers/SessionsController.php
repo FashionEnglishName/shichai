@@ -13,7 +13,7 @@ class SessionsController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        if(Auth::attempt($credentials)){
+        if(Auth::attempt($credentials, $request->remeber)){
 
             $status = "success";
             return response()->json([

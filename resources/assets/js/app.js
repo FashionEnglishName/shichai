@@ -22,11 +22,6 @@ require('./bootstrap');
 // });
 
 $(function(){
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('#signup-form input[name="_token"]').val()
-        }
-    });
 
     $(".background-block").mouseover(function(){
         $(this).addClass("black-background");
@@ -47,10 +42,23 @@ $(function(){
         $('#login-modal').modal();
     });
 
+    $('#edit-info').click(function(){
+        $('#edit-info-modal').modal();
+    });
+
+    $('#edit-password-toggle').click(function(){
+        $('#edit-password-modal').modal();
+    });
+
 
     //注册
     $('#signup-form').submit(function(e){
         e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('#signup-form input[name="_token"]').val()
+            }
+        });
         var name = $('#name').val();
         var email = $('#email').val();
         var password = $('#password').val();
@@ -88,8 +96,18 @@ $(function(){
     //登陆
     $("#login-form").submit(function(e){
         e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('#login-form input[name="_token"]').val()
+            }
+        });
         var email = $("#login-email").val();
         var password = $("#login-password").val();
+        if($("#remember").val() == "on"){
+            remember  = true;
+        }else {
+            remember = false;
+        }
 
         $.ajax({
             url: "/login",
@@ -97,7 +115,8 @@ $(function(){
             dataType: 'json',
             data: {
                 email: email,
-                password: password
+                password: password,
+                remember: remember
             },
             success: function(data){
                 if(data.status = "success"){
@@ -120,5 +139,78 @@ $(function(){
             }
         });
 
+    });
+
+    //修改信息
+    $('#edit-info-form').submit(function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('#edit-info-form input[name="_token"]').val()
+            }
+        });
+        var new_name = $('#edit-name').val();
+        var id = $('#edit-info-user-id').val();
+
+        $.ajax({
+            url: "/users/" + id + "/edit-info",
+            dataType: "json",
+            type: 'patch',
+            data: {
+                'id': id,
+                'name': new_name
+            },
+            success: function(data){
+                toastr.success("已成功修改信息！");
+                setTimeout(function(){
+                    window.location.reload();
+                }, 1000);
+            },
+            error: function(data){
+                var errors = data.responseJSON.errors;
+                var errorsHtml= '';
+                $.each( errors, function( key, value ) {
+                    errorsHtml += '<li>' + value[0] + '</li>';
+                });
+                toastr.error( errorsHtml , "Error " + data.status);
+            }
+        });
+    });
+
+    $("#edit-password-form").submit(function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('#edit-password-form input[name="_token"]').val()
+            }
+        });
+        var password = $("#edit-password").val();
+        var password_confirmation = $("#edit-password-confirmation").val();
+        var id = $("#edit-password-user-id").val();
+
+        $.ajax({
+            'url': '/users/' + id + '/edit-password',
+            'type': 'patch',
+            'dataType': 'json',
+            'data': {
+                'password': password,
+                'password_confirmation': password_confirmation
+            },
+            success: function(data){
+                toastr.success("已成功修改密码！请重新登陆");
+                setTimeout(function(){
+                    window.location.href = "/";
+                }, 1000);
+            },
+            error: function(data){
+                var errors = data.responseJSON.errors;
+                var errorsHtml= '';
+                $.each( errors, function( key, value ) {
+                    errorsHtml += '<li>' + value[0] + '</li>';
+                });
+                toastr.error( errorsHtml , "Error " + data.status);
+            }
+
+        });
     });
 });

@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield("title","shichai")</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/toastr.css">
@@ -24,7 +25,7 @@
                 <!--            头像行            -->
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
-                            <a href="#">
+                            <a href="{{ route('users.show', 'id') }}">
                                 <img class="center-block img-responsive" src="/profile/u=1611505379,380489200&fm=27&gp=0.jpg" alt="profile" id="profile">
                             </a>
                         </div>

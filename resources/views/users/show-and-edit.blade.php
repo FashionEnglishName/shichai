@@ -3,11 +3,21 @@
 
             @section("functions")
                 <div class="row icon-row" style="padding-top:50px">
-                    <div class="col-xs-10 col-xs-offset-1 background-block">
+                    <div class="col-xs-10 col-xs-offset-1 background-block" id="edit-password-toggle">
                         <div class="center-block">
                             <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
-                            <div class="icon-text-list">
-                                <p>关注</p>
+                            <div class="icon-text-list icon-text-list-four-words">
+                                <p>修改密码</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row icon-row">
+                    <div class="col-xs-10 col-xs-offset-1 background-block" id="edit-info">
+                        <div class="center-block">
+                            <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
+                            <div class="icon-text-list icon-text-list-four-words">
+                                <p>修改资料</p>
                             </div>
                         </div>
                     </div>
@@ -91,6 +101,9 @@
                     </div>
                 </div>
 @endsection
+
+@include('modals.edit-info')
+@include('modals.edit-password')
 
 @section("style")
     <style>

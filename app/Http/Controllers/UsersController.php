@@ -23,11 +23,6 @@ class UsersController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-//        $user->email = $request->get('email');
-//        $user->name = $request->get('name');
-//        $user->password = $request->get('password');
-//        $user->save();
-
         Auth::login($user);
         return response()->json($user);
 //        return redirect("users/{$user->id}");
@@ -35,6 +30,31 @@ class UsersController extends Controller
 
     public function show($id){
         $user = User::find($id);
-        return view("main-pages.user", compact('user'));
+        return view("users.show-and-edit", compact('user'));
+    }
+
+    public function update_info(Request $request){
+        $this->validate($request,[
+            'name' => 'required|max:50'
+        ]);
+
+        $isUpdated = User::find($request->id)->update([
+            'name' => $request->name
+        ]);
+
+        return response()->json($isUpdated);
+    }
+
+    public function update_password(Request $request){
+        $this->validate($request,[
+            'password' => 'required|confirmed|min:6'
+        ]);
+
+        $isUpdated = User::find($request->id)->update([
+            'password' => bcrypt($request->password)
+        ]);
+
+        Auth::logout();
+        return response()->json($isUpdated);
     }
 }

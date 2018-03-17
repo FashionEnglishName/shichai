@@ -19,7 +19,7 @@ class DefaultController extends Controller
     }
 
     public function user(){
-        return view("main-pages.user");
+        return view("users.show-and-edit");
     }
 
     public function content(){

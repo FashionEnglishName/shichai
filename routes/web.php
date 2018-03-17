@@ -14,11 +14,12 @@
 Route::get("/","DefaultController@home")->name('home');
 
 Route::get("category","DefaultController@category")->name('category');
-Route::get("user","DefaultController@user");
 Route::get("content","DefaultController@content");
 
-Route::get("home/{id}","UsersController@show");
+Route::patch("users/{id}/edit-info",'UsersController@update_info')->name('edit-info');
+Route::patch("users/{id}/edit-password",'UsersController@update_password')->name('edit-password');
 Route::resource('users','UsersController');
+
 
 Route::post("login","SessionsController@create")->name("login");
 Route::delete("logout","SessionsController@destroy")->name("logout");
