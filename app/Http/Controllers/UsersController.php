@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class UsersController extends Controller
 {
     //
+    public function __construct(){
+        $this->middleware('auth',[
+            'except' => ['store', 'create']
+        ]);
+    }
+
     public function store(Request $request){
 
         $this->validate($request,[
@@ -29,6 +35,8 @@ class UsersController extends Controller
     }
 
     public function show($id){
+        $this->authorize('update', User::find($id));
+
         $user = User::find($id);
         return view("users.show-and-edit", compact('user'));
     }
@@ -38,6 +46,7 @@ class UsersController extends Controller
             'name' => 'required|max:50'
         ]);
 
+        $this->authorize('update', User::find($request->id));
         $isUpdated = User::find($request->id)->update([
             'name' => $request->name
         ]);
@@ -50,6 +59,7 @@ class UsersController extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
+        $this->authorize('update', User::find($request->id));
         $isUpdated = User::find($request->id)->update([
             'password' => bcrypt($request->password)
         ]);

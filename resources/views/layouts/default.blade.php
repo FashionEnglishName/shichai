@@ -25,7 +25,7 @@
                 <!--            头像行            -->
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
-                            <a href="{{ route('users.show', 'id') }}">
+                            <a href="{{ route('users.show', Auth::user()) }}">
                                 <img class="center-block img-responsive" src="/profile/u=1611505379,380489200&fm=27&gp=0.jpg" alt="profile" id="profile">
                             </a>
                         </div>
