@@ -3,57 +3,80 @@
 
 
             @section('functions')
-                <!--            功能列表            -->
-                <div class="row icon-row" style="padding-top:50px">
-                    <div class="col-xs-10 col-xs-offset-1 background-block">
-                        <div class="center-block">
-                            <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
-                            <div class="icon-text-list">
-                                <p>平面</p>
+                @if(Auth::check())
+                    <!--            功能列表            -->
+                    <div class="row icon-row" style="padding-top:50px">
+                        <div class="col-xs-10 col-xs-offset-1 background-block">
+                            <div class="center-block">
+                                <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
+                                <div class="icon-text-list">
+                                    <p>服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;装</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row icon-row">
-                    <div class="col-xs-10 col-xs-offset-1 background-block">
-                        <div class="center-block">
-                            <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                            <div class="icon-text-list">
-                                <p>插画</p>
+                    <div class="row icon-row">
+                        <div class="col-xs-10 col-xs-offset-1 background-block">
+                            <div class="center-block">
+                                <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
+                                <div class="icon-text-list">
+                                    <p>摄&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;影</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row icon-row">
-                    <div class="col-xs-10 col-xs-offset-1 background-block">
-                        <div class="center-block">
-                            <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
-                            <div class="icon-text-list">
-                                <p>摄影</p>
+                    <div class="row icon-row">
+                        <div class="col-xs-10 col-xs-offset-1  background-block">
+                            <div class="center-block">
+                                <img src="/imgs/history-icon.png" alt="history" class="icon-list center-block">
+                                <div class="icon-text-list">
+                                    <p>影视动画</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row icon-row">
-                    <div class="col-xs-10 col-xs-offset-1  background-block">
-                        <div class="center-block">
-                            <img src="/imgs/history-icon.png" alt="history" class="icon-list center-block">
-                            <div class="icon-text-list">
-                                <p>影视</p>
+                    <div class="row icon-row">
+                        <div class="col-xs-10 col-xs-offset-1 background-block">
+                            <div class="center-block">
+                                <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
+                                <div class="icon-text-list">
+                                    <p>三&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;维</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row icon-row">
-                    <div class="col-xs-10 col-xs-offset-1 background-block">
-                        <div class="center-block">
-                            <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
-                            <div class="icon-text-list">
-                                <p>三维</p>
+                    <div class="row icon-row">
+                        <div class="col-xs-10 col-xs-offset-1 background-block">
+                            <div class="center-block">
+                                <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
+                                <div class="icon-text-list">
+                                    <p>平&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @else
+                    <div class="row icon-row" style="padding-top:50px">
+                        <div class="col-xs-10 col-xs-offset-1 background-block" id="login">
+                            <div class="center-block">
+                                <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
+                                <div class="icon-text-list">
+                                    <p>登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;陆</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row icon-row">
+                        <div class="col-xs-10 col-xs-offset-1 background-block" id="signUp">
+                            <div class="center-block">
+                                <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
+                                <div class="icon-text-list">
+                                    <p>注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             @stop
 
 
@@ -76,93 +99,12 @@
                     </div>
                 </div>
 
-                <!--            主要内容             -->
-                <div class="row page-background">
-                    <div class="col-xs-12">
-                        <div class="center-block" style="width: 1000px;">
-                            <div class="card-list">
-                                <div class="card">
-                                    <a href="#">
-                                        <img src="/imgs/carousel-1.jpg" alt="first">
-                                    </a>
-                                    <div class="card-info">
-                                        <a href="#">
-                                            <h4 class="card-info-title">
-                                                给你点颜色看看<br/>
-                                                <small><a href="#">平面</a></small>
-                                            </h4>
-                                        </a>
-                                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <a href="#">
-                                        <img src="/imgs/carousel-2.jpg" alt="second">
-                                    </a>
-                                    <div class="card-info">
-                                        <h4 class="card-info-title">
-                                            给你点颜色看看<br/>
-                                            <small>平面</small>
-                                        </h4>
-                                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <a href="#">
-                                        <img src="/imgs/carousel-1.jpg" alt="third">
-                                    </a>
-                                    <div class="card-info">
-                                        <h4 class="card-info-title">
-                                            给你点颜色看看<br/>
-                                            <small>平面</small>
-                                        </h4>
-                                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <a href="#">
-                                        <img src="/imgs/carousel-1.jpg" alt="fourth">
-                                    </a>
-                                    <div class="card-info">
-                                        <h4 class="card-info-title">
-                                            给你点颜色看看<br/>
-                                            <small>平面</small>
-                                        </h4>
-                                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <a href="#">
-                                        <img src="/imgs/carousel-1.jpg" alt="fourth">
-                                    </a>
-                                    <div class="card-info">
-                                        <a href="#">
-                                            <h4 class="card-info-title">
-                                                给你点颜色看看<br/>
-                                                <small>平面</small>
-                                            </h4>
-                                        </a>
-                                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <a href="#">
-                                        <img src="/imgs/carousel-1.jpg" alt="fourth">
-                                    </a>
-                                    <div class="card-info">
-                                        <h4 class="card-info-title">
-                                            给你点颜色看看<br/>
-                                            <small>平面</small>
-                                        </h4>
-                                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('layouts._articles-panel')
 
 @stop
+
+@include("modals.signup-modal")
+@include("modals.login-modal")
 
 @section("style")
     <style>

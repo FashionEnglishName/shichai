@@ -16,10 +16,18 @@ Route::get("/","DefaultController@home")->name('home');
 Route::get("category","DefaultController@category")->name('category');
 Route::get("content","DefaultController@content");
 
+
+Route::post('users/{id}/add_firewood', 'UsersController@add_firewood')->name('users.add_firewood');
+Route::get('users/{id}/check_firewood', 'UsersController@check_firewood')->name('users.check_firewood');
 Route::patch("users/{id}/edit-info",'UsersController@update_info')->name('edit-info');
 Route::patch("users/{id}/edit-password",'UsersController@update_password')->name('edit-password');
 Route::resource('users','UsersController');
 
+Route::post("users/{id}/location", "UsersController@get_cities")->name('location');
+
 
 Route::post("login","SessionsController@create")->name("login");
 Route::delete("logout","SessionsController@destroy")->name("logout");
+
+
+

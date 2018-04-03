@@ -778,10 +778,10 @@ __webpack_require__(9);
 
 $(function () {
 
-    $(".background-block").mouseover(function () {
+    $(".background-block:not(.black-background-selected)").mouseover(function () {
         $(this).addClass("black-background");
     });
-    $(".background-block").mouseout(function () {
+    $(".background-block:not(.black-background-selected)").mouseout(function () {
         $(this).removeClass("black-background");
     });
 
@@ -795,10 +795,6 @@ $(function () {
 
     $('#login-img').click(function () {
         $('#login-modal').modal();
-    });
-
-    $('#edit-info').click(function () {
-        $('#edit-info-modal').modal();
     });
 
     $('#edit-password-toggle').click(function () {
@@ -873,7 +869,7 @@ $(function () {
                 remember: remember
             },
             success: function success(data) {
-                if (data.status = "success") {
+                if (data.status === "success") {
                     toastr.success("登陆成功！");
                     setTimeout(function () {
                         window.location.href = "/";
@@ -894,40 +890,67 @@ $(function () {
     });
 
     //修改信息
-    $('#edit-info-form').submit(function (e) {
-        e.preventDefault();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('#edit-info-form input[name="_token"]').val()
-            }
-        });
-        var new_name = $('#edit-name').val();
-        var id = $('#edit-info-user-id').val();
+    // $('#edit-info-form').submit(function(e){
+    //     e.preventDefault();
+    //     $.ajaxSetup({
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('#edit-info-form input[name="_token"]').val()
+    //         }
+    //     });
+    //     var new_name = $('#name-field').val();
+    //     var age = $('#age-field').val();
+    //     var gender = $('input[name="gender"]:checked').val();
+    //     var province_id = $('#province-field').val();
+    //     var city_id = $('#city-field').val();
+    //     var occupation_id = $('#occupation-field').val();
+    //     var avatar = document.getElementById('avatar-input').files[0];
+    //     console.log(avatar);
+    //     console.log(new_name);
+    //
+    //     var options = {
+    //       beforeSubmit: function(formData){
+    //         var qurry_string = $.param(formData);
+    //         alert(qurry_string);
+    //       },
+    //       type: 'patch'
+    //     };
+    //
+    //     $(this).ajaxSubmit(options);
+    //
+    //
+    //     // $.ajax({
+    //     //     url: "edit-info",
+    //     //     dataType: "json",
+    //     //     type: 'patch',
+    //     //     contentType: 'multipart/form-data',
+    //     //     processData: false,
+    //     //     data: {
+    //     //         'name': new_name,
+    //     //         'age': age,
+    //     //         'gender': gender,
+    //     //         'province_id': province_id,
+    //     //         'city_id': city_id,
+    //     //         'occupation_id': occupation_id,
+    //     //         'avatar': avatar
+    //     //     },
+    //     //     success: function(data){
+    //     //         toastr.success("已成功修改信息！");
+    //     //         setTimeout(function(){
+    //     //             window.location.reload();
+    //     //         }, 1000);
+    //     //     },
+    //     //     error: function(data){
+    //     //         var errors = data.responseJSON.errors;
+    //     //         var errorsHtml= '';
+    //     //         $.each( errors, function( key, value ) {
+    //     //             errorsHtml += '<li>' + value[0] + '</li>';
+    //     //         });
+    //     //         toastr.error( errorsHtml , "Error " + data.status);
+    //     //     }
+    //     // });
+    //
+    // });
 
-        $.ajax({
-            url: "/users/" + id + "/edit-info",
-            dataType: "json",
-            type: 'patch',
-            data: {
-                'id': id,
-                'name': new_name
-            },
-            success: function success(data) {
-                toastr.success("已成功修改信息！");
-                setTimeout(function () {
-                    window.location.reload();
-                }, 1000);
-            },
-            error: function error(data) {
-                var errors = data.responseJSON.errors;
-                var errorsHtml = '';
-                $.each(errors, function (key, value) {
-                    errorsHtml += '<li>' + value[0] + '</li>';
-                });
-                toastr.error(errorsHtml, "Error " + data.status);
-            }
-        });
-    });
 
     $("#edit-password-form").submit(function (e) {
         e.preventDefault();
@@ -965,6 +988,64 @@ $(function () {
 
         });
     });
+
+    $("#province-field").change(function () {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('#edit-info-form input[name="_token"]').val()
+            }
+        });
+        $.ajax({
+            url: "location",
+            type: "post",
+            dataType: "json",
+            data: {
+                "first": $("#province-field").val()
+            },
+            success: function success(data) {
+                $("#city-field").empty();
+                $.each(data, function (index, array) {
+                    var option = "<option value='" + array['id'] + "'>" + array['name'] + "</option>";
+                    $("#city-field").append(option);
+                });
+            }
+        });
+    });
+
+    $("#add-firewood-form").submit(function (e) {
+        e.preventDefault();
+
+        $id = $("#user-id-for-firewood").val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('#add-firewood-form input[name="_token"]').val()
+            }
+        });
+
+        $.ajax({
+            url: "/users/" + $id + "/add_firewood",
+            type: "post",
+            dataType: "json",
+            success: function success(data) {
+                $.getJSON('/users/' + $id + '/check_firewood', null, function (data) {
+                    toastr.success("成功充值！您有 " + data.firewood + " 根柴火");
+                    if (window.location.href === 'http://shichai.test/users/' + $id) {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                    console.log(window.location.href);
+                });
+            }
+
+        });
+    });
+
+    $("#check-firewood-toggle").click(function () {
+        $firewood_count = $('#firewood_count').val();
+        toastr.info("还有 " + $firewood_count + " 根柴火");
+    });
 });
 
 /***/ }),
@@ -1001,14 +1082,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * all outgoing HTTP requests automatically have it attached. This is just
  * a simple convenience so we don't have to attach every token manually.
  */
-
-var token = document.head.querySelector('meta[name="csrf-token"]');
-
-if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-}
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

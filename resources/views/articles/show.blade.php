@@ -32,7 +32,7 @@
                         <div class="center-block">
                             <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
                             <div class="icon-text-list">
-                                <p>关&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</p>
+                                <p>关注</p>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         <div class="center-block">
                             <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
                             <div class="icon-text-list">
-                                <p>收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;藏</p>
+                                <p>收藏</p>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <div class="center-block">
                             <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
                             <div class="icon-text-list">
-                                <p>添&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;柴</p>
+                                <p>添柴</p>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                         <div class="center-block">
                             <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
                             <div class="icon-text-list">
-                                <p>喜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;爱</p>
+                                <p>喜爱</p>
                             </div>
                         </div>
                     </div>

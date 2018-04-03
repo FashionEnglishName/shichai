@@ -13,7 +13,7 @@ class SessionsController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        if(Auth::attempt($credentials, $request->remeber)){
+        if(Auth::attempt($credentials, $request->remember)){
 
             $status = "success";
             return response()->json([
@@ -22,7 +22,7 @@ class SessionsController extends Controller
         } else {
             return response()->json([
                 'status' => "error",
-                'error' => "抱歉，你的用户名和密码匹配！",
+                'error' => "抱歉，你的用户名和密码不匹配！",
             ]);
         }
 

@@ -6,15 +6,17 @@
     <title>@yield("title","shichai")</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/toastr.css">
+    <link rel="stylesheet" href="/css/cropper.css">
     @yield("style")
     <script language="JavaScript" src="/js/app.js"></script>
     <script language="JavaScript" src="/js/toastr.js"></script>
+    <script language="JavaScript" src="/js/cropper.js"></script>
     <script>
         toastr.options.positionClass = "toast-top-center";
         toastr.options.timeOut = 5000;
         toastr.options.closeButton = true;
     </script>
-
+    <script>@yield('script')</script>
 </head>
 <body>
     <div class="container-fluid">
@@ -26,7 +28,7 @@
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
                             <a href="{{ route('users.show', Auth::user()) }}">
-                                <img class="center-block img-responsive" src="/profile/u=1611505379,380489200&fm=27&gp=0.jpg" alt="profile" id="profile">
+                                <img class="center-block img-responsive" src="@yield('avatar', isset(Auth::user()->avatar) ? Auth::user()->avatar : '/profile/login.jpg' )" alt="profile" id="profile">
                             </a>
                         </div>
                     </div>
@@ -35,7 +37,7 @@
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
                             <a href="#">
-                                <p class="text-center" id="username">{{ Auth::user()->name }}</p>
+                                <p class="text-center" id="username">@yield('name', Auth::user()->name)</p>
                             </a>
                         </div>
                     </div>
@@ -52,6 +54,7 @@
                     </div>
             @endif
 
+            @yield('info')
             <!--            功能列表            -->
                 @yield("functions")
             </div>
@@ -70,15 +73,28 @@
                                 </ul>
 
                                 <ul class="nav navbar-nav navbar-right">
+                                    @if(Auth::check())
+                                        <li>
+                                            <a href="#">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                            </a>
+                                        </li>
+                                    @endif
                                     <li class="dropdown" id="setting-dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <img src="/imgs/setting-icon.png" alt="setting" id="setting-icon"><span class="caret"></span></a>
+                                            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="caret"></span>
+                                        </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
+                                            <li>
+                                                <form action="{{ route('users.add_firewood', Auth::user()) }}" method="post" id="add-firewood-form">
+                                                    {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-info btn-block" id="btn-add-firewood">购买柴火</button>
+                                                </form>
+                                            </li>
                                             @if(Auth::check())
-                                            <li role="separator" class="divider"></li>
+                                                <input type="text" hidden value="{{ Auth::user()->id }}" id="user-id-for-firewood">
+
+                                                <li role="separator" class="divider"></li>
                                             <li>
                                                 <form method="post" action="{{ route('logout') }}">
                                                     {{csrf_field()}}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DefaultController extends Controller
 {
@@ -16,10 +17,6 @@ class DefaultController extends Controller
 
     public function category(){
         return view("main-pages.category");
-    }
-
-    public function user(){
-        return view("users.show-and-edit");
     }
 
     public function content(){

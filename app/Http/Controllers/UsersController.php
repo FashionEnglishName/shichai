@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Handlers\ImageUploadHandler;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use  App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Input;
 
 class UsersController extends Controller
 {
@@ -35,23 +40,33 @@ class UsersController extends Controller
     }
 
     public function show($id){
-        $this->authorize('update', User::find($id));
 
         $user = User::find($id);
-        return view("users.show-and-edit", compact('user'));
+        return view("users.show", compact('user'));
     }
 
-    public function update_info(Request $request){
-        $this->validate($request,[
-            'name' => 'required|max:50'
-        ]);
+    public function update_info(UserRequest $request, ImageUploadHandler $uploader){
+        $id = Auth::user()->id;
+        $this->authorize('update', User::find($id));
 
-        $this->authorize('update', User::find($request->id));
-        $isUpdated = User::find($request->id)->update([
-            'name' => $request->name
-        ]);
+        $data = $request->all();
+        if($request->avatar){
+            $result = $uploader->save($request->avatar, 'avatars', $id, 362);
+            if($result){
+                $data['avatar'] = $result['path'];
+            }
+        }
+//        $isUpdated = User::find($id)->update([
+//            'name' => $request->name,
+//            'age' => $request->age,
+//            'gender' => $request->gender,
+//            'province_id' => $request->province_id,
+//            'city_id' => $request->city_id,
+//            'occupation_id' => $request->occupation_id,
+//        ]);
+        User::find($id)->update($data);
 
-        return response()->json($isUpdated);
+        return redirect()->route('users.show', $id)->with('success', '个人资料更新成功！');
     }
 
     public function update_password(Request $request){
@@ -66,5 +81,30 @@ class UsersController extends Controller
 
         Auth::logout();
         return response()->json($isUpdated);
+    }
+
+    public function edit(User $user){
+        $this->authorize('update',$user);
+        return view('users.edit', compact('user'));
+    }
+
+    public function get_cities(Request $request){
+        $province_id = $request->first;
+        $cities = DB::select("select * from cities where cities.pid = ?", [$province_id]);
+        return $cities;
+    }
+
+    public function add_firewood(){
+            $user = User::find(Auth::user()->id);
+            $user->firewood_count += 5;
+            $user->save();
+            return response()->json("成功");
+    }
+
+    public function check_firewood(){
+        $user = User::find(Auth::user()->id);
+        return response()->json([
+           'firewood' => $user->firewood_count
+        ]);
     }
 }

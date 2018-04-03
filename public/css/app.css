@@ -8371,6 +8371,7 @@ a {
 
 #profile {
   width: 80px;
+  height: 80px;
   border-radius: 40px;
   border: 1px solid #ffffff;
   margin-top: 40px;
@@ -8401,13 +8402,7 @@ a {
   color: #FFFFFF;
   text-decoration: none;
   line-height: 1.1;
-  letter-spacing: 0.8em;
   float: left;
-  margin-left: 22%;
-}
-
-.icon-text-list-four-words {
-  letter-spacing: 0 !important;
   margin-left: 18%;
 }
 
@@ -8440,6 +8435,12 @@ a {
     opacity: 1;
     background-color: #1E1E1E;
   }
+}
+
+.black-background-selected {
+  border-radius: 3px;
+  opacity: 1;
+  background-color: #1E1E1E;
 }
 
 /*            导航条               */
@@ -8618,5 +8619,12 @@ a {
 #publish-date {
   text-decoration: none;
   color: #F2F2F2;
+}
+
+/*            用户信息编辑             */
+
+.panel-heading {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
 }
 
