@@ -72,8 +72,6 @@
 
 @stop
 
-@include("modals.signup-modal")
-@include("modals.login-modal")
 
 @section("style")
     <style>

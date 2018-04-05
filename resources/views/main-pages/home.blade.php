@@ -122,13 +122,13 @@
                 </div>
 
                 @include('layouts._articles-panel', ['articles'=>$articles])
+                @include('shared._message')
             {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}
 @stop
 
-@include("modals.signup-modal")
-@include("modals.login-modal")
+
 @section("style")
     <style>
         .navbar {

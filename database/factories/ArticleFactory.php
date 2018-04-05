@@ -16,6 +16,6 @@ $factory->define(App\Models\Article::class, function (Faker $faker) {
         'content' => $faker->text(),
         'created_at' => $created_at,
         'updated_at' => $updated_at,
-        'assigned_at' => $assigned_at
+        'assigned_at' => $assigned_at,
     ];
 });

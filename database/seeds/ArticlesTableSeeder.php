@@ -28,6 +28,7 @@ class ArticlesTableSeeder extends Seeder
                     {
                         $article->user_id = $faker->randomElement($user_id);
                         $article->category_id = $faker->randomElement($category_id);
+                        $article->excerpt = make_excerpt($article->title);
                     });
 
         Article::insert($articles->toArray());

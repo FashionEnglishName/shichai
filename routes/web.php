@@ -32,6 +32,9 @@ Route::get("articles/create", "ArticlesController@create")->name('articles.creat
 Route::post("articles/store", "ArticlesController@store")->name('articles.store');
 Route::get("articles/{id}/edit", "ArticlesController@edit")->name('articles.edit');
 Route::patch("articles/{id}", "ArticlesController@update")->name('articles.update');
+Route::get("articles/{id}", "ArticlesController@show")->name('articles.show');
+Route::delete("articles/{id}", "ArticlesController@destroy")->name('articles.destroy');
+Route::post("upload_image", "ArticlesController@uploadImage")->name('articles.upload_image');
 
 
 

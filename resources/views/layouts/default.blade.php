@@ -6,17 +6,15 @@
     <title>@yield("title","shichai")</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/toastr.css">
-    <link rel="stylesheet" href="/css/cropper.css">
     @yield("style")
     <script language="JavaScript" src="/js/app.js"></script>
     <script language="JavaScript" src="/js/toastr.js"></script>
-    <script language="JavaScript" src="/js/cropper.js"></script>
     <script>
         toastr.options.positionClass = "toast-top-center";
         toastr.options.timeOut = 5000;
         toastr.options.closeButton = true;
     </script>
-    <script>@yield('script')</script>
+    @yield('script')
 </head>
 <body>
     <div class="container-fluid">
@@ -27,7 +25,7 @@
                 <!--            头像行            -->
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
-                            <a href="{{ route('users.show', Auth::user()) }}">
+                            <a href="{{ isset($user) ? route('users.show', $user) : route('users.show', Auth::user()) }}">
                                 <img class="center-block img-responsive" src="@yield('avatar', isset(Auth::user()->avatar) ? Auth::user()->avatar : '/profile/login.jpg' )" alt="profile" id="profile">
                             </a>
                         </div>
@@ -37,7 +35,8 @@
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
                             <a href="#">
-                                <p class="text-center" id="username">@yield('name', Auth::user()->name)</p>
+                                <p class="text-center" id="username">{{ isset($user) ? $user->name : Auth::user()->name }}</p>
+                                <p class="text-center" id="publish-date">@yield('date', '')</p>
                             </a>
                         </div>
                     </div>
@@ -118,5 +117,10 @@
 
         </div>
     </div>
+
+@guest
+    @include("modals.signup-modal")
+    @include("modals.login-modal")
+@endguest
 </body>
 </html>

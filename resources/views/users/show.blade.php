@@ -3,7 +3,6 @@
 
     @section('avatar', $user->avatar)
 
-    @section('name', $user->name)
             @section("functions")
                 <div class="row icon-row" style="padding-top:50px">
                     <div class="col-xs-10 col-xs-offset-1 background-block black-background-selected">

@@ -872,7 +872,7 @@ $(function () {
                 if (data.status === "success") {
                     toastr.success("登陆成功！");
                     setTimeout(function () {
-                        window.location.href = "/";
+                        window.location.reload();
                     }, 1000);
                 } else {
                     toastr.error(data.error);
