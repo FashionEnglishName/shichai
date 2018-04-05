@@ -30,7 +30,7 @@ class UserRequest extends FormRequest
             'province_id' => 'required',
             'city_id' => 'required',
             'occupation_id' => 'required',
-            'avatar' => 'required|mimes:jpeg,bmp,png,gif|dimensions:min_width=200,min_height=200'
+            'avatar' => 'mimes:jpeg,bmp,png,gif|dimensions:min_width=200,min_height=200'
         ];
     }
 
@@ -43,7 +43,6 @@ class UserRequest extends FormRequest
           'province_id.required' => '未选择城市！',
           'city_id.required' => '未选择城市！',
           'occupation_id.required' => '未选择职业！',
-          'avatar.required' => '未设置头像！',
           'avatar.mimes' => '头像格式不支持，仅支持jpeg,bmp,png,gif格式！',
           'avatar.dimensions' => '头像不够清晰，宽和高至少需要200px！'
         ];

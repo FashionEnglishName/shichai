@@ -76,7 +76,7 @@
                         <label for="age-field">年龄</label>
                         <select name="age" id="age-field" class="form-control" autocomplete="off">
                             @for($age = 10; $age <= 80; $age++)
-                                <option {{ $user->age == $age ? 'selected="selected"' : ' ' }}>{{ $age }}</option>
+                                <option {{ $user->age == $age ? 'selected="selected"' : ' ' }}>{{ old('age', $age) }}</option>
                             @endfor
                         </select>
                     </div>
@@ -91,7 +91,7 @@
                         <label for="location-field">所在地</label>
                         <select name="province_id" id="province-field" class="form-control" autocomplete="off">
                             @foreach(App\Models\Province::all() as $province)
-                                <option value="{{ $province->id }}" {{ $user->province_id == $province->id ? 'selected="selected"' : '' }}>{{ $province->name }}</option>
+                                <option value="{{ $province->id }}" {{ old('province_id' ,$user->province_id == $province->id ? 'selected="selected"' : '') }}>{{ $province->name }}</option>
                             @endforeach
                         </select>
                         <br>
@@ -99,7 +99,7 @@
                             @if(isset($user->city_id))
 
                                 @foreach(App\Models\City::all()->where('pid', '=', $user->province_id) as $city)
-                                    <option value="{{ $city->id }}" {{ $user->city_id == $city->id ? 'selected="selected"' : '' }}>{{ $city->name }}</option>
+                                    <option value="{{ $city->id }}" {{ old('city_id', $user->city_id == $city->id ? 'selected="selected"' : '') }}>{{ $city->name }}</option>
                                 @endforeach
 
                             @endif
@@ -110,7 +110,7 @@
                         <select name="occupation_id" id="occupation-field" class="form-control" autocomplete="off">
                             @foreach(App\Models\Occupation::all() as $occupation)
 
-                                <option value="{{ $occupation->id }}" {{ $user->occupation_id == $occupation->id ? 'selected="selected"' : '' }}>{{ $occupation->name }}</option>
+                                <option value="{{ $occupation->id }}" {{ old('occupation_id', $user->occupation_id == $occupation->id ? 'selected="selected"' : '') }}>{{ $occupation->name }}</option>
 
                             @endforeach
                         </select>

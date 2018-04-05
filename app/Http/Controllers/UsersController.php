@@ -56,14 +56,6 @@ class UsersController extends Controller
                 $data['avatar'] = $result['path'];
             }
         }
-//        $isUpdated = User::find($id)->update([
-//            'name' => $request->name,
-//            'age' => $request->age,
-//            'gender' => $request->gender,
-//            'province_id' => $request->province_id,
-//            'city_id' => $request->city_id,
-//            'occupation_id' => $request->occupation_id,
-//        ]);
         User::find($id)->update($data);
 
         return redirect()->route('users.show', $id)->with('success', '个人资料更新成功！');

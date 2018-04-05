@@ -68,14 +68,14 @@
                             <div class="container">
                                 <ul class="nav navbar-nav" id="navbar-text">
                                     <li class="@yield('home',' ')"><a href="{{ route('home') }}">首页</a></li>
-                                    <li class="@yield('category',' ')"><a href="{{ route('category') }}">分类</a></li>
+                                    <li class="@yield('category',' ')"><a href="{{ route('category', 1) }}">分类</a></li>
                                     <li class="@yield('search',' ')"><a href="#">搜索</a></li>
                                 </ul>
 
                                 <ul class="nav navbar-nav navbar-right">
                                     @if(Auth::check())
                                         <li>
-                                            <a href="#">
+                                            <a href="{{ route('articles.create') }}">
                                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                             </a>
                                         </li>

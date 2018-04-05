@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                @include('layouts._articles-panel')
+                @include('layouts._articles-panel', ['articles' => $user->articles()->recent()->paginate(20)])
                 @include('shared._errors')
                 @include('shared._message')
 @endsection

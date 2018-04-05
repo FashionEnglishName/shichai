@@ -283,7 +283,6 @@ $(function(){
                             window.location.reload();
                         }, 1000);
                     }
-                    console.log(window.location.href);
                 });
             }
 

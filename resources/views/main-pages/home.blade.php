@@ -121,7 +121,7 @@
                     </div>
                 </div>
 
-                @include('layouts._articles-panel')
+                @include('layouts._articles-panel', ['articles'=>$articles])
             {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}

@@ -8537,6 +8537,14 @@ a {
   padding-top: 20px;
 }
 
+h5 small {
+  font-size: 12px !important;
+}
+
+.card-info .text-right {
+  font-size: 12px !important;
+}
+
 /*            轮播             */
 
 #carousel-example-generic {

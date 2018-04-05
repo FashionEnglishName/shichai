@@ -3,81 +3,22 @@
     <div class="col-xs-12">
         <div class="center-block" style="width: 1000px;">
             <div class="card-list">
-                <div class="card">
-                    <a href="#">
-                        <img src="/imgs/carousel-1.jpg" alt="first">
-                    </a>
-                    <div class="card-info">
-                        <h4 class="card-info-title">
-                            <a href="">给你点颜色看看</a>
-                            <br>
-                            <small><a href="#">平面</a></small>
-                        </h4>
-                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <img src="/imgs/carousel-2.jpg" alt="second">
-                    </a>
-                    <div class="card-info">
-                        <h4 class="card-info-title">
-                            给你点颜色看看<br/>
-                            <small>平面</small>
-                        </h4>
-                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <img src="/imgs/carousel-1.jpg" alt="third">
-                    </a>
-                    <div class="card-info">
-                        <h4 class="card-info-title">
-                            给你点颜色看看<br/>
-                            <small>平面</small>
-                        </h4>
-                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <img src="/imgs/carousel-1.jpg" alt="fourth">
-                    </a>
-                    <div class="card-info">
-                        <h4 class="card-info-title">
-                            给你点颜色看看<br/>
-                            <small>平面</small>
-                        </h4>
-                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <img src="/imgs/carousel-1.jpg" alt="fourth">
-                    </a>
-                    <div class="card-info">
+                @foreach($articles as $article)
+                    <div class="card">
                         <a href="#">
-                            <h4 class="card-info-title">
-                                给你点颜色看看<br/>
-                                <small>平面</small>
-                            </h4>
+                            <img src="{{ $article->cover?$article->cover:'/imgs/carousel-1.jpg' }}" alt="first">
                         </a>
-                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
+                        <div class="card-info">
+                            <h5 class="card-info-title">
+                                <a href="">{{ $article->title }}</a>
+                                <br>
+                                <small><a href="#">{{ str_replace_array('　', ['', ''], $article->category->name )}}</a></small>
+                            </h5>
+                            <p class="text-right lead"><span class="card-info-sales">{{ $article->firewood_count }}</span>根柴火</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <a href="#">
-                        <img src="/imgs/carousel-1.jpg" alt="fourth">
-                    </a>
-                    <div class="card-info">
-                        <h4 class="card-info-title">
-                            给你点颜色看看<br/>
-                            <small>平面</small>
-                        </h4>
-                        <p class="text-right lead">已购&nbsp;&nbsp;<span class="card-info-sales">222</span></p>
-                    </div>
-                </div>
+                @endforeach
+                {{ $articles->render() }}
             </div>
         </div>
     </div>
