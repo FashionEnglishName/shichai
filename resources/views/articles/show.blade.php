@@ -2,11 +2,14 @@
 @section("title","home")
 
 @section('date', $article->created_at->diffForHumans())
+@section('avatar', $article->user->avatar)
+@section('name', $article->user->name)
+@section('user_link', route('users.show', $article->user))
 
 
 @section('functions')
                 @if(Auth::check())
-                    @can('update', $article->user)
+                    @if ($article->user->id == Auth::user()->id)
                         <div class="row icon-row" style="margin-top: 50px;">
                             <a href="{{ route('articles.edit', $article) }}">
                                 <div class="col-xs-10 col-xs-offset-1 background-block">
@@ -33,18 +36,41 @@
                                         </div>
                                     </div>
                         </div>
-                    @elsecan
+                    @else
                             <!--            功能列表            -->
-                            <div class="row icon-row" style="padding-top:50px">
-                                <div class="col-xs-10 col-xs-offset-1 background-block">
-                                    <div class="center-block">
-                                        <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
-                                        <div class="icon-text-list">
-                                            <p>关　　注</p>
+                            @cannot('update', $article->user)
+                                @if(Auth::user()->isFollowing($article->user->id))
+                                    <div class="row icon-row">
+                                        <div class="col-xs-10 col-xs-offset-1 background-block unfollow">
+                                            <div class="center-block">
+                                                <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
+                                                <div class="icon-text-list">
+                                                    <p>取消关注</p>
+                                                </div>
+                                                <form action="{{ route('followers.destroy', $article->user->id) }}" method="post" class="unfollow-form">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('delete') }}
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                @else
+                                    <div class="row icon-row">
+                                        <div class="col-xs-10 col-xs-offset-1 background-block follow">
+                                            <div class="center-block">
+                                                <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
+                                                <div class="icon-text-list">
+                                                    <p>关　　注</p>
+                                                </div>
+                                                <form action="{{ route('followers.store', $article->user->id) }}" method="post" class="follow-form">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
+                            @endcannot
                             <div class="row icon-row">
                                 <div class="col-xs-10 col-xs-offset-1 background-block">
                                     <div class="center-block">
@@ -75,7 +101,7 @@
                                     </div>
                                 </div>
                             </div>
-                    @endcan
+                    @endif
                 @else
 
                     <div class="row icon-row" style="padding-top:50px">

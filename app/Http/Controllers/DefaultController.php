@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 use App\Models\Article;
 use App\Http\Controllers\Controller;
 
@@ -27,7 +28,15 @@ class DefaultController extends Controller
         return view('main-pages.category', compact('articles', 'categories', 'id'));
     }
 
-    public function content(){
-        return view("main-pages.content");
+    public function my_follow($id){
+        $user = User::find($id);
+        $user_ids = $user->followings->pluck('id')->toArray();
+
+        $articles = Article::whereIn('user_id', $user_ids)
+                                    ->with('user')
+                                    ->orderBy('created_at', 'desc')
+                                    ->paginate(20);
+
+        return view('main-pages.my_follow', compact('articles'));
     }
 }

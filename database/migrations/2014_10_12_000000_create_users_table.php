@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->integer('province_id')->nullable();
             $table->integer('city_id')->nullable();
             $table->integer('occupation_id')->nullable();
-            $table->integer('fan_count')->default(0)->unsigned();
-            $table->integer('follow_count')->default(0)->unsigned();
+            $table->integer('follower_count')->default(0)->unsigned();
+            $table->integer('following_count')->default(0)->unsigned();
             $table->integer('work_count')->default(0)->unsigned();
             $table->integer('tutorial_count')->default(0)->unsigned();
             $table->rememberToken();

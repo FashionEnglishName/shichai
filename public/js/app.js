@@ -1045,6 +1045,14 @@ $(function () {
         $firewood_count = $('#firewood_count').val();
         toastr.info("还有 " + $firewood_count + " 根柴火");
     });
+
+    $('.follow').click(function () {
+        $('.follow-form').submit();
+    });
+
+    $('.unfollow').click(function () {
+        $('.unfollow-form').submit();
+    });
 });
 
 /***/ }),

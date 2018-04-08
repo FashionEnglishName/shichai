@@ -8636,3 +8636,15 @@ h5 small {
   border-color: #ffffff !important;
 }
 
+/*         users.show         */
+
+.stat-title {
+  color: #777777;
+  cursor: pointer;
+}
+
+.stat-title p a {
+  text-decoration: none;
+  color: inherit;
+}
+

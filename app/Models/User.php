@@ -42,4 +42,48 @@ class User extends Authenticatable
     public function occupation(){
         return $this->belongsTo(Occupation::class);
     }
+
+    public function followers(){
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+    }
+
+    public function followings(){
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+    }
+
+    public function follow($user_ids){
+        if(!is_array($user_ids)){
+            $user_ids = compact('user_ids');
+        }
+
+        foreach($user_ids as $user_id){
+            $user = User::find($user_id);
+            $user->follower_count += 1;
+            $user->save();
+        }
+        $this->following_count += 1;
+        $this->save();
+        $this->followings()->sync($user_ids, false);
+    }
+
+    public function unFollow($user_ids){
+        if(!is_array($user_ids)){
+            $user_ids = compact('user_ids');
+        }
+
+        foreach($user_ids as $user_id){
+            $user = User::find($user_id);
+            $user->follower_count -= 1;
+            $user->save();
+        }
+
+        $this->following_count -= 1;
+        $this->save;
+
+        $this->followings()->detach($user_ids, false);
+    }
+
+    public function isFollowing($user_id){
+        return $this->followings->contains($user_id);
+    }
 }

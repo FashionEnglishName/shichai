@@ -10,14 +10,16 @@
                     @if(Auth::check())
                         <!--            功能列表            -->
                         <div class="row icon-row" style="padding-top:50px">
-                            <div class="col-xs-10 col-xs-offset-1 background-block">
-                                <div class="center-block">
-                                    <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
-                                    <div class="icon-text-list">
-                                        <p>我的关注</p>
+                            <a href="{{ route('follow', Auth::user()->id) }}">
+                                <div class="col-xs-10 col-xs-offset-1 background-block">
+                                    <div class="center-block">
+                                        <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
+                                        <div class="icon-text-list">
+                                            <p>我的关注</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="row icon-row">
                             <div class="col-xs-10 col-xs-offset-1 background-block">

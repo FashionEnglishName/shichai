@@ -25,7 +25,7 @@
                 <!--            头像行            -->
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
-                            <a href="{{ isset($user) ? route('users.show', $user) : route('users.show', Auth::user()) }}">
+                            <a href="@yield('user_link', route('users.show', Auth::user()))">
                                 <img class="center-block img-responsive" src="@yield('avatar', isset(Auth::user()->avatar) ? Auth::user()->avatar : '/profile/login.jpg' )" alt="profile" id="profile">
                             </a>
                         </div>
@@ -35,7 +35,7 @@
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
                             <a href="#">
-                                <p class="text-center" id="username">{{ isset($user) ? $user->name : Auth::user()->name }}</p>
+                                <p class="text-center" id="username">@yield('name', Auth::user()->name)</p>
                                 <p class="text-center" id="publish-date">@yield('date', '')</p>
                             </a>
                         </div>
@@ -68,7 +68,7 @@
                                 <ul class="nav navbar-nav" id="navbar-text">
                                     <li class="@yield('home',' ')"><a href="{{ route('home') }}">首页</a></li>
                                     <li class="@yield('category',' ')"><a href="{{ route('category', 1) }}">分类</a></li>
-                                    <li class="@yield('search',' ')"><a href="#">搜索</a></li>
+                                    {{--<li class="@yield('search',' ')"><a href="#">搜索</a></li>--}}
                                 </ul>
 
                                 <ul class="nav navbar-nav navbar-right">

@@ -99,4 +99,18 @@ class UsersController extends Controller
            'firewood' => $user->firewood_count
         ]);
     }
+
+    public function show_followings($id){
+        $user = User::find($id);
+        $users = $user->followings()->paginate(30);
+        $title = "关注的人";
+        return view('users.show_follow', compact('title', 'users', 'user'));
+    }
+
+    public function show_followers($id){
+        $user = User::find($id);
+        $users = $user->followers()->paginate(30);
+        $title = "我的粉丝";
+        return view('users.show_follow', compact('title', 'users', 'user'));
+    }
 }
