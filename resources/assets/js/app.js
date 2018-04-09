@@ -296,9 +296,17 @@ $(function(){
 
     $('.follow').click(function(){
         $('.follow-form').submit();
-    })
+    });
 
     $('.unfollow').click(function(){
         $('.unfollow-form').submit();
-    })
+    });
+
+    $('.collect').click(function(){
+        $('.collect-form').submit();
+    });
+
+    $('.uncollect').click(function(){
+        $('.uncollect-form').submit();
+    });
 });

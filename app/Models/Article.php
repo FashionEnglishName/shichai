@@ -36,4 +36,9 @@ class Article extends Model
     public function scopeRecentReplied($query){
         return $query->orderBy('updated_at', 'desc');
     }
+
+    //  收藏
+    public function collectors(){
+        return $this->belongsToMany(User::class, 'collections', 'article_id', 'user_id');
+    }
 }

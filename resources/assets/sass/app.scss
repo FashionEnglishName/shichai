@@ -30,6 +30,15 @@ a {
   margin-top: 40px;
 }
 
+.avatar {
+  width: 48px;
+  height: 48px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  border: 1px solid #ffffff;
+}
+
 #username {
   margin-top: 12px;
   text-decoration: none;
@@ -94,6 +103,16 @@ a {
   border-radius: 3px;
   opacity: 1;
   background-color: #1E1E1E;
+}
+
+.badge-fade {
+  background-color: #ffffff;
+  color: #2c2c2c;
+}
+
+.badge-hint {
+  background-color: #d15b47 !important;
+  opacity: 1 !important;
 }
 
 /*            导航条               */

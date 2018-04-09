@@ -60,7 +60,7 @@
                                             <div class="center-block">
                                                 <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
                                                 <div class="icon-text-list">
-                                                    <p>关　　注</p>
+                                                    <p>关注作者</p>
                                                 </div>
                                                 <form action="{{ route('followers.store', $article->user->id) }}" method="post" class="follow-form">
                                                     {{ csrf_field() }}
@@ -71,16 +71,39 @@
                                 @endif
 
                             @endcannot
-                            <div class="row icon-row">
-                                <div class="col-xs-10 col-xs-offset-1 background-block">
-                                    <div class="center-block">
-                                        <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                                        <div class="icon-text-list">
-                                            <p>收　　藏</p>
+
+                            @cannot('update', $article->user)
+                                @if(Auth::user()->isCollecting($article->id)    )
+                                    <div class="row icon-row">
+                                        <div class="col-xs-10 col-xs-offset-1 background-block uncollect">
+                                            <div class="center-block">
+                                                <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
+                                                <div class="icon-text-list">
+                                                    <p>取消收藏</p>
+                                                </div>
+                                                <form action="{{ route('collections.destroy', $article) }}" method="post" class="uncollect-form">
+                                                    {{ method_field('DELETE') }}
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                @else
+                                    <div class="row icon-row">
+                                        <div class="col-xs-10 col-xs-offset-1 background-block collect">
+                                            <div class="center-block">
+                                                <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
+                                                <div class="icon-text-list">
+                                                    <p>收　　藏</p>
+                                                </div>
+                                                <form action="{{ route('collections.store', $article) }}" method="post" class="collect-form">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endcannot
                             <div class="row icon-row">
                                 <div class="col-xs-10 col-xs-offset-1 background-block">
                                     <div class="center-block">

@@ -36,10 +36,17 @@ Route::get("articles/{id}", "ArticlesController@show")->name('articles.show');
 Route::delete("articles/{id}", "ArticlesController@destroy")->name('articles.destroy');
 Route::post("upload_image", "ArticlesController@uploadImage")->name('articles.upload_image');
 
+Route::post('articles/{id}/collect', "CollectionsController@store")->name('collections.store');
+Route::delete('articles{id}/collect', 'CollectionsController@destroy')->name('collections.destroy');
+Route::get('articles/collect/index', "DefaultController@my_collect")->name('collect');
+
 Route::get("/users/{id}/followings", "UsersController@show_followings")->name('users.show_followings');
 Route::get("/users/{id}/followers", "UsersController@show_followers")->name('users.show_followers');
 
 Route::post('/users/follow/{id}', "FollowersController@store")->name('followers.store');
 Route::delete('/users/follow/{id}', "FollowersController@destroy")->name('followers.destroy');
 
-Route::get('follow/{id}', "DefaultController@my_follow")->name('follow');
+Route::get('follow', "DefaultController@my_follow")->name('follow');
+
+Route::get('notifications', 'NotificationsController@index')->name('notifications.index');
+Route::delete('notifications/clear', 'NotificationsController@clear')->name('notifications.clear');

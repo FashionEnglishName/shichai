@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Article;
@@ -28,8 +29,8 @@ class DefaultController extends Controller
         return view('main-pages.category', compact('articles', 'categories', 'id'));
     }
 
-    public function my_follow($id){
-        $user = User::find($id);
+    public function my_follow(){
+        $user = Auth::user();
         $user_ids = $user->followings->pluck('id')->toArray();
 
         $articles = Article::whereIn('user_id', $user_ids)
@@ -38,5 +39,17 @@ class DefaultController extends Controller
                                     ->paginate(20);
 
         return view('main-pages.my_follow', compact('articles'));
+    }
+
+    public function my_collect(){
+        $user = Auth::user();
+        $article_ids = $user->collected_articles->pluck('id')->toArray();
+
+        $articles = Article::whereIn('id', $article_ids)
+                                    ->with('user')
+                                    ->orderBy('created_at', 'desc')
+                                    ->paginate(20);
+
+        return view('main-pages.my_collect', compact('articles'));
     }
 }

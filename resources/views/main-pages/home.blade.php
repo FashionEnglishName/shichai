@@ -10,7 +10,7 @@
                     @if(Auth::check())
                         <!--            功能列表            -->
                         <div class="row icon-row" style="padding-top:50px">
-                            <a href="{{ route('follow', Auth::user()->id) }}">
+                            <a href="{{ route('follow') }}">
                                 <div class="col-xs-10 col-xs-offset-1 background-block">
                                     <div class="center-block">
                                         <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
@@ -23,12 +23,14 @@
                         </div>
                         <div class="row icon-row">
                             <div class="col-xs-10 col-xs-offset-1 background-block">
-                                <div class="center-block">
-                                    <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                                    <div class="icon-text-list">
-                                        <p>我的收藏</p>
+                                <a href="{{ route('collect') }}">
+                                    <div class="center-block">
+                                        <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
+                                        <div class="icon-text-list">
+                                            <p>我的收藏</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div class="row icon-row">
@@ -42,14 +44,18 @@
                             </div>
                         </div>
                         <div class="row icon-row">
-                            <div class="col-xs-10 col-xs-offset-1 background-block">
-                                <div class="center-block">
-                                    <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
-                                    <div class="icon-text-list ">
-                                        <p>消息通知</p>
+                            <a href="{{ route('notifications.index') }}">
+                                <div class="col-xs-10 col-xs-offset-1 background-block">
+                                    <div class="center-block">
+                                        <span class="icon-list center-block badge badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'fade' }}" title="消息" style="margin-top: 4px">
+                                            {{ Auth::user()->notification_count }}
+                                        </span>
+                                        <div class="icon-text-list ">
+                                            <p>消息通知</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @else
                         <!--            功能列表            -->
