@@ -22,26 +22,40 @@
                             </a>
                         </div>
                         <div class="row icon-row">
-                            <div class="col-xs-10 col-xs-offset-1 background-block">
-                                <a href="{{ route('collect') }}">
+                            <a href="{{ route('collect') }}">
+                                <div class="col-xs-10 col-xs-offset-1 background-block">
                                     <div class="center-block">
                                         <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
                                         <div class="icon-text-list">
                                             <p>我的收藏</p>
                                         </div>
                                     </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
                         <div class="row icon-row">
-                            <div class="col-xs-10 col-xs-offset-1 background-block">
-                                <div class="center-block">
-                                    <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
-                                    <div class="icon-text-list">
-                                        <p>已购项目</p>
+                            <a href="{{ route('my_purchased') }}">
+                                <div class="col-xs-10 col-xs-offset-1 background-block">
+                                    <div class="center-block">
+                                        <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
+                                        <div class="icon-text-list">
+                                            <p>已购项目</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+                        </div>
+                        <div class="row icon-row">
+                            <a href="{{ route('tutorials.index') }}">
+                                <div class="col-xs-10 col-xs-offset-1 background-block">
+                                    <div class="center-block">
+                                        <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
+                                        <div class="icon-text-list">
+                                            <p>创作教程</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <div class="row icon-row">
                             <a href="{{ route('notifications.index') }}">

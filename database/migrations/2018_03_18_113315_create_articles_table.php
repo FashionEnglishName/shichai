@@ -29,7 +29,6 @@ class CreateArticlesTable extends Migration
             $table->integer('firewood_count')->unsigned()->default(0);
             $table->integer('collection_count')->unsigned()->default(0);
             $table->boolean('work_or_tutorial')->default(false);
-            $table->boolean('has_tutorial')->default(false);
             $table->boolean('is_assigned')->default(false);
         });
     }

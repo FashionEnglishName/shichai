@@ -18,6 +18,7 @@ class ArticlesTableSeeder extends Seeder
 
         $user_id = User::all()->pluck('id')->toArray();
 
+
         $category_id = Category::all()->pluck('id')->toArray();
 
         $articles = factory(Article::class)
@@ -27,8 +28,12 @@ class ArticlesTableSeeder extends Seeder
                         use ($faker, $user_id, $category_id)
                     {
                         $article->user_id = $faker->randomElement($user_id);
+                        $user = User::find($article->user_id);
+                        $user->work_count ++;
+                        $user->save();
                         $article->category_id = $faker->randomElement($category_id);
                         $article->excerpt = make_excerpt($article->title);
+
                     });
 
         Article::insert($articles->toArray());

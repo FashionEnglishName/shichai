@@ -31,7 +31,8 @@ class ArticleRequest extends FormRequest
             return [
                 'title' => 'required|max:50',
                 'content' => 'required',
-                'category_id' => 'required|numeric'
+                'category_id' => 'required|numeric',
+                'cover' => 'required'
             ];
         }
             case 'GET':
@@ -47,7 +48,8 @@ class ArticleRequest extends FormRequest
         return [
             'title.required' => '未填写标题！',
             'title.max' => '标题最多50个字符！',
-            'content.required' => '未填写内容'
+            'content.required' => '未填写内容',
+            'cover.required' => '请选择封面'
         ];
     }
 }

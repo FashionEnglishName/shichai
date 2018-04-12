@@ -1061,6 +1061,14 @@ $(function () {
     $('.uncollect').click(function () {
         $('.uncollect-form').submit();
     });
+
+    $('.purchase').click(function () {
+        $('.purchase-form').submit();
+    });
+
+    $('.ignite').click(function () {
+        $('.ignite-form').submit();
+    });
 });
 
 /***/ }),

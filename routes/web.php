@@ -40,6 +40,18 @@ Route::post('articles/{id}/collect', "CollectionsController@store")->name('colle
 Route::delete('articles{id}/collect', 'CollectionsController@destroy')->name('collections.destroy');
 Route::get('articles/collect/index', "DefaultController@my_collect")->name('collect');
 
+Route::post('articles/{id}/purchase', 'PurchasesController@store')->name('purchases.store');
+Route::post('articles/{id}/ignite', 'PurchasesController@ignite')->name('purchases.ignite');
+Route::get('purchased', 'DefaultController@my_purchased')->name('my_purchased');
+
+
+Route::get('tutorials/index', 'TutorialsController@index')->name('tutorials.index');
+Route::get('tutorials/{work_id}/create', 'TutorialsController@create')->name('tutorials.create');
+Route::post('tutorials/{work_id}/store', 'TutorialsController@store')->name('tutorials.store');
+Route::get('tutorials/{tutorial_id}/edit', 'TutorialsController@edit')->name('tutorials.edit');
+Route::patch('tutorials/{tutorial_id}/update', 'TutorialsController@update')->name('tutorials.update');
+
+
 Route::get("/users/{id}/followings", "UsersController@show_followings")->name('users.show_followings');
 Route::get("/users/{id}/followers", "UsersController@show_followers")->name('users.show_followers');
 

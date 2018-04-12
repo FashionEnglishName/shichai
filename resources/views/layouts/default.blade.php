@@ -11,7 +11,7 @@
     <script language="JavaScript" src="/js/toastr.js"></script>
     <script>
         toastr.options.positionClass = "toast-top-center";
-        toastr.options.timeOut = 5000;
+        toastr.options.timeOut = 3000;
         toastr.options.closeButton = true;
     </script>
     @yield('script')

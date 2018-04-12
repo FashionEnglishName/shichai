@@ -104,8 +104,8 @@
                                 <div class="row">
                                     <div class="col-xs-3 stat"><p class="text-center">{{ $user->following_count }}</p></div>
                                     <div class="col-xs-3 stat"><p class="text-center">{{ $user->follower_count }}</p></div>
-                                    <div class="col-xs-3 stat"><p class="text-center">444</p></div>
-                                    <div class="col-xs-3 stat"><p class="text-center">555</p></div>
+                                    <div class="col-xs-3 stat"><p class="text-center">{{ $user->work_count }}</p></div>
+                                    <div class="col-xs-3 stat"><p class="text-center">{{ $user->tutorial_count }}</p></div>
                                 </div>
                             </div>
                         </div>

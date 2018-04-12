@@ -144,4 +144,66 @@ class User extends Authenticatable
     public function isCollecting($article_id){
         return $this->collected_articles->contains($article_id);
     }
+
+    //  添柴
+    public function purchased_articles(){
+        return $this->belongsToMany(Article::class, "purchases", "user_id", "article_id");
+    }
+
+    public function purchase($article_id){
+        if(!is_array($article_id)){
+            $article_ids = compact('article_ids');
+        }
+
+        $article = Article::find($article_id);
+        //  判断user的余额是否足够
+        if ($this->firewood_count - 3 >= 0){
+            $article->firewood_count += 3;
+            $this->firewood_count -= 3;
+            if($article->work_or_tutorial){
+                $work = Article::find($article->work_id); //是教程就增加对应作品的firewood
+                $work->firewood_count += 3;
+                $work->save();
+                $returnArray = [
+                    'status' => 5,  //请查看教程
+                    'msg' => ''
+                ];
+            } else {
+                if ($article->tutorial_id) {
+                    $tutorial = Article::find($article->tutorial_id); //是作品，且有教程，就增加对应教程的firewood
+                    $tutorial->firewood_count += 3;
+                    $tutorial->save();
+                    $returnArray =  [
+                        'status' => 1,//该文章已有教程，即将跳转
+                        'msg' => $article->tutorial_id
+                    ];
+                } else {
+                    if ($article->is_assigned){ // 判断article的tutorial是否正在创作
+                        $returnArray = [
+                            'status' => 2,//该文章的教程正在创作，请耐心等待
+                            'msg' => ''//$article->assigned_at->diffForHuman()
+                        ];
+                    } else {
+                        //不是教程，也没有在创作
+                        $returnArray = [
+                            'status' => 3,//您的柴火已添加到柴堆，作者会尽赶来
+                            'msg' => ''//route()->back()
+                        ];
+                    }
+                }
+            }
+
+            $article->save();
+            $this->save();
+            $this->purchased_articles()->sync($article_id, false);
+
+        }else{
+            $returnArray = [
+                'status' => 4,//余额不足
+                'msg' => ''//route()->back()
+            ];
+        }
+
+        return $returnArray;
+    }
 }

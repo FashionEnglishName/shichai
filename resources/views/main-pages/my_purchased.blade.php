@@ -69,41 +69,26 @@
 
 @section('contents')
 
-    <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
 
-            <div class="panel-body">
-
-                <h3 class="text-center">
-                    <span class="glyphicon glyphicon-bell" aria-hidden="true"></span> 我的消息
-                </h3>
-                <hr>
-
-                @if ($notifications->count())
-
-                    <div class="notification-list">
-                        @foreach ($notifications as $notification)
-                            @include('notifications._' . snake_case(class_basename($notification->type)))
-                        @endforeach
-
-                        {!! $notifications->render() !!}
-                    </div>
-                    <div class="well well-sm">
-                        <form action="{{ route('notifications.clear') }}" method="post">
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-primary">清空消息记录</button>
-                        </form>
-                    </div>
-
-                @else
-                    <div class="empty-block">没有消息通知！</div>
-                @endif
-
+    <!--            二级导航栏            -->
+    <div class="row">
+        <div class="col-xs-12" id="second-navbar-row">
+            <div class="navbar navbar-default" id="second-navbar" role="navigation">
+                <div class="container">
+                    <ul class="nav navbar-nav" id="second-navbar-text">
+                        <li class="li-active"><a href="#">已出</a></li>
+                        <li><a href="#">未出</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
+    @if($articles->count())
+        @include('layouts._articles-panel', ['articles' => $articles])
+    @else
+        您还没有点燃柴火堆
+    @endif
 
 @stop
 

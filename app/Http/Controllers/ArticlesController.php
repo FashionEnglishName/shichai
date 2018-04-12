@@ -46,9 +46,18 @@ class ArticlesController extends Controller
         return redirect()->route('home')->with('success', '删除成功！');
     }
 
-    public function store(ArticleRequest $request, Article $article){
-        $article->fill($request->all());
-        $article->user_id = Auth::id();
+    public function store(ArticleRequest $request, Article $article, ImageUploadHandler $uploader){
+        $data = $request->all();
+        $id = Auth::id();
+        $data['user_id'] = $id;
+
+
+        $result = $uploader->save($request->cover, 'cover', $id, 1024);
+        if($result){
+            $data['cover'] = $result['path'];
+        }
+        $article->fill($data);
+        $article->user_id = $data['user_id'];
         $article->save();
 
         return redirect()->route('articles.show', compact('article'))->with('success', '发布成功！');
@@ -60,6 +69,7 @@ class ArticlesController extends Controller
             'msg' => '上传失败！',
             'file_path' => ''
         ];
+        $result = [];
 
         if($file = $request->upload_file) {
             $result = $uploader->save($request->upload_file, 'articles', \Auth::id(), 1024);

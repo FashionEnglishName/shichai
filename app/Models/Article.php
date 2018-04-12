@@ -41,4 +41,18 @@ class Article extends Model
     public function collectors(){
         return $this->belongsToMany(User::class, 'collections', 'article_id', 'user_id');
     }
+
+    //  添柴
+    public function purchaser(){
+        return $this->belongsToMany(User::class, "purchases", "article_id", "user_id");
+    }
+
+    //  教程
+    public function work(){
+        return $this->hasOne(Article::class, "id", "work_id");
+    }
+
+    public function tutorial(){
+        return $this->hasOne(Article::class, "id", "tutorial_id");
+    }
 }

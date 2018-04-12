@@ -11,7 +11,7 @@
                 @if(Auth::check())
                     @if ($article->user->id == Auth::user()->id)
                         <div class="row icon-row" style="margin-top: 50px;">
-                            <a href="{{ route('articles.edit', $article) }}">
+                            <a href="{{ $article->work_or_tutorial ? route('tutorials.edit', $article->id) : route('articles.edit', $article) }}">
                                 <div class="col-xs-10 col-xs-offset-1 background-block">
                                     <div class="center-block">
                                         <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
@@ -36,6 +36,35 @@
                                         </div>
                                     </div>
                         </div>
+                        @if($article->is_assigned)
+                            <div class="row icon-row">
+                                <div class="col-xs-10 col-xs-offset-1 background-block ">
+                                    <div class="center-block">
+                                        <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
+                                        <div class="icon-text-list">
+                                            <p>已经点燃</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            @if(!$article->work_or_tutorial)
+                                <div class="row icon-row">
+                                    <form action="{{ route('purchases.ignite', $article->id) }}" method="post" class="ignite-form">
+                                        {{ csrf_field() }}
+                                    </form>
+                                    <div class="col-xs-10 col-xs-offset-1 background-block ignite">
+                                        <div class="center-block">
+                                            <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
+                                            <div class="icon-text-list">
+                                                <p>点燃柴堆</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endif
+
                     @else
                             <!--            功能列表            -->
                             @cannot('update', $article->user)
@@ -105,22 +134,15 @@
                                 @endif
                             @endcannot
                             <div class="row icon-row">
-                                <div class="col-xs-10 col-xs-offset-1 background-block">
+                                <div class="col-xs-10 col-xs-offset-1 background-block purchase">
                                     <div class="center-block">
                                         <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
                                         <div class="icon-text-list">
-                                            <p>添　　柴</p>
+                                            <p>添三根柴</p>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row icon-row">
-                                <div class="col-xs-10 col-xs-offset-1 background-block">
-                                    <div class="center-block">
-                                        <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
-                                        <div class="icon-text-list">
-                                            <p>喜　　爱</p>
-                                        </div>
+                                        <form action="{{ route('purchases.store', $article->id) }}" method="post" class="purchase-form">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </div>
                                 </div>
                             </div>

@@ -52,4 +52,11 @@ class DefaultController extends Controller
 
         return view('main-pages.my_collect', compact('articles'));
     }
+
+    public function my_purchased(){
+        $user = Auth::user();
+        $articles = $user->purchased_articles()->with('user')->paginate(20);
+
+        return view('main-pages.my_purchased', compact('articles'));
+    }
 }

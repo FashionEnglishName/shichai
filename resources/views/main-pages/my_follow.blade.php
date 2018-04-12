@@ -4,10 +4,9 @@
 
 @section("functions")
 
-    @if(Auth::check())
-        <!--            功能列表            -->
-        <div class="row icon-row" style="padding-top:50px">
-            <div class="col-xs-10 col-xs-offset-1 background-block black-background-selected">
+    <div class="row icon-row" style="padding-top:50px">
+        <a href="{{ route('follow') }}">
+            <div class="col-xs-10 col-xs-offset-1 background-block">
                 <div class="center-block">
                     <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
                     <div class="icon-text-list">
@@ -15,8 +14,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row icon-row">
+        </a>
+    </div>
+    <div class="row icon-row">
+        <a href="{{ route('collect') }}">
             <div class="col-xs-10 col-xs-offset-1 background-block">
                 <div class="center-block">
                     <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
@@ -25,8 +26,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row icon-row">
+        </a>
+    </div>
+    <div class="row icon-row">
+        <a href="{{ route('my_purchased') }}">
             <div class="col-xs-10 col-xs-offset-1 background-block">
                 <div class="center-block">
                     <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
@@ -35,40 +38,34 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row icon-row">
+        </a>
+    </div>
+    <div class="row icon-row">
+        <a href="{{ route('tutorials.index') }}">
             <div class="col-xs-10 col-xs-offset-1 background-block">
                 <div class="center-block">
-                    <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
+                    <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
+                    <div class="icon-text-list">
+                        <p>创作教程</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="row icon-row">
+        <a href="{{ route('notifications.index') }}">
+            <div class="col-xs-10 col-xs-offset-1 background-block">
+                <div class="center-block">
+                                        <span class="icon-list center-block badge badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'fade' }}" title="消息" style="margin-top: 4px">
+                                            {{ Auth::user()->notification_count }}
+                                        </span>
                     <div class="icon-text-list ">
                         <p>消息通知</p>
                     </div>
                 </div>
             </div>
-        </div>
-    @else
-        <!--            功能列表            -->
-        <div class="row icon-row" style="padding-top:50px">
-            <div class="col-xs-10 col-xs-offset-1 background-block" id="login">
-                <div class="center-block">
-                    <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;陆</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row icon-row">
-            <div class="col-xs-10 col-xs-offset-1 background-block" id="signUp">
-                <div class="center-block">
-                    <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
+        </a>
+    </div>
 @stop
 
 @section('contents')
@@ -88,8 +85,11 @@
         </div>
     </div>
 
-    @include('layouts._articles-panel', ['articles' => $articles])
-
+    @if($articles->count())
+        @include('layouts._articles-panel', ['articles' => $articles])
+    @else
+        请先关注用户
+    @endif
 @stop
 
 

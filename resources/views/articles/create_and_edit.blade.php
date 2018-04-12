@@ -90,10 +90,10 @@
                 @include('shared._errors')
 
                 @if($article->id)
-                    <form action="{{ route('articles.update', $article->id) }}" method="post">
+                    <form action="{{ route('articles.update', $article->id) }}" method="post" enctype="multipart/form-data">
                         {{ method_field('PATCH') }}
                         @else
-                            <form action="{{ route('articles.store') }}" method="post">
+                            <form action="{{ route('articles.store') }}" method="post"  enctype="multipart/form-data">
                                 @endif
                                 {{csrf_field()}}
                                 <div class="form-group">
@@ -103,7 +103,6 @@
                                 <div class="form-group">
                                     <select name="category_id" required class="form-control" autocomplete="off">
                                         <option value="" hidden disabled>请选择分类</option>
-                                        <script>console.log({{ $article->category->id }})</script>
                                         @foreach($categories as $category)
                                             <script>console.log({{ $category->id }})</script>
                                             <option value="{{ $category->id }}" {{ isset($article->id) && $article->category->id == $category->id ? 'selected' : '' }}>{{ str_replace_array('　', ['', ''], $category->name) }}</option>
@@ -113,6 +112,16 @@
 
                                 <div class="form-group">
                                     <textarea name="content" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" class="form-control" required>{{ old('content', $article->content) }}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">上传封面</label>
+                                    <input type="file" name="cover">
+
+                                    @if ($article->cover)
+                                        <br>
+                                        <img src="{{ $article->cover }}" width="200" class="thumbnail">
+                                    @endif
                                 </div>
 
                                 <div class="well well-sm">
