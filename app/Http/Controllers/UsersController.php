@@ -42,7 +42,8 @@ class UsersController extends Controller
     public function show($id){
 
         $user = User::find($id);
-        return view("users.show", compact('user'));
+        $articles = $user->articles()->with('category')->recent()->paginate(20);
+        return view("users.show", compact('user', 'articles'));
     }
 
     public function update_info(UserRequest $request, ImageUploadHandler $uploader){

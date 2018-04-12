@@ -124,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-                @include('layouts._articles-panel', ['articles' => $user->articles()->recent()->paginate(20)])
+                @include('layouts._articles-panel')
                 @include('shared._errors')
                 @include('shared._message')
 @endsection
@@ -132,12 +132,4 @@
 @include('modals.edit-password')
 
 
-@section("style")
-    <style>
-        .navbar {
-            background-color: #FAFBFC;
-        }
-
-    </style>
-@stop
 

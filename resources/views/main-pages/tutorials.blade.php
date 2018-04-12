@@ -88,12 +88,3 @@
 
 
 @stop
-
-
-@section("style")
-    <style>
-        .navbar {
-            background-color: #FAFBFC;
-        }
-    </style>
-@stop
