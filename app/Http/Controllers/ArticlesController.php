@@ -29,6 +29,7 @@ class ArticlesController extends Controller
 
     public function show($id){
         $article = Article::find($id);
+        $this->authorize('canRead', $article);
         return view('articles.show',compact('article'));
     }
 

@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Article;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ArticlePolicy
@@ -18,5 +19,11 @@ class ArticlePolicy
     {
         //
     }
-
+    public function canRead(User $currentUser, Article $article){
+        if($article->work_or_tutorial){
+            return $currentUser->purchased_articles->pluck('id')->contains($article->id);
+        } else {
+            return true;
+        }
+    }
 }

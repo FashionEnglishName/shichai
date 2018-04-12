@@ -2,6 +2,9 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// 编辑器美化
+@import "_article_body.scss";
+
 a {
   text-decoration: none;
 }
@@ -272,15 +275,25 @@ h5 small {
 /*            内容页面             */
 .content-col{
   .content{
-    width: 1000px;
+    min-width: 1000px;
+    width: 80%;
     img{
       max-width: 100%;
     }
     small{
       font-size: 14px;
     }
+    .content-info {
+      a {
+        color: inherit;
+      }
+    }
+    .content-main {
+      width: 90%;
+    }
   }
 }
+
 
 #publish-date{
   text-decoration: none;

@@ -1,7 +1,9 @@
 @extends("layouts.default")
 @section("title","home")
 
-@section('date', $article->created_at->diffForHumans())
+@section('date')
+    <span class="glyphicon glyphicon-time"></span> &nbsp;{{ $article->created_at->diffForHumans() }}
+@stop
 @section('avatar', $article->user->avatar)
 @section('name', $article->user->name)
 @section('user_link', route('users.show', $article->user))
@@ -182,11 +184,18 @@
                         <div class="center-block content">
                             <div class="content-info">
                                 <h2>
-                                    {{ $article->title }}<br/>
-                                    <small>{{ $article->category->name }}</small>
+                                    {{ $article->title }}
+                                    <small><a href="{{ route('category', $article->category->id) }}">{{ $article->category->name }}</a></small>
+                                    <br/>
+                                    <small>
+                                        <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>&nbsp;{{ $article->firewood_count }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;{{ $article->collection_count }}
+                                    </small>
+                                    <br>
+                                    <small>{{ $article->created_at !== $article->updated_at ? "作者于 " . $article->updated_at->diffForHumans() . " 更新" : '' }}</small>
                                 </h2>
                             </div>
-                            <div class="content-main">
+                            <hr>
+                            <div class="content-main center-block">
                                 {!! $article->content  !!}
                             </div>
                         </div>
