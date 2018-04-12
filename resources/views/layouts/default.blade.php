@@ -74,6 +74,13 @@
                                 <ul class="nav navbar-nav navbar-right">
                                     @if(Auth::check())
                                         <li>
+                                            <a href="{{ route('notifications.index') }}">
+                                                <span class="icon-list center-block badge badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'fade' }}" title="消息" style="margin-top: 6px">
+                                                    {{ Auth::user()->notification_count }}
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="{{ route('articles.create') }}">
                                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                             </a>
@@ -84,24 +91,24 @@
                                             <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li>
-                                                <form action="{{ route('users.add_firewood', Auth::user()) }}" method="post" id="add-firewood-form">
-                                                    {{ csrf_field() }}
-                                                    <button type="submit" class="btn btn-info btn-block" id="btn-add-firewood">购买柴火</button>
-                                                </form>
-                                            </li>
                                             @if(Auth::check())
+                                                <li>
+                                                    <form action="{{ route('users.add_firewood', Auth::user()) }}" method="post" id="add-firewood-form">
+                                                        {{ csrf_field() }}
+                                                        <button type="submit" class="btn btn-info btn-block" id="btn-add-firewood">购买柴火</button>
+                                                    </form>
+                                                </li>
                                                 <input type="text" hidden value="{{ Auth::user()->id }}" id="user-id-for-firewood">
 
                                                 <li role="separator" class="divider"></li>
-                                            <li>
-                                                <form method="post" action="{{ route('logout') }}">
-                                                    {{csrf_field()}}
-                                                    {{method_field('DELETE')}}
+                                                <li>
+                                                    <form method="post" action="{{ route('logout') }}">
+                                                        {{csrf_field()}}
+                                                        {{method_field('DELETE')}}
 
-                                                    <button type="submit" class="btn btn-danger btn-block" id="btn-logout">退出</button>
-                                                </form>
-                                            </li>
+                                                        <button type="submit" class="btn btn-danger btn-block" id="btn-logout">退出</button>
+                                                    </form>
+                                                </li>
                                             @else
                                             @endif
                                         </ul>

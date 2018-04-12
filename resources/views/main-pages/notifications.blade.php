@@ -51,20 +51,7 @@
             </div>
         </a>
     </div>
-    <div class="row icon-row">
-        <a href="{{ route('notifications.index') }}">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
-                <div class="center-block">
-                                        <span class="icon-list center-block badge badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'fade' }}" title="消息" style="margin-top: 4px">
-                                            {{ Auth::user()->notification_count }}
-                                        </span>
-                    <div class="icon-text-list ">
-                        <p>消息通知</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
+
 @stop
 
 @section('contents')
