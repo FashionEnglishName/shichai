@@ -26,7 +26,6 @@ class TutorialsController extends Controller
         $tutorial = new Article();
         $tutorial->fill($request->all());
         $tutorial->firewood_count = $work->firewood_count;
-        $tutorial->purchaser = $work->purchaser;
         $tutorial->work_or_tutorial = 1;
         $tutorial->work_id = $work->id;
         $tutorial->user_id = $work->user_id;
@@ -34,6 +33,7 @@ class TutorialsController extends Controller
         $tutorial->save();
         $work->tutorial_id = $tutorial->id;
         $work->save();
+        $tutorial->hasSamePurchaser($work);
         $author = $work->user;
         $users = $work->purchaser;
         foreach($users as $user){

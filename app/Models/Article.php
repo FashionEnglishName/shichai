@@ -55,4 +55,9 @@ class Article extends Model
     public function tutorial(){
         return $this->hasOne(Article::class, "id", "tutorial_id");
     }
+
+    public function hasSamePurchaser(Article $work){
+        $user_ids = $this->purchaser->pluck('id')->toArray();
+        $work->purchaser()->sync($user_ids, false);
+    }
 }

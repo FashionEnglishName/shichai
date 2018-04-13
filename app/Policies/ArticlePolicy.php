@@ -20,10 +20,14 @@ class ArticlePolicy
         //
     }
     public function canRead(User $currentUser, Article $article){
-        if($article->work_or_tutorial){
-            return $currentUser->purchased_articles->pluck('id')->contains($article->id);
-        } else {
+        if($currentUser == $article->user){
             return true;
+        } else {
+            if($article->work_or_tutorial){
+                return $currentUser->purchased_articles->pluck('id')->contains($article->id);
+            } else {
+                return true;
+            }
         }
     }
 }
