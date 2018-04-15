@@ -43,7 +43,7 @@
         </div>
         <div class="row icon-row">
             <a href="{{ route('tutorials.index') }}">
-                <div class="col-xs-10 col-xs-offset-1 background-block">
+                <div class="col-xs-10 col-xs-offset-1 background-block black-background-selected">
                     <div class="center-block">
                         <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
                         <div class="icon-text-list">
@@ -57,7 +57,7 @@
 @stop
 
 @section('contents')
-
+<div class="row">
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
 
@@ -85,6 +85,5 @@
             </div>
         </div>
     </div>
-
-
+</div>
 @stop

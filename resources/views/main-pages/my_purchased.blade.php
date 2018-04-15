@@ -29,7 +29,7 @@
     </div>
     <div class="row icon-row">
         <a href="{{ route('my_purchased') }}">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
+            <div class="col-xs-10 col-xs-offset-1 background-block black-background-selected">
                 <div class="center-block">
                     <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
                     <div class="icon-text-list">
@@ -62,8 +62,8 @@
             <div class="navbar navbar-default" id="second-navbar" role="navigation">
                 <div class="container">
                     <ul class="nav navbar-nav" id="second-navbar-text">
-                        <li class="li-active"><a href="#">已出</a></li>
-                        <li><a href="#">未出</a></li>
+                        <li class="li-active"><a href="#">作品</a></li>
+                        <li><a href="#">教程</a></li>
                     </ul>
                 </div>
             </div>
@@ -73,7 +73,11 @@
     @if($articles->count())
         @include('layouts._articles-panel', ['articles' => $articles])
     @else
-        您还没有点燃柴火堆
+        <div class="row page-background">
+            <div class="col-xs-8 col-xs-offset-2">
+                <p class="text-center">您还没有点燃柴火堆</p>
+            </div>
+        </div>
     @endif
 
 @stop

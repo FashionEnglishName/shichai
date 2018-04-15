@@ -30,8 +30,9 @@ class ArticlesController extends Controller
     public function show($id){
         $article = Article::find($id);
         $user = Auth::user();
-        if(!$user->purchased_articles->pluck('id')->contains($id) && $user->id !== $article->user->id ){
-            return redirect()->back()->with('error', '请先购买教程！');
+        if(!$user->purchased_articles->pluck('id')->contains($id) && $user->id !== $article->user->id && $article->work_or_tutorial){
+            $work = $article->work;
+            return redirect()->route('articles.show', compact('work'))->with('error', '请先为作品添柴！');
         }
 //        $this->authorize('canRead', $article);
         return view('articles.show',compact('article'));

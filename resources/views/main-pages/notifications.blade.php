@@ -55,7 +55,7 @@
 @stop
 
 @section('contents')
-
+<div class="row page-background">
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
 
@@ -90,6 +90,5 @@
             </div>
         </div>
     </div>
-
-
+</div>
 @stop

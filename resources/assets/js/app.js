@@ -317,4 +317,11 @@ $(function(){
     $('.ignite').click(function(){
         $('.ignite-form').submit();
     });
+
+    var h = window.innerHeight - 157;
+    $('.page-background').css("min-height", h);
+    $(window).on("load resize", function(){
+        h = window.innerHeight - 157;
+        $('.page-background').css("min-height", h);
+    });
 });

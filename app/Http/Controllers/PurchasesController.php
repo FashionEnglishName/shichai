@@ -18,6 +18,11 @@ class PurchasesController extends Controller
 
         if ($received_array['status'] != 4){
             $article = Article::find($id);
+            if($article->tutorial_id){
+                $tutorial = $article->tutorial;
+                $tutorial->hasSamePurchaser($article);
+            }
+
             $author = User::find($article->user_id);
 
             $author->notify(new Purchased($article, $user));

@@ -57,7 +57,7 @@ class Article extends Model
     }
 
     public function hasSamePurchaser(Article $work){
-        $user_ids = $this->purchaser->pluck('id')->toArray();
-        $work->purchaser()->sync($user_ids, false);
+        $user_ids = $work->purchaser->pluck('id')->toArray();
+        $this->purchaser()->sync($user_ids, false);
     }
 }

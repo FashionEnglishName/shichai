@@ -13,14 +13,14 @@ use App\Http\Controllers\Controller;
 
 class DefaultController extends Controller
 {
-    public function home(Request $request){
-        if(isset($request->order)){
-
-        } else {
-            $request->order = "default";
-        }
-        $articles = Article::with('user', 'category')->withOrder($request->order)->paginate(20);
+    public function home(){
+        $articles = Article::with('user', 'category')->where('work_or_tutorial', '=', '0')->orderBy('updated_at', 'desc')->paginate(20);
         return view("main-pages.home", compact('articles'));
+    }
+
+    public function home_tutorials(){
+        $articles = Article::with('user', 'category')->where('work_or_tutorial', '=', '1')->orderBy('updated_at', 'desc')->paginate(20);
+        return view("main-pages.home_tutorials", compact('articles'));
     }
 
     public function category($id){

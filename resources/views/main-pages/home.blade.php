@@ -122,8 +122,8 @@
                         <div class="navbar navbar-default" id="second-navbar" role="navigation">
                             <div class="container">
                                 <ul class="nav navbar-nav" id="second-navbar-text">
-                                    <li class="li-active"><a href="#">已出</a></li>
-                                    <li><a href="#">未出</a></li>
+                                    <li class="li-active"><a href="{{ route('home') }}">作品</a></li>
+                                    <li><a href="{{ route('home.tutorials') }}">教程</a></li>
                                 </ul>
                             </div>
                         </div>

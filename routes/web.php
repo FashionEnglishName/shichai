@@ -12,6 +12,7 @@
 */
 
 Route::get("/","DefaultController@home")->name('home');
+Route::get("/home/tutorials", "DefaultController@home_tutorials")->name('home.tutorials');
 
 Route::get("category/{id}","DefaultController@category")->name('category');
 Route::get("content","DefaultController@content");
