@@ -39,11 +39,11 @@ class UsersController extends Controller
 //        return redirect("users/{$user->id}");
     }
 
-    public function show($id){
-
+    public function show($id, Request $request){
+        $order = $request->order;
         $user = User::find($id);
-        $articles = $user->articles()->with('category')->recent()->paginate(20);
-        return view("users.show", compact('user', 'articles'));
+        $articles = $user->articles()->withOrder($order)->where('user_id', '=', $id)->paginate(20);
+        return view("users.show", compact('user', 'articles', 'order'));
     }
 
     public function update_info(UserRequest $request, ImageUploadHandler $uploader){

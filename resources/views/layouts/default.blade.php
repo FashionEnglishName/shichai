@@ -13,8 +13,24 @@
         toastr.options.positionClass = "toast-top-center";
         toastr.options.timeOut = 3000;
         toastr.options.closeButton = true;
+
+        function get_reduce_size(height){
+            height = arguments[0] ? arguments[0] : 137;
+            return height;
+        }
     </script>
     @yield('script')
+    <script>
+        if(rh === undefined){
+            var rh = get_reduce_size();
+        }
+        h = window.innerHeight - rh;
+        $('.page-background').css("min-height", h);
+        $(window).on("load resize", function(){
+            h = window.innerHeight - rh;
+            $('.page-background').css("min-height", h);
+        });
+    </script>
 </head>
 <body>
     <div class="container-fluid">
@@ -87,7 +103,7 @@
                                         </li>
                                     @endif
                                     <li class="dropdown" id="setting-dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0">
                                             <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu">

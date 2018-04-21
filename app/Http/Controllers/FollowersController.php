@@ -15,12 +15,19 @@ class FollowersController extends Controller
         $user = User::find($id);
         $user->notify(new Followed(Auth::user()));
 
-        return redirect()->back();
+        return redirect()->back()->with('success', '您已成功关注此用户');
     }
 
     public function destroy($id){
         Auth::user()->unfollow($id);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', '您已成功取关此用户');
+    }
+
+    public function followings_list(){
+        $user = Auth::user();
+        $followings = $user->followings()->paginate(20);
+
+        return view('follows.list', compact('followings'));
     }
 }

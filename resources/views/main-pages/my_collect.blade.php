@@ -64,8 +64,8 @@
             <div class="navbar navbar-default" id="second-navbar" role="navigation">
                 <div class="container">
                     <ul class="nav navbar-nav" id="second-navbar-text">
-                        <li class="li-active"><a href="#">作品</a></li>
-                        <li><a href="#">教程</a></li>
+                        <li class="li-active"><a href="#">最热</a></li>
+                        <li><a href="#">最新</a></li>
                     </ul>
                 </div>
             </div>
@@ -77,7 +77,7 @@
     @else
         <div class="row page-background">
             <div class="col-xs-8 col-xs-offset-2">
-                <p class="text-center">藏品空空如也</p>
+                <p class="text-center no-articles">藏品空空如也</p>
             </div>
         </div>
     @endif

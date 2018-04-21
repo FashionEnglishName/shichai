@@ -57,7 +57,7 @@
 
 @section('contents')
 
-    <div class="row">
+    <div class="row page-background">
         <div class="panel col-xs-10 col-xs-offset-1 panel-default">
             <div class="panel-heading">
                 <h4>
@@ -139,3 +139,11 @@
 @endsection
 
 @include('modals.edit-password')
+
+@section('style')
+    <style>
+        .navbar {
+            margin-bottom: 0;
+        }
+    </style>
+@stop

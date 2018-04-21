@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable {
         notify as protected beforeNotify;
     }
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -65,7 +67,7 @@ class User extends Authenticatable
             $user->follower_count += 1;
             $user->save();
         }
-        $this->following_count += 1;
+        $this->following_count += count($user_ids);
         $this->save();
         $this->followings()->sync($user_ids, false);
     }

@@ -117,8 +117,8 @@
                         <div class="navbar navbar-default" id="second-navbar" role="navigation">
                             <div class="container">
                                 <ul class="nav navbar-nav" id="second-navbar-text">
-                                    <li class="li-active"><a href="#">作品</a></li>
-                                    <li><a href="#">教程</a></li>
+                                    <li @if($order === 'default' || !isset($order))class="li-active" @endif><a href="{{ Request::url() }}?order=default">最热</a></li>
+                                    <li @if($order === 'recent')class="li-active" @endif><a href="{{ Request::url()  }}?order=recent">最新</a></li>
                                 </ul>
                             </div>
                         </div>

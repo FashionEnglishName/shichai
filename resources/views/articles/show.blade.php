@@ -188,7 +188,7 @@
                                     <small><a href="{{ route('category', $article->category->id) }}">{{ $article->category->name }}</a></small>
                                     <br/>
                                     <small>
-                                        <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>&nbsp;{{ $article->firewood_count }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;{{ $article->collection_count }}
+                                        <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>&nbsp;{{ $article->firewood_count }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;{{ $article->collection_count }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span title="{{ $article->tutorial_id ? "已有教程" : "教程未出" }}"><span class="glyphicon glyphicon-book"></span>&nbsp;@if($article->tutorial_id)<span style="position: relative; bottom: 3px; font-size:11px;">√</span>@else<span style="position: relative; bottom: 1px; font-size:12px;">X</span>@endif</span>
                                     </small>
                                     <br>
                                     <small>{{ $article->created_at !== $article->updated_at ? "作者于 " . $article->updated_at->diffForHumans() . " 更新" : '' }}</small>

@@ -13,15 +13,16 @@ use App\Http\Controllers\Controller;
 
 class DefaultController extends Controller
 {
-    public function home(){
-        $articles = Article::with('user', 'category')->where('work_or_tutorial', '=', '0')->orderBy('updated_at', 'desc')->paginate(20);
-        return view("main-pages.home", compact('articles'));
+    public function home(Request $request){
+        $articles = Article::withOrder($request->order)->paginate(20);
+        $order = $request->order;
+        return view("main-pages.home", compact('articles', 'order'));
     }
 
-    public function home_tutorials(){
-        $articles = Article::with('user', 'category')->where('work_or_tutorial', '=', '1')->orderBy('updated_at', 'desc')->paginate(20);
-        return view("main-pages.home_tutorials", compact('articles'));
-    }
+//    public function home_tutorials(){
+//        $articles = Article::with('user', 'category')->where('work_or_tutorial', '=', '1')->orderBy('updated_at', 'desc')->paginate(20);
+//        return view("main-pages.home_tutorials", compact('articles'));
+//    }
 
     public function category($id){
         $articles = Article::with('user')->where('category_id', '=', $id)->recent()->paginate(20);
@@ -29,16 +30,15 @@ class DefaultController extends Controller
         return view('main-pages.category', compact('articles', 'categories', 'id'));
     }
 
-    public function my_follow(){
+    public function my_follow(Request $request){
         $user = Auth::user();
         $user_ids = $user->followings->pluck('id')->toArray();
 
-        $articles = Article::whereIn('user_id', $user_ids)
-                                    ->with('user')
-                                    ->orderBy('created_at', 'desc')
+        $order  = $request->order;
+        $articles = Article::withOrder($order)->whereIn('user_id', $user_ids)
                                     ->paginate(20);
 
-        return view('main-pages.my_follow', compact('articles'));
+        return view('main-pages.my_follow', compact('articles', 'order'));
     }
 
     public function my_collect(){

@@ -12,7 +12,6 @@
 */
 
 Route::get("/","DefaultController@home")->name('home');
-Route::get("/home/tutorials", "DefaultController@home_tutorials")->name('home.tutorials');
 
 Route::get("category/{id}","DefaultController@category")->name('category');
 Route::get("content","DefaultController@content");
@@ -58,6 +57,7 @@ Route::get("/users/{id}/followers", "UsersController@show_followers")->name('use
 
 Route::post('/users/follow/{id}', "FollowersController@store")->name('followers.store');
 Route::delete('/users/follow/{id}', "FollowersController@destroy")->name('followers.destroy');
+Route::get('follow/list', "FollowersController@followings_list")->name('followings.list');
 
 Route::get('follow', "DefaultController@my_follow")->name('follow');
 

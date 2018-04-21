@@ -8839,6 +8839,12 @@ a {
   border: 1px solid #ffffff;
 }
 
+.avatar-lg {
+  width: 96px;
+  height: 96px;
+  border-radius: 48px;
+}
+
 #username {
   margin-top: 12px;
   text-decoration: none;
@@ -8924,6 +8930,7 @@ a {
   font-family: "Slim-Joe", "Helvetica Neue", "Arial";
   height: 58px;
   background-color: #FAFBFC;
+  margin-bottom: 0;
 }
 
 .navbar .container * {
@@ -8969,7 +8976,7 @@ a {
 }
 
 #setting-dropdown {
-  margin-right: 70px;
+  margin-right: 120px;
 }
 
 #setting-icon {
@@ -9008,13 +9015,18 @@ a {
 .page-background {
   background-color: #f4f4f4;
   padding-top: 20px;
+  min-width: 1052px;
+}
+
+.no-articles {
+  margin-top: 200px;
+  font-size: 50px;
+  letter-spacing: 0.5em;
+  color: #222222;
+  font-weight: lighter;
 }
 
 h5 small {
-  font-size: 12px !important;
-}
-
-.card-info .text-right {
   font-size: 12px !important;
 }
 
@@ -9043,11 +9055,6 @@ h5 small {
   margin-bottom: 30px;
 }
 
-.card img {
-  height: 158px;
-  width: 211px;
-}
-
 .card .card-info {
   height: 115px;
   width: 211px;
@@ -9056,13 +9063,12 @@ h5 small {
   border-top: 1px solid #f4f4f4;
 }
 
-.card .card-info .text-right {
-  margin-top: 20px;
-  font-size: 14px;
+.card .card-info .article-info {
   color: #777777;
+  font-size: 12px;
 }
 
-.card .card-info .text-right .card-info-sales {
+.card .card-info .article-info .card-info-sales {
   margin-right: 5px;
 }
 
@@ -9071,10 +9077,57 @@ h5 small {
   color: inherit !important;
 }
 
+.cover {
+  height: 158px;
+  width: 211px;
+}
+
+.avatar-sm {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 12px;
+  margin-right: 10px;
+}
+
+.card-info-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.card-info-title-small {
+  font-size: 12px;
+  color: #BBBBBB;
+}
+
+.card-avatar-row {
+  margin-top: 10px;
+}
+
 .card-list {
   width: 1052px;
   margin-right: -52px;
   overflow: hidden;
+}
+
+.article-info-row {
+  margin-top: 10px;
+  color: #bbbbbb;
+}
+
+.article-info-row .col-xs-4 {
+  padding: 0;
+}
+
+.article-info-row .col-xs-4:first-child {
+  padding-left: 15px;
+}
+
+.article-info-row .col-xs-5 {
+  padding: 0;
+}
+
+.article-info-row .col-xs-3 {
+  padding-left: 0;
 }
 
 /*            留白             */
@@ -9128,5 +9181,19 @@ h5 small {
 .stat-title p a {
   text-decoration: none;
   color: inherit;
+}
+
+.followings-list-box {
+  background-color: white;
+}
+
+.followings-list {
+  border-bottom: 1px solid #dddddd;
+  width: 100%;
+  padding: 30px;
+}
+
+.followings-list:last-child {
+  border: none;
 }
 

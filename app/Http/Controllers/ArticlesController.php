@@ -38,10 +38,16 @@ class ArticlesController extends Controller
         return view('articles.show',compact('article'));
     }
 
-    public function update($id, Request $request){
+    public function update($id, ArticleRequest $request, ImageUploadHandler $uploader){
         $article = Article::find($id);
-        $article->update($request->all());
+        $data = $request->all();
 
+        $result = $uploader->save($request->cover, 'cover', $id, 1024);
+        if($result){
+            $data['cover'] = $result['path'];
+        }
+
+        $article->update($data);
         return redirect()->route('articles.show', $id)->with('success', '修改成功！');
     }
 

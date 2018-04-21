@@ -42,6 +42,14 @@ a {
   border: 1px solid #ffffff;
 }
 
+.avatar-lg {
+  width: 96px;
+  height: 96px;
+  -webkit-border-radius: 48px;
+  -moz-border-radius: 48px;
+  border-radius: 48px;
+}
+
 #username {
   margin-top: 12px;
   text-decoration: none;
@@ -126,6 +134,7 @@ a {
   font-family: "Slim-Joe", "Helvetica Neue", "Arial";
   height: 58px;
   background-color: #FAFBFC;
+  margin-bottom: 0;
 }
 
 .navbar .container *{
@@ -166,7 +175,7 @@ a {
 }
 
 #setting-dropdown {
-  margin-right: 70px;
+  margin-right: 120px;
 }
 
 #setting-icon {
@@ -205,15 +214,22 @@ a {
 .page-background {
   background-color: #f4f4f4;
   padding-top: 20px;
+  min-width: 1052px;
+}
+
+.no-articles {
+  margin-top: 200px;
+  font-size: 50px;
+  letter-spacing: 0.5em;
+  color: #222222;
+  font-weight: lighter;
 }
 
 h5 small {
   font-size: 12px !important;
 }
 
-.card-info .text-right {
-  font-size: 12px !important;
-}
+
 
 /*            轮播             */
 #carousel-example-generic {
@@ -236,20 +252,15 @@ h5 small {
   width: 211px;
   float: left;
   margin-bottom: 30px;
-  img {
-    height: 158px;
-    width: 211px;
-  }
   .card-info {
     height: 115px;
     width: 211px;
     background: #ffffff;
     padding: 10px;
     border-top: 1px solid #f4f4f4;
-      .text-right{
-        margin-top: 20px;
-        font-size: 14px;
+      .article-info {
         color: #777777;
+        font-size: 12px;
           .card-info-sales{
             margin-right: 5px;
           }
@@ -261,10 +272,55 @@ h5 small {
   }
 }
 
+.cover {
+  height: 158px;
+  width: 211px;
+}
+
+.avatar-sm {
+  width: 24px !important;
+  height: 24px !important;
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  border-radius:12px;
+  margin-right: 10px;
+}
+
+.card-info-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.card-info-title-small {
+  font-size: 12px;
+  color: #BBBBBB;
+}
+
+.card-avatar-row {
+  margin-top: 10px;
+}
+
 .card-list {
   width: 1052px;
   margin-right: -52px;
   overflow: hidden;
+}
+
+.article-info-row {
+  margin-top: 10px;
+  color: #bbbbbb;
+  .col-xs-4 {
+    padding:0;
+  }
+  .col-xs-4:first-child {
+    padding-left: 15px;
+  }
+  .col-xs-5 {
+    padding: 0;
+  }
+  .col-xs-3 {
+    padding-left: 0;
+  }
 }
 
 /*            留白             */
@@ -318,5 +374,18 @@ h5 small {
   }
 }
 
+//  users.followings_list
+.followings-list-box {
+  background-color: white;
+}
 
+.followings-list {
+  border-bottom: 1px solid #dddddd;
+  width: 100%;
+  padding: 30px;
+}
+
+.followings-list:last-child {
+  border: none;
+}
 

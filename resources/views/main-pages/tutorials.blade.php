@@ -79,7 +79,7 @@
                     </div>
 
                 @else
-                    <div class="empty-block">没有柴火堆被你点燃</div>
+                    <div class="empty-block no-articles">没有柴火堆被你点燃</div>
                 @endif
 
             </div>
