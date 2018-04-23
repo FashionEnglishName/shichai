@@ -109,6 +109,11 @@
                                         <ul class="dropdown-menu">
                                             @if(Auth::check())
                                                 <li>
+                                                    <a href="{{ url(config('administrator.uri')) }}">
+                                                        管理后台
+                                                    </a>
+                                                </li>
+                                                <li>
                                                     <form action="{{ route('users.add_firewood', Auth::user()) }}" method="post" id="add-firewood-form">
                                                         {{ csrf_field() }}
                                                         <button type="submit" class="btn btn-info btn-block" id="btn-add-firewood">购买柴火</button>
