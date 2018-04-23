@@ -93,14 +93,17 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <img src="/imgs/carousel-1.jpg" class="carousel-img" alt="first">
+                                    <a href="{{ route('articles.show', $first_banner->article->id) }}">
+                                        <img src="{{ $first_banner->image }}" class="carousel-img" alt="first">
+                                    </a>
                                 </div>
-                                <div class="item">
-                                    <img src="/imgs/carousel-2.jpg" class="carousel-img" alt="second">
-                                </div>
-                                <div class="item">
-                                    <img src="/imgs/carousel-3.jpg" class="carousel-img" alt="third">
-                                </div>
+                                @foreach($rest_banners as $banner)
+                                    <div class="item">
+                                        <a href="{{ route('articles.show', $banner->article->id) }}">
+                                            <img src="{{ $banner->image }}" class="carousel-img" alt="{{ $banner->article->title }}">
+                                        </a>
+                                    </div>
+                                @endforeach
 
                                 <!-- Controls -->
                                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">

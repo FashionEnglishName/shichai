@@ -60,4 +60,9 @@ class Article extends Model
         $user_ids = $work->purchaser->pluck('id')->toArray();
         $this->purchaser()->sync($user_ids, false);
     }
+
+    //  banner
+    public function banner(){
+        return $this->belongsTo(Banner::class);
+    }
 }

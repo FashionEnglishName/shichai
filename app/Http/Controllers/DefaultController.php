@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Article;
+use App\Models\Banner;
 use App\Http\Controllers\Controller;
 
 
@@ -16,7 +17,9 @@ class DefaultController extends Controller
     public function home(Request $request){
         $articles = Article::withOrder($request->order)->paginate(20);
         $order = $request->order;
-        return view("main-pages.home", compact('articles', 'order'));
+        $first_banner = Banner::first();
+        $rest_banners = Banner::where('id', '!=', $first_banner->id)->get();
+        return view("main-pages.home", compact('articles', 'order', 'first_banner', 'rest_banners'));
     }
 
 //    public function home_tutorials(){
