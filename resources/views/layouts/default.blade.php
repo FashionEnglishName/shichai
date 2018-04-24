@@ -101,36 +101,45 @@
                                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                             </a>
                                         </li>
-                                    @endif
                                     <li class="dropdown" id="setting-dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0">
                                             <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu">
-                                            @if(Auth::check())
+                                        <ul class="dropdown-menu" id="header-dropdown-menu">
                                                 <li>
                                                     <a href="{{ url(config('administrator.uri')) }}">
-                                                        管理后台
+                                                        <p class="text-center">
+                                                            <span class="glyphicon glyphicon-tower"></span>管理后台
+                                                        </p>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <form action="{{ route('users.add_firewood', Auth::user()) }}" method="post" id="add-firewood-form">
                                                         {{ csrf_field() }}
-                                                        <button type="submit" class="btn btn-info btn-block" id="btn-add-firewood">购买柴火</button>
+                                                        {{--<button type="submit" class="btn btn-info btn-block" id="btn-add-firewood">购买柴火</button>--}}
                                                     </form>
+                                                    <a id="add-firewood-form-button">
+                                                        <p class="text-center">
+                                                            <span class="glyphicon glyphicon-shopping-cart"></span>购买柴火
+                                                        </p>
+                                                    </a>
                                                 </li>
                                                 <input type="text" hidden value="{{ Auth::user()->id }}" id="user-id-for-firewood">
 
-                                                <li role="separator" class="divider"></li>
+                                                {{--<li role="separator" class="divider"></li>--}}
                                                 <li>
-                                                    <form method="post" action="{{ route('logout') }}">
+                                                    <form method="post" action="{{ route('logout') }}" id="logout-form">
                                                         {{csrf_field()}}
                                                         {{method_field('DELETE')}}
 
-                                                        <button type="submit" class="btn btn-danger btn-block" id="btn-logout">退出</button>
+                                                        {{--<button type="submit" class="btn btn-danger btn-block" id="btn-logout">退出</button>--}}
                                                     </form>
+                                                    <a id="logout-form-button">
+                                                        <p class="text-center">
+                                                            <span class="glyphicon glyphicon-log-out"></span>退出登录
+                                                        </p>
+                                                    </a>
                                                 </li>
-                                            @else
                                             @endif
                                         </ul>
                                     </li>
@@ -145,7 +154,7 @@
 
         </div>
     </div>
-
+@include('shared._message')
 @guest
     @include("modals.signup-modal")
     @include("modals.login-modal")

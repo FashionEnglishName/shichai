@@ -171,7 +171,7 @@ a {
 
 #second-navbar-text {
   letter-spacing: normal;
-  margin-left: 35%;
+  margin-left: 424px;
 }
 
 #setting-dropdown {
@@ -195,6 +195,17 @@ a {
 
 .dropdown-toggle{
   margin-right: 55%;
+}
+
+#header-dropdown-menu li {
+  font-size: 14px;
+  p {
+    line-height: 14px;
+    margin: 0;
+    span {
+      margin-right: 15px;
+    }
+  }
 }
 
 
@@ -270,6 +281,29 @@ h5 small {
       color: inherit !important;
     }
   }
+}
+
+.collection-card-into {
+  height: 80px !important;
+  padding-bottom: 0 !important;
+}
+
+.card-collect-time {
+  p {
+    margin: 0;
+  }
+  padding-right: 0;
+}
+.card-uncollect {
+  cursor: pointer;
+  margin-top: 5px;
+  p {
+    line-height: 14px;
+    margin: 0;
+  }
+  padding-left: 0;
+  color: #bbbbbb;
+  font-size: 12px;
 }
 
 .cover {
@@ -389,3 +423,13 @@ h5 small {
   border: none;
 }
 
+//  notifications
+.media {
+  img {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+  }
+}

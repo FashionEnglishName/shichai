@@ -39,7 +39,7 @@ class Article extends Model
 
     //  收藏
     public function collectors(){
-        return $this->belongsToMany(User::class, 'collections', 'article_id', 'user_id');
+        return $this->belongsToMany(User::class, 'collections', 'article_id', 'user_id')->withTimestamps();
     }
 
     //  添柴

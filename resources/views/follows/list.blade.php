@@ -83,7 +83,7 @@
     </div>
 @stop
 
-@include('shared._message')
+{{--@include('shared._message')--}}
 
 @section('script')
     <script>

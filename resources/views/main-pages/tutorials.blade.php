@@ -59,14 +59,6 @@
 @section('contents')
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-
-            <div class="panel-body">
-
-                <h3 class="text-center">
-                    <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 点燃的柴火堆
-                </h3>
-                <hr>
 
                 @if ($assigned_works->count())
 
@@ -79,11 +71,9 @@
                     </div>
 
                 @else
-                    <div class="empty-block no-articles">没有柴火堆被你点燃</div>
+                    <p class="text-center no-articles">还没有柴火堆被你点燃</p>
                 @endif
 
-            </div>
-        </div>
     </div>
 </div>
 @stop

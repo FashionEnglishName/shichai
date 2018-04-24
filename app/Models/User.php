@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -113,7 +115,7 @@ class User extends Authenticatable
 
     //  收藏
     public function collected_articles(){
-        return $this->belongsToMany(Article::class, 'collections', 'user_id', 'article_id');
+        return $this->belongsToMany(Article::class, 'collections', 'user_id', 'article_id')->withTimestamps();
     }
 
     public function collect($article_ids){
@@ -128,6 +130,11 @@ class User extends Authenticatable
         }
 
         $this->collected_articles()->sync($article_ids, false);
+
+//        //更新关系表的created_at
+//        foreach ($article_ids as $article_id){
+//            DB::update('update collections set created_at = ? where article_id = ?', [Carbon::now(), $article_id]);
+//        }
     }
 
     public function uncollect($article_ids){

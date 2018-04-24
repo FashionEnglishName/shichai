@@ -19,7 +19,7 @@ class DefaultController extends Controller
         $order = $request->order;
         $first_banner = Banner::first();
         $rest_banners = Banner::where('id', '!=', $first_banner->id)->get();
-        return view("main-pages.home", compact('articles', 'order', 'first_banner', 'rest_banners'));
+        return view("main-pages.home", compact('articles', 'order', 'first_banner', 'rest_banners', 'type'));
     }
 
 //    public function home_tutorials(){
@@ -46,14 +46,12 @@ class DefaultController extends Controller
 
     public function my_collect(){
         $user = Auth::user();
-        $article_ids = $user->collected_articles->pluck('id')->toArray();
 
-        $articles = Article::whereIn('id', $article_ids)
-                                    ->with('user')
-                                    ->orderBy('created_at', 'desc')
-                                    ->paginate(20);
+        $articles = $user->collected_articles()->with('user')->orderBy('created_at', 'desc')->paginate(20);
 
-        return view('main-pages.my_collect', compact('articles'));
+        $type = 'collections';
+
+        return view('main-pages.my_collect', compact('articles', 'type'));
     }
 
     public function my_purchased(){

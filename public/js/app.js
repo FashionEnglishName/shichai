@@ -1069,6 +1069,19 @@ $(function () {
     $('.ignite').click(function () {
         $('.ignite-form').submit();
     });
+
+    $('#logout-form-button').click(function () {
+        $("#logout-form").submit();
+    });
+    $('#add-firewood-form-button').click(function () {
+        $('#add-firewood-form').submit();
+    });
+    $('#card-uncollect-button').click(function () {
+        $('.uncollect-form').submit();
+    });
+    $('#clear-all-notifications-button').click(function () {
+        $('#clear-all-notifications-form').submit();
+    });
 });
 
 /***/ }),

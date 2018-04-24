@@ -85,7 +85,7 @@
 
                 @section("contents")
 
-                <div class="row" id="carousel-row">
+                <div class="row" id="carousel-row" style="margin-top: 30px;">
                     <div class="col-xs-12">
                         <!--            轮播             -->
                         <div id="carousel-example-generic" class="carousel slide center-block" data-ride="carousel">
@@ -134,7 +134,7 @@
                 </div>
 
                 @include('layouts._articles-panel', ['articles'=>$articles])
-                @include('shared._message')
+                {{--@include('shared._message')--}}
             {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}

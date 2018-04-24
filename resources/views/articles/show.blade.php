@@ -177,7 +177,7 @@
 
 @section('contents')
                 <!--            主要内容             -->
-                @include('shared._message')
+                {{--@include('shared._message')--}}
 
                 <div class="row">
                     <div class="col-xs-12 content-col">

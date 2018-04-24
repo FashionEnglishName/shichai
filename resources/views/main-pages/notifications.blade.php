@@ -4,48 +4,28 @@
 
 @section("functions")
     <div class="row icon-row" style="padding-top:50px">
-        <a href="{{ route('follow') }}">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
+        <a>
+            <div class="col-xs-10 col-xs-offset-1 background-block" id="clear-all-notifications-button">
                 <div class="center-block">
                     <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
+                    <form action="{{ route('notifications.clear') }}" method="post" id="clear-all-notifications-form">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                    </form>
                     <div class="icon-text-list">
-                        <p>我的关注</p>
+                        <p>清空消息</p>
                     </div>
                 </div>
             </div>
         </a>
     </div>
     <div class="row icon-row">
-        <a href="{{ route('collect') }}">
+        <a href="{{ url()->previous() === route('notifications.index') ? route('home') : url()->previous() }}">
             <div class="col-xs-10 col-xs-offset-1 background-block">
                 <div class="center-block">
                     <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
                     <div class="icon-text-list">
-                        <p>我的收藏</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="row icon-row">
-        <a href="{{ route('my_purchased') }}">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
-                <div class="center-block">
-                    <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>已购项目</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="row icon-row">
-        <a href="{{ route('tutorials.index') }}">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
-                <div class="center-block">
-                    <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>创作教程</p>
+                        <p>{{ url()->previous() === route('notifications.index') ? '返回主页' : '返　　回' }}</p>
                     </div>
                 </div>
             </div>
@@ -75,13 +55,6 @@
 
                         {!! $notifications->render() !!}
                     </div>
-                    <div class="well well-sm">
-                        <form action="{{ route('notifications.clear') }}" method="post">
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-primary">清空消息记录</button>
-                        </form>
-                    </div>
 
                 @else
                     <div class="empty-block">没有消息通知！</div>
@@ -91,4 +64,11 @@
         </div>
     </div>
 </div>
+@stop
+
+
+@section('script')
+    <script>
+        rh = get_reduce_size(58);
+    </script>
 @stop

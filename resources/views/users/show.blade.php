@@ -126,7 +126,7 @@
                 </div>
                 @include('layouts._articles-panel')
                 @include('shared._errors')
-                @include('shared._message')
+                {{--@include('shared._message')--}}
 @endsection
 
 @include('modals.edit-password')
