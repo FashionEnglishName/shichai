@@ -80,8 +80,15 @@ return [
     ],
 
     'rules' => [
+        'name' => 'required',
+        'password' => 'required',
+        'email' => 'required|email',
     ],
 
     'messages' => [
+        'name.required' => '未填写用户名',
+        'email.required' => '未填写邮箱',
+        'email.email' => '不是合法的邮箱',
+        'password.required' => '未填写密码'
     ]
 ];

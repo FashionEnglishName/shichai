@@ -211,6 +211,9 @@ class User extends Authenticatable
     }
 
     public function setPasswordAttribute($value){
+        if(empty($value)){
+            return ;
+        }
         if(strlen($value) != 60){
             $value = bcrypt($value);
         }

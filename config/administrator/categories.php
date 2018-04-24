@@ -17,7 +17,7 @@ return [
             'title' => '名称',
             'sortable' => false
         ],
-        'operations' => [
+        'operation' => [
             'title' => '管理',
             'sortable' => false
         ]
