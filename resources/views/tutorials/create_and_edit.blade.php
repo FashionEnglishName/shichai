@@ -59,28 +59,6 @@
             </div>
         </div>
     </div>
-    <div class="row icon-row">
-        <div class="col-xs-10 col-xs-offset-1 background-block black-background-selected">
-            <a href="{{ route('tutorials.index') }}">
-                <div class="center-block">
-                    <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>创作教程</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="row icon-row">
-        <div class="col-xs-10 col-xs-offset-1 background-block">
-            <div class="center-block">
-                <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
-                <div class="icon-text-list ">
-                    <p>消息通知</p>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('contents')
@@ -106,7 +84,7 @@
                     <form action="{{ route('tutorials.update', $article->id) }}" method="post">
                         {{ method_field('PATCH') }}
                         @else
-                            <form action="{{ route('tutorials.store', $article->id) }}" method="post">
+                            <form action="{{ route('tutorials.store', $article->id) }}" method="post" enctype="multipart/form-data">
                                 @endif
                                 {{csrf_field()}}
                                 <div class="form-group">
@@ -115,6 +93,16 @@
 
                                 <div class="form-group">
                                     <textarea name="content" id="editor" rows="3" class="form-control" required>{{ old('content', $article->work_or_tutorial ? $article->content : '' ) }}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">上传封面</label>
+                                    <input type="file" name="cover">
+
+                                    @if ($article->cover)
+                                        <br>
+                                        <img src="{{ $article->cover }}" width="200" class="thumbnail">
+                                    @endif
                                 </div>
 
                                 <div class="well well-sm">

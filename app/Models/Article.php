@@ -44,7 +44,7 @@ class Article extends Model
 
     //  添柴
     public function purchaser(){
-        return $this->belongsToMany(User::class, "purchases", "article_id", "user_id");
+        return $this->belongsToMany(User::class, "purchases", "article_id", "user_id")->withPivot('firewood_count')->withTimestamps();
     }
 
     //  教程

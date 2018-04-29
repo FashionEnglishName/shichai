@@ -17,15 +17,16 @@ class DefaultController extends Controller
     public function home(Request $request){
         $articles = Article::withOrder($request->order)->paginate(20);
         $order = $request->order;
-        $first_banner = Banner::first();
-        $rest_banners = Banner::where('id', '!=', $first_banner->id)->get();
-        return view("main-pages.home", compact('articles', 'order', 'first_banner', 'rest_banners', 'type'));
-    }
+        if(!empty(Banner::first())){
+            $first_banner = Banner::first();
+            $rest_banners = Banner::where('id', '!=', $first_banner->id)->get();
+            return view("main-pages.home", compact('articles', 'order', 'first_banner', 'rest_banners', 'type'));
+        }
+        else{
+            return view("main-pages.home", compact('articles', 'order', 'type'));
+        }
 
-//    public function home_tutorials(){
-//        $articles = Article::with('user', 'category')->where('work_or_tutorial', '=', '1')->orderBy('updated_at', 'desc')->paginate(20);
-//        return view("main-pages.home_tutorials", compact('articles'));
-//    }
+    }
 
     public function category($id){
         $articles = Article::with('user')->where('category_id', '=', $id)->recent()->paginate(20);
@@ -59,5 +60,9 @@ class DefaultController extends Controller
         $articles = $user->purchased_articles()->with('user')->paginate(20);
 
         return view('main-pages.my_purchased', compact('articles'));
+    }
+
+    public function cropper(){
+        return view('test.cropper');
     }
 }

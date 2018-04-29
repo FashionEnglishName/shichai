@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Notifications\Purchased;
 use App\Notifications\Assigned;
+use App\Notifications\Refunded;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Policies\UserPolicy;
 
 class PurchasesController extends Controller
 {
-    public function store($id){
+    public function store($id, Request $request){
         $user = Auth::user();
-        $received_array = $user->purchase($id);
+        $received_array = $user->purchase($id, (int)$request->firewood);
 
         if ($received_array['status'] != 4){
             $article = Article::find($id);
@@ -58,5 +60,18 @@ class PurchasesController extends Controller
         }
 
         return redirect()->back()->with('success', '已通知添柴人，请于15天内提交教程');
+    }
+
+    public function destroy($id){
+        $article = Article::find($id);
+        $this->authorize('refund', $article);
+
+        $user = Auth::user();
+        $user->refund($id);
+
+        $author = $article->user;
+        $author->notify(new Refunded($user, $article));
+
+        return redirect()->back()->with('success', '已成功取回柴火');
     }
 }

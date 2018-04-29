@@ -45,18 +45,6 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="row icon-row">
-                            <a href="{{ route('tutorials.index') }}">
-                                <div class="col-xs-10 col-xs-offset-1 background-block">
-                                    <div class="center-block">
-                                        <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                                        <div class="icon-text-list">
-                                            <p>创作教程</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
 
                     @else
                         <!--            功能列表            -->
@@ -93,17 +81,19 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <a href="{{ route('articles.show', $first_banner->article->id) }}">
-                                        <img src="{{ $first_banner->image }}" class="carousel-img" alt="first">
+                                    <a href="{{ route('articles.show', isset($first_banner) ? $first_banner->article->id : ' ') }}">
+                                        <img src="{{ isset($first_banner) ? $first_banner->image : ' ' }}" class="carousel-img" alt="first" width="1000px">
                                     </a>
                                 </div>
-                                @foreach($rest_banners as $banner)
-                                    <div class="item">
-                                        <a href="{{ route('articles.show', $banner->article->id) }}">
-                                            <img src="{{ $banner->image }}" class="carousel-img" alt="{{ $banner->article->title }}">
-                                        </a>
-                                    </div>
-                                @endforeach
+                                @if(isset($first_banner))
+                                    @foreach($rest_banners as $banner)
+                                        <div class="item">
+                                            <a href="{{ route('articles.show', $banner->article->id) }}">
+                                                <img src="{{ $banner->image }}" class="carousel-img" alt="{{ $banner->article->title }}" width="1000px">
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                @endif
 
                                 <!-- Controls -->
                                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">

@@ -6,9 +6,11 @@
     <title>@yield("title","shichai")</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/toastr.css">
+    <link rel="stylesheet" href="/css/cropper.css">
     @yield("style")
     <script language="JavaScript" src="/js/app.js"></script>
     <script language="JavaScript" src="/js/toastr.js"></script>
+    <script language="JavaScript" src="/js/cropper.js"></script>
     <script>
         toastr.options.positionClass = "toast-top-center";
         toastr.options.timeOut = 3000;
@@ -96,16 +98,34 @@
                                                 </span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="{{ route('articles.create') }}">
+                                        <li class="dropdown">
+                                            {{--<a href="{{ route('articles.create') }}">--}}
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0">
                                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                             </a>
+                                            <ul class="dropdown-menu header-dropdown-menu">
+                                                <li>
+                                                    <a href="{{ route('articles.create') }}">
+                                                        <p class="text-center">
+                                                            <span class="glyphicon glyphicon-book"></span>发布作品
+                                                        </p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('tutorials.index') }}">
+                                                        <p class="text-center">
+                                                            <span class="glyphicon glyphicon-education"></span>创作教程
+                                                        </p>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </li>
                                     <li class="dropdown" id="setting-dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0">
                                             <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="caret"></span>
                                         </a>
-                                        <ul class="dropdown-menu" id="header-dropdown-menu">
+                                        <ul class="dropdown-menu header-dropdown-menu">
+                                            @if(Auth::user()->can('manage_contents'))
                                                 <li>
                                                     <a href="{{ url(config('administrator.uri')) }}">
                                                         <p class="text-center">
@@ -113,8 +133,9 @@
                                                         </p>
                                                     </a>
                                                 </li>
+                                            @endif
                                                 <li>
-                                                    <form action="{{ route('users.add_firewood', Auth::user()) }}" method="post" id="add-firewood-form">
+                                                    <form action="{{ route('users.add_firewood', Auth::user()) }}" method="post" id="add-firewood-form" hidden>
                                                         {{ csrf_field() }}
                                                         {{--<button type="submit" class="btn btn-info btn-block" id="btn-add-firewood">购买柴火</button>--}}
                                                     </form>
@@ -128,7 +149,7 @@
 
                                                 {{--<li role="separator" class="divider"></li>--}}
                                                 <li>
-                                                    <form method="post" action="{{ route('logout') }}" id="logout-form">
+                                                    <form method="post" action="{{ route('logout') }}" id="logout-form" hidden>
                                                         {{csrf_field()}}
                                                         {{method_field('DELETE')}}
 

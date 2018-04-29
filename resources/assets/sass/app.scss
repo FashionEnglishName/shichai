@@ -145,6 +145,11 @@ a {
   padding-left: 0;
 }
 
+//#navbar-row {
+//  position: relative;
+//  bottom: 1px;
+//}
+
 #second-navbar {
   background-color: #FFFFFF;
   border-top: none;
@@ -197,7 +202,7 @@ a {
   margin-right: 55%;
 }
 
-#header-dropdown-menu li {
+.header-dropdown-menu li {
   font-size: 14px;
   p {
     line-height: 14px;
@@ -282,6 +287,120 @@ h5 small {
     }
   }
 }
+
+.two-cards {
+  margin-right: 52px;
+  display: block;
+  width: 474px;
+  float: left;
+  margin-bottom: 30px;
+  .card-work,.card-tutorial {
+    display: inline;
+    width: 211px;
+    float: left;
+  }
+  .link-icon {
+    float: left;
+    display: inline;
+    width: 52px;
+    font-size: 30px;
+    color: gray;
+    margin-top: 120px;
+
+  }
+  .card-info {
+    height: 115px;
+    width: 211px;
+    background: #ffffff;
+    padding: 10px;
+    border-top: 1px solid #f4f4f4;
+    .article-info {
+      color: #777777;
+      font-size: 12px;
+      .card-info-sales{
+        margin-right: 5px;
+      }
+    }
+    a{
+      text-decoration: none;
+      color: inherit !important;
+    }
+  }
+  .no-tutorial-card {
+    width: 211px;
+    height: 273px;
+    float: left;
+    display: inline;
+    border: 1px dashed #BBBBBB;
+  }
+
+  .no-tutorial-info {
+    font-size: 20px;
+    color: #222;
+    letter-spacing: 0.2em;
+    font-weight:200;
+    margin-top: 120px;
+  }
+}
+
+.two-cards-for-author {
+  margin-right: 52px;
+  display: block;
+  width: 474px;
+  float: left;
+  margin-bottom: 30px;
+  .card-work,.card-tutorial {
+    display: inline;
+    width: 211px;
+    float: left;
+  }
+  .link-icon {
+    float: left;
+    display: inline;
+    width: 52px;
+    font-size: 30px;
+    color: gray;
+    margin-top: 100px;
+
+  }
+  .card-info {
+    height: 81px;
+    width: 211px;
+    background: #ffffff;
+    padding: 10px;
+    border-top: 1px solid #f4f4f4;
+    .article-info {
+      color: #777777;
+      font-size: 12px;
+      .card-info-sales{
+        margin-right: 5px;
+      }
+    }
+    a{
+      text-decoration: none;
+      color: inherit !important;
+    }
+  }
+  .no-tutorial-card {
+    width: 211px;
+    height: 239px;
+    float: left;
+    display: inline;
+    border: 1px dashed #BBBBBB;
+  }
+
+  .no-tutorial-info {
+    font-size: 20px;
+    color: #222;
+    letter-spacing: 0.2em;
+    font-weight:200;
+    //margin-top: 100px;
+    line-height: 239px;
+    margin-bottom: 0;
+  }
+}
+
+
 
 .collection-card-into {
   height: 80px !important;
@@ -431,5 +550,18 @@ h5 small {
     border-radius: 5px;
     width: 50px;
     height: 50px;
+  }
+}
+
+//  add-firewood-modal
+#purchase-modal {
+  .radio {
+    //display: inline;
+    //margin-right: 30px;
+  }
+
+  .checked {
+    border-color: skyblue;
+    color: skyblue;
   }
 }

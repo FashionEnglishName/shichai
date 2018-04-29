@@ -52,7 +52,7 @@
                         @else
                             @if(!$article->work_or_tutorial)
                                 <div class="row icon-row">
-                                    <form action="{{ route('purchases.ignite', $article->id) }}" method="post" class="ignite-form">
+                                    <form action="{{ route('purchases.ignite', $article->id) }}" method="post" class="ignite-form" hidden>
                                         {{ csrf_field() }}
                                     </form>
                                     <div class="col-xs-10 col-xs-offset-1 background-block ignite">
@@ -71,14 +71,14 @@
                             <!--            功能列表            -->
                             @cannot('update', $article->user)
                                 @if(Auth::user()->isFollowing($article->user->id))
-                                    <div class="row icon-row">
+                                    <div class="row icon-row" style="margin-top: 50px">
                                         <div class="col-xs-10 col-xs-offset-1 background-block unfollow">
                                             <div class="center-block">
                                                 <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
                                                 <div class="icon-text-list">
                                                     <p>取消关注</p>
                                                 </div>
-                                                <form action="{{ route('followers.destroy', $article->user->id) }}" method="post" class="unfollow-form">
+                                                <form action="{{ route('followers.destroy', $article->user->id) }}" method="post" class="unfollow-form" hidden>
                                                     {{ csrf_field() }}
                                                     {{ method_field('delete') }}
                                                 </form>
@@ -86,14 +86,14 @@
                                         </div>
                                     </div>
                                 @else
-                                    <div class="row icon-row">
+                                    <div class="row icon-row" style="margin-top: 50px">
                                         <div class="col-xs-10 col-xs-offset-1 background-block follow">
                                             <div class="center-block">
                                                 <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
                                                 <div class="icon-text-list">
                                                     <p>关注作者</p>
                                                 </div>
-                                                <form action="{{ route('followers.store', $article->user->id) }}" method="post" class="follow-form">
+                                                <form action="{{ route('followers.store', $article->user->id) }}" method="post" class="follow-form" hidden>
                                                     {{ csrf_field() }}
                                                 </form>
                                             </div>
@@ -112,7 +112,7 @@
                                                 <div class="icon-text-list">
                                                     <p>取消收藏</p>
                                                 </div>
-                                                <form action="{{ route('collections.destroy', $article) }}" method="post" class="uncollect-form">
+                                                <form action="{{ route('collections.destroy', $article) }}" method="post" class="uncollect-form" hidden>
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
                                                 </form>
@@ -127,7 +127,7 @@
                                                 <div class="icon-text-list">
                                                     <p>收　　藏</p>
                                                 </div>
-                                                <form action="{{ route('collections.store', $article) }}" method="post" class="collect-form">
+                                                <form action="{{ route('collections.store', $article) }}" method="post" class="collect-form" hidden>
                                                     {{ csrf_field() }}
                                                 </form>
                                             </div>
@@ -140,14 +140,27 @@
                                     <div class="center-block">
                                         <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
                                         <div class="icon-text-list">
-                                            <p>添三根柴</p>
+                                            <p>添　　柴</p>
                                         </div>
-                                        <form action="{{ route('purchases.store', $article->id) }}" method="post" class="purchase-form">
-                                            {{ csrf_field() }}
-                                        </form>
                                     </div>
                                 </div>
                             </div>
+                            @can('refund', $article)
+                                <div class="row icon-row">
+                                    <div class="col-xs-10 col-xs-offset-1 background-block refund">
+                                        <div class="center-block">
+                                            <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
+                                            <div class="icon-text-list">
+                                                <p>取回柴火</p>
+                                            </div>
+                                            <form action="{{ route('purchases.destroy', $article->id) }}" method="post" hidden id="refund-form">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endcan
                     @endif
                 @else
 
@@ -186,12 +199,17 @@
                                 <h2>
                                     {{ $article->title }}
                                     <small><a href="{{ route('category', $article->category->id) }}">{{ $article->category->name }}</a></small>
-                                    <br/>
+                                    <br>
+                                    <small>　</small>
                                     <small>
                                         <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>&nbsp;{{ $article->firewood_count }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;{{ $article->collection_count }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span title="{{ $article->tutorial_id ? "已有教程" : "教程未出" }}"><span class="glyphicon glyphicon-book"></span>&nbsp;@if($article->tutorial_id)<span style="position: relative; bottom: 3px; font-size:11px;">√</span>@else<span style="position: relative; bottom: 1px; font-size:12px;">X</span>@endif</span>
                                     </small>
                                     <br>
-                                    <small>{{ $article->created_at !== $article->updated_at ? "作者于 " . $article->updated_at->diffForHumans() . " 更新" : '' }}</small>
+                                    <small>　</small>
+                                    <small>
+                                        <span>我已添柴 {{ $firewood_sum }} 根</span>
+                                    </small>
+                                    {{--                                    <small>{{ $article->created_at !== $article->updated_at ? "作者于 " . $article->updated_at->diffForHumans() . " 更新" : '' }}</small>--}}
                                 </h2>
                             </div>
                             <hr>
@@ -202,6 +220,8 @@
                     </div>
                 </div>
 @stop
+
+@include('modals.add_firewood')
 
 @section("script")
     <script>

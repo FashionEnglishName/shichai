@@ -157,22 +157,22 @@ class User extends Authenticatable
 
     //  添柴
     public function purchased_articles(){
-        return $this->belongsToMany(Article::class, "purchases", "user_id", "article_id");
+        return $this->belongsToMany(Article::class, "purchases", "user_id", "article_id")->withPivot('firewood_count')->withTimestamps();
     }
 
-    public function purchase($article_id){
-        if(!is_array($article_id)){
-            $article_ids = compact('article_ids');
-        }
+    public function purchase($article_id, $firewood){
+//        if(!is_array($article_id)){
+//            $article_ids = compact('article_ids');
+//        }
 
         $article = Article::find($article_id);
         //  判断user的余额是否足够
-        if ($this->firewood_count - 3 >= 0){
-            $article->firewood_count += 3;
-            $this->firewood_count -= 3;
+        if ($this->firewood_count - $firewood >= 0){
+            $article->firewood_count += $firewood;
+            $this->firewood_count -= $firewood;
             if($article->work_or_tutorial){
                 $work = Article::find($article->work_id); //是教程就增加对应作品的firewood
-                $work->firewood_count += 3;
+                $work->firewood_count += $firewood;
                 $work->save();
                 $returnArray = [
                     'status' => 5,  //请查看教程
@@ -181,7 +181,7 @@ class User extends Authenticatable
             } else {
                 if ($article->tutorial_id) {
                     $tutorial = Article::find($article->tutorial_id); //是作品，且有教程，就增加对应教程的firewood
-                    $tutorial->firewood_count += 3;
+                    $tutorial->firewood_count += $firewood;
                     $tutorial->save();
                     $returnArray =  [
                         'status' => 1,//该文章已有教程，即将跳转
@@ -205,7 +205,7 @@ class User extends Authenticatable
 
             $article->save();
             $this->save();
-            $this->purchased_articles()->sync($article_id, false);
+            $this->purchased_articles()->attach([$article_id => ['firewood_count' => $firewood]]);
 
         }else{
             $returnArray = [
@@ -215,6 +215,19 @@ class User extends Authenticatable
         }
 
         return $returnArray;
+    }
+
+    public function refund($article_id){
+        $article = Article::find($article_id);
+        $firewood_sum = 0;
+        foreach($article->purchaser->where('id', '=', $this->id) as $item){
+            $firewood_sum += $item->pivot->firewood_count;
+        }
+        $this->purchased_articles()->detach([$article_id]);
+        $this->firewood_count += $firewood_sum;
+        $this->save();
+        $article->firewood_count -= $firewood_sum;
+        $article->save();
     }
 
     public function setPasswordAttribute($value){

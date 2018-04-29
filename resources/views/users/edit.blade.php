@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('title', '修改资料')
 
+
     @section('functions')
 
         <div class="row icon-row" style="padding-top:50px">

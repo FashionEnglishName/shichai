@@ -1,4 +1,4 @@
-<div class="meida">
+<div class="media">
     <div class="pull-left">
         <a href="{{ route('users.show', $notification->data['author_id']) }}">
             <img src="{{ $notification->data['author_avatar'] }}" alt="{{ $notification->data['author_id'] }}" class="avatar">

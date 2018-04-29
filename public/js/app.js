@@ -1063,7 +1063,7 @@ $(function () {
     });
 
     $('.purchase').click(function () {
-        $('.purchase-form').submit();
+        $('#purchase-modal').modal();
     });
 
     $('.ignite').click(function () {
@@ -1081,6 +1081,54 @@ $(function () {
     });
     $('#clear-all-notifications-button').click(function () {
         $('#clear-all-notifications-form').submit();
+    });
+    $('.refund').click(function () {
+        $('#refund-form').submit();
+    });
+
+    //  添柴选择柴火数量
+    $('.btn-firewoodRadio').click(function (e) {
+        e.preventDefault();
+        var i = this.id.substr(this.id.length - 1);
+        var array = ['1', '2', '3', '4'];
+        for (var n = 0; n < 4; n++) {
+            if (array[n] === i) {
+                // array.splice(n, 1);
+            } else {
+                var radioId = '#firewoodRadio' + array[n];
+                $(radioId).removeAttr('checked');
+                var btnId = '#btn-firewoodRadio' + array[n];
+                $(btnId).removeClass('checked');
+            }
+        }
+        var radio = '#firewoodRadio' + i;
+        $(radio).attr('checked', 'checked');
+        var btn = '#btn-firewoodRadio' + i;
+        $(btn).addClass('checked');
+    });
+
+    $('#purchase-submit-button').click(function (e) {
+        e.preventDefault();
+        $('#purchase-form').submit();
+    });
+
+    //  tutorials.index
+    $('.ignited').mouseover(function () {
+        $(this).children(".text-toggle").hide();
+        $(this).children("a").show();
+    });
+    $('.ignited').mouseout(function () {
+        $(this).children(".text-toggle").show();
+        $(this).children("a").hide();
+    });
+
+    $('.can-be-ignited').mouseover(function () {
+        $(this).children(".text-toggle").hide();
+        $(this).children("a").show();
+    });
+    $('.can-be-ignited').mouseout(function () {
+        $(this).children(".text-toggle").show();
+        $(this).children("a").hide();
     });
 });
 

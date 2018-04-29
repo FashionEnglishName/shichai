@@ -8998,16 +8998,16 @@ a {
   margin-right: 55%;
 }
 
-#header-dropdown-menu li {
+.header-dropdown-menu li {
   font-size: 14px;
 }
 
-#header-dropdown-menu li p {
+.header-dropdown-menu li p {
   line-height: 14px;
   margin: 0;
 }
 
-#header-dropdown-menu li p span {
+.header-dropdown-menu li p span {
   margin-right: 15px;
 }
 
@@ -9088,6 +9088,131 @@ h5 small {
 .card .card-info a {
   text-decoration: none;
   color: inherit !important;
+}
+
+.two-cards {
+  margin-right: 52px;
+  display: block;
+  width: 474px;
+  float: left;
+  margin-bottom: 30px;
+}
+
+.two-cards .card-work,
+.two-cards .card-tutorial {
+  display: inline;
+  width: 211px;
+  float: left;
+}
+
+.two-cards .link-icon {
+  float: left;
+  display: inline;
+  width: 52px;
+  font-size: 30px;
+  color: gray;
+  margin-top: 120px;
+}
+
+.two-cards .card-info {
+  height: 115px;
+  width: 211px;
+  background: #ffffff;
+  padding: 10px;
+  border-top: 1px solid #f4f4f4;
+}
+
+.two-cards .card-info .article-info {
+  color: #777777;
+  font-size: 12px;
+}
+
+.two-cards .card-info .article-info .card-info-sales {
+  margin-right: 5px;
+}
+
+.two-cards .card-info a {
+  text-decoration: none;
+  color: inherit !important;
+}
+
+.two-cards .no-tutorial-card {
+  width: 211px;
+  height: 273px;
+  float: left;
+  display: inline;
+  border: 1px dashed #BBBBBB;
+}
+
+.two-cards .no-tutorial-info {
+  font-size: 20px;
+  color: #222;
+  letter-spacing: 0.2em;
+  font-weight: 200;
+  margin-top: 120px;
+}
+
+.two-cards-for-author {
+  margin-right: 52px;
+  display: block;
+  width: 474px;
+  float: left;
+  margin-bottom: 30px;
+}
+
+.two-cards-for-author .card-work,
+.two-cards-for-author .card-tutorial {
+  display: inline;
+  width: 211px;
+  float: left;
+}
+
+.two-cards-for-author .link-icon {
+  float: left;
+  display: inline;
+  width: 52px;
+  font-size: 30px;
+  color: gray;
+  margin-top: 100px;
+}
+
+.two-cards-for-author .card-info {
+  height: 81px;
+  width: 211px;
+  background: #ffffff;
+  padding: 10px;
+  border-top: 1px solid #f4f4f4;
+}
+
+.two-cards-for-author .card-info .article-info {
+  color: #777777;
+  font-size: 12px;
+}
+
+.two-cards-for-author .card-info .article-info .card-info-sales {
+  margin-right: 5px;
+}
+
+.two-cards-for-author .card-info a {
+  text-decoration: none;
+  color: inherit !important;
+}
+
+.two-cards-for-author .no-tutorial-card {
+  width: 211px;
+  height: 239px;
+  float: left;
+  display: inline;
+  border: 1px dashed #BBBBBB;
+}
+
+.two-cards-for-author .no-tutorial-info {
+  font-size: 20px;
+  color: #222;
+  letter-spacing: 0.2em;
+  font-weight: 200;
+  line-height: 239px;
+  margin-bottom: 0;
 }
 
 .collection-card-into {
@@ -9240,5 +9365,10 @@ h5 small {
   border-radius: 5px;
   width: 50px;
   height: 50px;
+}
+
+#purchase-modal .checked {
+  border-color: skyblue;
+  color: skyblue;
 }
 

@@ -40,19 +40,6 @@
             </div>
         </a>
     </div>
-    <div class="row icon-row">
-        <a href="{{ route('tutorials.index') }}">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
-                <div class="center-block">
-                    <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>创作教程</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-
 @stop
 
 @section('contents')

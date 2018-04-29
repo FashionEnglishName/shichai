@@ -43,6 +43,7 @@ Route::get('articles/collect/index', "DefaultController@my_collect")->name('coll
 Route::post('articles/{id}/purchase', 'PurchasesController@store')->name('purchases.store');
 Route::post('articles/{id}/ignite', 'PurchasesController@ignite')->name('purchases.ignite');
 Route::get('purchased', 'DefaultController@my_purchased')->name('my_purchased');
+Route::delete('purchased/{id}/refund', 'PurchasesController@destroy')->name('purchases.destroy');
 
 
 Route::get('tutorials/index', 'TutorialsController@index')->name('tutorials.index');
@@ -63,3 +64,5 @@ Route::get('follow', "DefaultController@my_follow")->name('follow');
 
 Route::get('notifications', 'NotificationsController@index')->name('notifications.index');
 Route::delete('notifications/clear', 'NotificationsController@clear')->name('notifications.clear');
+
+Route::get('test/cropper', 'DefaultController@cropper')->name('cropper');

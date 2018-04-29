@@ -39,39 +39,12 @@
             </div>
         </a>
     </div>
-    <div class="row icon-row">
-        <a href="{{ route('tutorials.index') }}">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
-                <div class="center-block">
-                    <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>创作教程</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
 @stop
 
 @section('contents')
 
-
-    <!--            二级导航栏            -->
-    <div class="row">
-        <div class="col-xs-12" id="second-navbar-row">
-            <div class="navbar navbar-default" id="second-navbar" role="navigation">
-                <div class="container">
-                    <ul class="nav navbar-nav" id="second-navbar-text">
-                        <li class="li-active"><a href="#">最热</a></li>
-                        <li><a href="#">最新</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
     @if($articles->count())
-        @include('layouts._articles-panel', ['articles' => $articles])
+        @include('layouts._work_and_tutorial_panel', ['articles' => $articles])
     @else
         <div class="row page-background">
             <div class="col-xs-8 col-xs-offset-2">
@@ -80,4 +53,11 @@
         </div>
     @endif
 
+@stop
+
+
+@section('script')
+    <script>
+        rh = get_reduce_size(59);
+    </script>
 @stop

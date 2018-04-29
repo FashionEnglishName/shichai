@@ -35,7 +35,11 @@ class ArticlesController extends Controller
             return redirect()->route('articles.show', compact('work'))->with('error', '请先为作品添柴！');
         }
 //        $this->authorize('canRead', $article);
-        return view('articles.show',compact('article'));
+        $firewood_sum = 0;
+        foreach($article->purchaser->where('id', '=', Auth::id()) as $item){
+            $firewood_sum += $item->pivot->firewood_count;
+        }
+        return view('articles.show',compact('article', 'firewood_sum'));
     }
 
     public function update($id, ArticleRequest $request, ImageUploadHandler $uploader){
