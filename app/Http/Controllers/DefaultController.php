@@ -15,7 +15,7 @@ use App\Http\Controllers\Controller;
 class DefaultController extends Controller
 {
     public function home(Request $request){
-        $articles = Article::withOrder($request->order)->paginate(20);
+        $articles = Article::withOrder($request->order)->where('work_or_tutorial', '=', '0')->paginate(20);
         $order = $request->order;
         if(!empty(Banner::first())){
             $first_banner = Banner::first();

@@ -38,6 +38,11 @@ return [
             'title' => '邮箱'
         ],
 
+        'firewood_count' => [
+            'title' => '柴火数',
+            'sortable' => false
+        ],
+
         'operation' => [
             'title' => '管理',
             'sortable' => false
@@ -54,6 +59,9 @@ return [
         'password' => [
             'title' => '密码',
             'type' => 'password'
+        ],
+        'firewood_count' => [
+            'title' => '柴火数'
         ],
         'avatar' => [
             'title' => '头像',

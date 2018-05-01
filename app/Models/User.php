@@ -161,34 +161,25 @@ class User extends Authenticatable
     }
 
     public function purchase($article_id, $firewood){
-//        if(!is_array($article_id)){
-//            $article_ids = compact('article_ids');
-//        }
-
         $article = Article::find($article_id);
-        //  判断user的余额是否足够
-        if ($this->firewood_count - $firewood >= 0){
-            $article->firewood_count += $firewood;
-            $this->firewood_count -= $firewood;
-            if($article->work_or_tutorial){
-                $work = Article::find($article->work_id); //是教程就增加对应作品的firewood
-                $work->firewood_count += $firewood;
-                $work->save();
-                $returnArray = [
-                    'status' => 5,  //请查看教程
-                    'msg' => ''
-                ];
-            } else {
+
+            $author = $article->user;
+            //  判断user的余额是否足够
+            if ($this->firewood_count - $firewood >= 0){
+                $article->firewood_count += $firewood;
+                $this->firewood_count -= $firewood;
                 if ($article->tutorial_id) {
-                    $tutorial = Article::find($article->tutorial_id); //是作品，且有教程，就增加对应教程的firewood
+                    $tutorial = Article::find($article->tutorial_id); //是作品，且有教程，就增加对应教程的firewood，且增加作者的firewood
                     $tutorial->firewood_count += $firewood;
+                    $author->firewood_count += $firewood;
                     $tutorial->save();
                     $returnArray =  [
                         'status' => 1,//该文章已有教程，即将跳转
                         'msg' => $article->tutorial_id
                     ];
                 } else {
-                    if ($article->is_assigned){ // 判断article的tutorial是否正在创作
+                    if ($article->is_assigned){ // 判断article的tutorial是否正在创作，在创作，就增加文章firewood，且增加作者的firewood
+                        $author->firewood_count += $firewood;
                         $returnArray = [
                             'status' => 2,//该文章的教程正在创作，请耐心等待
                             'msg' => ''//$article->assigned_at->diffForHuman()
@@ -201,20 +192,22 @@ class User extends Authenticatable
                         ];
                     }
                 }
+
+
+                $article->save();
+                $this->save();
+                $author->save();
+                $this->purchased_articles()->attach([$article_id => ['firewood_count' => $firewood]]);
+
+            }else{
+                $returnArray = [
+                    'status' => 4,//余额不足
+                    'msg' => ''//route()->back()
+                ];
             }
 
-            $article->save();
-            $this->save();
-            $this->purchased_articles()->attach([$article_id => ['firewood_count' => $firewood]]);
+            return $returnArray;
 
-        }else{
-            $returnArray = [
-                'status' => 4,//余额不足
-                'msg' => ''//route()->back()
-            ];
-        }
-
-        return $returnArray;
     }
 
     public function refund($article_id){

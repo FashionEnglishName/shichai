@@ -9372,3 +9372,35 @@ h5 small {
   color: skyblue;
 }
 
+.pagination span {
+  width: 50px;
+  text-align: center;
+  color: #DB7017;
+  border: none !important;
+  background-color: #f4f4f4 !important;
+}
+
+.pagination span:hover {
+  background-color: #eeeeee !important;
+}
+
+.pagination a {
+  width: 50px;
+  text-align: center;
+  border: none !important;
+  background-color: #f4f4f4 !important;
+}
+
+.pagination a:hover {
+  background-color: #eeeeee !important;
+}
+
+.pagination .active span {
+  background-color: #DB7017 !important;
+  border-color: #DB7017;
+}
+
+.pagination .active span:hover {
+  background-color: #DB7017 !important;
+}
+

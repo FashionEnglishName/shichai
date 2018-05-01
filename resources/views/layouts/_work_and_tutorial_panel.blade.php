@@ -12,7 +12,7 @@
                     @endforeach
                 @endif
 
-                {{ $articles->render() }}
+                {{ $articles->links('') }}
             </div>
         </div>
     </div>

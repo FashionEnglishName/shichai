@@ -52,17 +52,17 @@
                     <!--            用户名行            -->
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
-                            <a href="#">
-                                <p class="text-center" id="username">@yield('name', Auth::user()->name)</p>
-                                <p class="text-center" id="publish-date">@yield('date', '')</p>
+                            <a href="@yield('user_link', route('users.show', Auth::user()))">
+                                <p class="text-center" id="username"> @yield('name', Auth::user()->name)</p>
                             </a>
+                            <p class="text-center" id="publish-date">@yield('date', '')</p>
                         </div>
                     </div>
             @else
                 <!--            头像行            -->
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2" id="login-img">
-                            <a href="#" style="color: #5B5B5B;text-decoration: none">
+                            <a href="{{ route('users.show', isset($user) ? $user->id : Auth::id()) }}" style="color: #5B5B5B;text-decoration: none">
                                 <img class="center-block img-responsive" src="/profile/login.jpg" alt="profile" id="profile">
                                 <br>
                                 <p class="text-center">请先登录</p>

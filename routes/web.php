@@ -47,6 +47,9 @@ Route::delete('purchased/{id}/refund', 'PurchasesController@destroy')->name('pur
 
 
 Route::get('tutorials/index', 'TutorialsController@index')->name('tutorials.index');
+Route::get('tutorials/finished', 'TutorialsController@finished')->name('tutorials.finished');
+Route::get('tutorials/waiting', 'TutorialsController@waiting')->name('tutorials.waiting');
+Route::get('tutorials/unfired', 'TutorialsController@unfired')->name('tutorials.unfired');
 Route::get('tutorials/{work_id}/create', 'TutorialsController@create')->name('tutorials.create');
 Route::post('tutorials/{work_id}/store', 'TutorialsController@store')->name('tutorials.store');
 Route::get('tutorials/{tutorial_id}/edit', 'TutorialsController@edit')->name('tutorials.edit');

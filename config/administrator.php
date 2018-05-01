@@ -78,7 +78,7 @@ return array(
      * @type closure
      */
     'permission' => function () {
-        return Auth::check() && Auth::user()->can('manage_contents');
+        return true;
     },
 
     /*

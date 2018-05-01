@@ -6,6 +6,7 @@
 @stop
 @section('avatar', $article->user->avatar)
 @section('name', $article->user->name)
+@section('user_link', route('users.show', $article->user->id))
 @section('user_link', route('users.show', $article->user))
 
 
@@ -135,6 +136,7 @@
                                     </div>
                                 @endif
                             @endcannot
+                            @if($article->work_or_tutorial == 0)
                             <div class="row icon-row">
                                 <div class="col-xs-10 col-xs-offset-1 background-block purchase">
                                     <div class="center-block">
@@ -161,9 +163,9 @@
                                     </div>
                                 </div>
                             @endcan
+                            @endif
                     @endif
                 @else
-
                     <div class="row icon-row" style="padding-top:50px">
                         <div class="col-xs-10 col-xs-offset-1 background-block" id="login">
                             <div class="center-block">
@@ -198,7 +200,7 @@
                             <div class="content-info">
                                 <h2>
                                     {{ $article->title }}
-                                    <small><a href="{{ route('category', $article->category->id) }}">{{ $article->category->name }}</a></small>
+                                    <small><label class="label label-default"><a href="{{ route('category', $article->category->id) }}">{{ $article->category->name }}</a></label></small>
                                     <br>
                                     <small>　</small>
                                     <small>

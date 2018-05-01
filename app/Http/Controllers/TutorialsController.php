@@ -13,8 +13,33 @@ class TutorialsController extends Controller
 {
     public function index(){
         $user = Auth::user();
-        $articles = $user->articles()->where('work_or_tutorial', '=', '0')->orderBy('is_assigned', 'desc')->orderBy('created_at', 'desc')->paginate(20);
-        return view('tutorials.index', compact('articles'));
+        $type = 'index';
+        $articles = $user->articles()->where('work_or_tutorial', '=', 0)->orderBy('is_assigned', 'desc')->orderBy('created_at', 'desc')->paginate(20);
+        return view('tutorials.index', compact('articles', 'type'));
+    }
+
+    public function finished() {
+        $user = Auth::user();
+        $type = 'finished';
+        $articles = $user->articles()->where('tutorial_id', '>', 0)->orderBy('created_at', 'desc')->paginate(20);
+        return view('tutorials.index', compact('articles', 'type'));
+    }
+
+    public function waiting() {
+        $user = Auth::user();
+        $type = 'waiting';
+        $articles = $user->articles()->where([
+            ['is_assigned', '=', 1],
+            ['tutorial_id', '=', 0]
+            ])->orderBy('created_at', 'desc')->paginate(20);
+        return view('tutorials.index', compact('articles', 'type'));
+    }
+
+    public function unfired(){
+        $user = Auth::user();
+        $type = 'unfired';
+        $articles = $user->articles()->where('firewood_count', '0')->orderBy('created_at', 'desc')->paginate(20);
+        return view('tutorials.index', compact('articles', 'type'));
     }
 
     public function create($id){
@@ -44,6 +69,9 @@ class TutorialsController extends Controller
         foreach($users as $user){
             $user->notify(new TutorialPublished($work, $tutorial, $author));
         }
+        // 转移与文章等量的firewood到作者上
+        $author->firewood_count += $work->firewood_count;
+        $author->save();
         return redirect()->route('articles.show', compact('tutorial'));
     }
 
@@ -58,11 +86,10 @@ class TutorialsController extends Controller
 
         $author = $tutorial->user;
         $users = $tutorial->purchaser;
-        dd($users);
 
         foreach($users as $user){
             $user->notify(new TutorialUpdated($tutorial, $author));
         }
-        return redirect()->route('articles.show', compact('tutorial'));
+        return redirect()->route('articles.show', compact('tutorial'))->with('success', '编辑成功');
     }
 }
