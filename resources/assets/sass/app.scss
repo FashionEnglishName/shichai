@@ -145,10 +145,6 @@ a {
   padding-left: 0;
 }
 
-//#navbar-row {
-//  position: relative;
-//  bottom: 1px;
-//}
 
 #second-navbar {
   background-color: #FFFFFF;
@@ -526,6 +522,48 @@ h5 small {
     }
   }
 }
+
+//  编辑头像
+.avatar-preview {
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  -webkit-border-radius: 48px;
+  -moz-border-radius: 48px;
+  border-radius: 48px;
+}
+
+.avatar-preview-wrapper {
+  margin-left: 40px;
+  float: left;
+}
+
+.upload-file{
+  text-align: center;
+  color: #777777;
+}
+
+.upload-file span{ //单行显示
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.upload-file:hover{ //简单的hover效果
+  color: #DB7017;
+}
+
+.upload-file input[type='file']{
+  height: 100%;
+  width: 100%;
+  position: absolute; //设置为绝对定位，不会影响到其他元素
+  top: 0;
+  right: 0;
+  opacity: 0;   //透明度为0
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
 
 //  users.followings_list
 .followings-list-box {

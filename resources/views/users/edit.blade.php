@@ -5,49 +5,36 @@
     @section('functions')
 
         <div class="row icon-row" style="padding-top:50px">
-            <a href="{{ route("users.show", $user) }}">
+            <div class="col-xs-10 col-xs-offset-1 background-block" id="edit-info-form-submit">
+                <div class="center-block">
+                    <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
+                    <div class="icon-text-list">
+                        <p>保存修改</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row icon-row">
+            <div class="col-xs-10 col-xs-offset-1 background-block" id="edit-avatar">
+                <div class="center-block">
+                    <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
+                    <div class="icon-text-list icon-text-list-four-words">
+                        <p>修改头像</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row icon-row">
+            <a href="{{ url()->previous()}}">
                 <div class="col-xs-10 col-xs-offset-1 background-block">
                     <div class="center-block">
                         <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
                         <div class="icon-text-list">
-                            <p>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</p>
+                            <p>返　　回</p>
                         </div>
                     </div>
                 </div>
             </a>
-        </div>
-    <div class="row icon-row" >
-        <div class="col-xs-10 col-xs-offset-1 background-block" id="edit-password-toggle">
-            <div class="center-block">
-                <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
-                <div class="icon-text-list">
-                    <p>修改密码</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row icon-row">
-        <a href="{{ route('users.edit', $user) }}">
-            <div class="col-xs-10 col-xs-offset-1 background-block black-background-selected" id="edit-info">
-                <div class="center-block">
-                    <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
-                    <div class="icon-text-list icon-text-list-four-words">
-                        <p>用户资料</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-        <div class="row icon-row">
-            <div class="col-xs-10 col-xs-offset-1 background-block" id="check-firewood-toggle">
-                <div class="center-block">
-                    <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>查看余额</p>
-                        <input type="text" value="{{ $user->firewood_count }}" hidden id="firewood_count">
-                    </div>
-                </div>
-            </div>
         </div>
 
 @endsection
@@ -77,7 +64,7 @@
                         <label for="age-field">年龄</label>
                         <select name="age" id="age-field" class="form-control" autocomplete="off">
                             @for($age = 10; $age <= 80; $age++)
-                                <option {{ $user->age == $age ? 'selected="selected"' : ' ' }}>{{ old('age', $age) }}</option>
+                                <option {{ $user->age == $age ? 'selected="selected"' : ' ' }}>{{ $age }}</option>
                             @endfor
                         </select>
                     </div>
@@ -116,30 +103,15 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="" class="avatar-label">用户头像</label>
-                        <input type="file" name="avatar" id="avatar-input">
-
-                        @if($user->avatar)
-                            <br>
-                            <img src="{{ $user->avatar }}" width="200" class="thumbnail">
-                        @endif
-                    </div>
-                    <div class="well well-sm">
-                        <button class="btn btn-primary" type="submit">
-                            保存
-                        </button>
-                    </div>
                 </form>
             </div>
         </div>
     </div>
 
 @include('shared._errors')
+@include('modals.edit_avatar')
 
 @endsection
-
-@include('modals.edit-password')
 
 @section('style')
     <style>
@@ -147,4 +119,77 @@
             margin-bottom: 0;
         }
     </style>
+@stop
+
+@section('script')
+    <script>
+        $(function(){
+            var $image = $('#avatar-cropper');
+            var options = {
+                aspectRatio: 1,
+                viewMode: 2,
+                preview: '.avatar-preview',
+                crop: function(event) {
+                    console.log(event.detail.x);
+                    console.log(event.detail.y);
+                    console.log(event.detail.width);
+                    console.log(event.detail.height);
+                    console.log(event.detail.rotate);
+                    console.log(event.detail.scaleX);
+                    console.log(event.detail.scaleY);
+                }
+            };
+
+            var cropper = $image.data('cropper');
+
+            $(".avatar-select").change(function(){
+                $image.cropper('destroy').attr('src', URL.createObjectURL(this.files[0])).cropper(options);
+                console.log(this.files);
+                console.log(URL.createObjectURL(this.files[0]));
+            });
+
+
+            $('#edit-avatar-modal').on("shown.bs.modal",function(){
+                $image.cropper(options);
+            });
+
+//            $('#edit-avatar-modal').on("hidden.bs.modal", function(){
+//                $image.cropper('destroy');
+//            })
+            var result;
+            $("#avatar-upload").click(function(e){
+                e.preventDefault();
+                result = $image.cropper('getCroppedCanvas', options)
+                console.log(result);
+                var imgBase=result.toDataURL('image/jpeg');
+                console.log(imgBase);
+                var data={imgBase:imgBase};
+                console.log(data);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('#avatar-upload-form input[name="_token"]').val()
+                    }
+                });
+                $.ajax({
+                    url: '{{ route("users.edit_avatar", Auth::id()) }}',
+                    type: 'patch',
+                    dataType: 'json',
+                    data: data,
+                    success: function(data){
+                        toastr.success('修改成功');
+                        setTimeout(function() {
+                            window.location.href = '{{ route('users.show', Auth::id()) }}';
+                        }, 1000);
+                        console.log(data);
+                    },
+                    error: function(data){
+                        console.log(data);
+                    }
+                });
+            });
+
+        });
+    </script>
+
 @stop

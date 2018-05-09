@@ -34,17 +34,7 @@
                 <div class="center-block">
                     <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
                     <div class="icon-text-list">
-                        <p>我的关注</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row icon-row">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
-                <div class="center-block">
-                    <img src="/imgs/favourite-icon.png" alt="favourite" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>我的收藏</p>
+                        <p>提　　交</p>
                     </div>
                 </div>
             </div>
@@ -54,17 +44,7 @@
                 <div class="center-block">
                     <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
                     <div class="icon-text-list">
-                        <p>已购项目</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row icon-row">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
-                <div class="center-block">
-                    <img src="/imgs/message-icon.png" alt="message" class="icon-list center-block">
-                    <div class="icon-text-list ">
-                        <p>消息通知</p>
+                        <p>返　　回</p>
                     </div>
                 </div>
             </div>
@@ -96,6 +76,7 @@
                             <form action="{{ route('articles.store') }}" method="post"  enctype="multipart/form-data">
                                 @endif
                                 {{csrf_field()}}
+                                <input type="text" hidden name="cover" id="cover-url">
                                 <div class="form-group">
                                     <input class="form-control" type="text" name="title" value="{{ old('title', $article->title ) }}" placeholder="请填写标题" required/>
                                 </div>
@@ -114,27 +95,31 @@
                                     <textarea name="content" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" class="form-control" required>{{ old('content', $article->content) }}</textarea>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="">上传封面</label>
-                                    <input type="file" name="cover">
 
-                                    @if ($article->cover)
-                                        <br>
-                                        <img src="{{ $article->cover }}" width="200" class="thumbnail">
-                                    @endif
-                                </div>
-
-                                <div class="well well-sm">
-                                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 保存</button>
-                                </div>
-
+                                    {{--@if ($article->cover)--}}
+                                        {{--<br>--}}
+                                        {{--<img src="{{ $article->cover }}" width="200" class="thumbnail">--}}
+                                    {{--@endif--}}
                             </form>
-
+                            <button type="button" id="edit-cover">上传封面</button>
 
             </div>
         </div>
     </div>
 
+    @include('modals.edit_cover')
 
 
 @endsection
+
+
+@section('script')
+    <script>
+        $(function(){
+            $('#edit-cover').click(function(){
+                alert(123);
+                $('#edit-cover-modal').modal();
+            })
+        });
+    </script>
+@stop

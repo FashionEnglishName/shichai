@@ -197,7 +197,12 @@ class User extends Authenticatable
                 $article->save();
                 $this->save();
                 $author->save();
-                $this->purchased_articles()->attach([$article_id => ['firewood_count' => $firewood]]);
+                if($this->purchased_articles->where('id', '=', $article_id)->first()){
+                    $original_firewood = $this->purchased_articles->where('id', '=', $article_id)->first()->pivot->firewood_count;
+                } else {
+                    $original_firewood = 0;
+                }
+                $this->purchased_articles()->sync([$article_id => ['firewood_count' => $firewood + $original_firewood]], false);
 
             }else{
                 $returnArray = [
@@ -241,3 +246,5 @@ class User extends Authenticatable
         $this->attributes['avatar'] = $path;
     }
 }
+
+

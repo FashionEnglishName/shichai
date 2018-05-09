@@ -21,6 +21,7 @@ Route::post('users/{id}/add_firewood', 'UsersController@add_firewood')->name('us
 Route::get('users/{id}/check_firewood', 'UsersController@check_firewood')->name('users.check_firewood');
 Route::patch("users/{id}/edit-info",'UsersController@update_info')->name('edit-info');
 Route::patch("users/{id}/edit-password",'UsersController@update_password')->name('edit-password');
+Route::patch('users/{id}/edit-avatar', 'UsersController@update_avatar')->name('users.edit_avatar');
 Route::resource('users','UsersController');
 Route::post("users/{id}/location", "UsersController@get_cities")->name('location');
 
@@ -68,4 +69,5 @@ Route::get('follow', "DefaultController@my_follow")->name('follow');
 Route::get('notifications', 'NotificationsController@index')->name('notifications.index');
 Route::delete('notifications/clear', 'NotificationsController@clear')->name('notifications.clear');
 
-Route::get('test/cropper', 'DefaultController@cropper')->name('cropper');
+Route::get('test/cropper', 'DefaultController@cropper')->name('test.cropper');
+Route::post('test/upload', 'DefaultController@upload')->name('test.upload');

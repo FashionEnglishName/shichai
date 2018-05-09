@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Handlers\ImageUploadHandler;
 use App\Models\Province;
+use App\Notifications\Refunded;
 use Illuminate\Http\Request;
 use  App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -47,19 +48,31 @@ class UsersController extends Controller
     }
 
     public function update_info(UserRequest $request, ImageUploadHandler $uploader){
-        $id = Auth::user()->id;
-        $this->authorize('update', User::find($id));
+        $user = User::find($request->id);
+        $this->authorize('update', $user);
 
-        $data = $request->all();
-        if($request->avatar){
-            $result = $uploader->save($request->avatar, 'avatars', $id, 362);
-            if($result){
-                $data['avatar'] = $result['path'];
-            }
-        }
-        User::find($id)->update($data);
+//        $data = ;
+//        if($request->avatar){
+//            $result = $uploader->save($request->avatar, 'avatars', $id, 362);
+//            if($result){
+//                $data['avatar'] = $result['path'];
+//            }
+//        }
+        $user->update($request->all());
 
-        return redirect()->route('users.show', $id)->with('success', '个人资料更新成功！');
+        return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
+    }
+
+    public function update_avatar($id, Request $request){
+        $user = User::find($id);
+        $this->authorize('update', $user);
+
+        $data = uploadFileThumbnail($request->imgBase, 'avatars', 3, 200, 200);
+        $user->avatar = $data;
+        $user->save();
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 
     public function update_password(Request $request){

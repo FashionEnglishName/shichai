@@ -20,11 +20,9 @@ class CreateArticlesTable extends Migration
             $table->text('cover')->nullable();
             $table->integer('user_id')->index();
             $table->integer('category_id')->unsigned();
-            $table->integer('last_reply_user_id')->unsigned()->nullable();
             $table->integer('order')->default(0);
             $table->timestamps();
             $table->timestamp('assigned_at')->nullable();
-            $table->integer('reply_count')->unsigned()->default(0);
             $table->integer('view_count')->unsigned()->default(0);
             $table->integer('firewood_count')->unsigned()->default(0);
             $table->integer('collection_count')->unsigned()->default(0);

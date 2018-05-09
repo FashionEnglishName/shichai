@@ -33,7 +33,7 @@
                             <div class="center-block">
                                 <img src="/imgs/recommand-icon.png" alt="recommand" class="icon-list center-block">
                                 <div class="icon-text-list">
-                                    <p>用户资料</p>
+                                    <p>编辑资料</p>
                                 </div>
                             </div>
                         </div>

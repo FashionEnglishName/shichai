@@ -9347,6 +9347,44 @@ h5 small {
   color: inherit;
 }
 
+.avatar-preview {
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  border-radius: 48px;
+}
+
+.avatar-preview-wrapper {
+  margin-left: 40px;
+  float: left;
+}
+
+.upload-file {
+  text-align: center;
+  color: #777777;
+}
+
+.upload-file span {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.upload-file:hover {
+  color: #DB7017;
+}
+
+.upload-file input[type='file'] {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
 .followings-list-box {
   background-color: white;
 }

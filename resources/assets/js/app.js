@@ -334,6 +334,13 @@ $(function(){
         $('#refund-form').submit();
     });
 
+    $('#edit-avatar').click(function(){
+        $('#edit-avatar-modal').modal();
+    });
+    $('#edit-info-form-submit').click(function(){
+        $("#edit-info-form").submit();
+    });
+
     //  添柴选择柴火数量
     $('.btn-firewoodRadio').click(function (e){
         e.preventDefault();
@@ -379,6 +386,7 @@ $(function(){
         $(this).children(".text-toggle").show();
         $(this).children("a").hide();
     });
+
 
 
 });

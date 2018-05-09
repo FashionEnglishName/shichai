@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Notifications\Refunded;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -57,12 +58,20 @@ class DefaultController extends Controller
 
     public function my_purchased(){
         $user = Auth::user();
-        $articles = $user->purchased_articles()->with('user')->paginate(20);
+        $articles = $user->purchased_articles()->where('work_or_tutorial', '=', 0)->with('user')->paginate(20);
 
         return view('main-pages.my_purchased', compact('articles'));
     }
 
     public function cropper(){
         return view('test.cropper');
+    }
+
+    public function upload(Request $request){
+        $data = uploadFileThumbnail($request->imgBase, 'avatars', 3, 200, 200);
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
+        ]);
     }
 }
