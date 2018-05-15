@@ -9442,3 +9442,18 @@ h5 small {
   background-color: #DB7017 !important;
 }
 
+.now-you-cannot-see-me {
+  display: none;
+}
+
+.cover-preview {
+  width: 211px;
+  height: 158px;
+  overflow: hidden;
+}
+
+.cover-preview-wrapper {
+  float: left;
+  margin-left: 130px;
+}
+

@@ -1092,6 +1092,9 @@ $(function () {
     $('#edit-info-form-submit').click(function () {
         $("#edit-info-form").submit();
     });
+    $('#edit-article-form-submit').click(function () {
+        $("#edit-article-form").submit();
+    });
 
     //  添柴选择柴火数量
     $('.btn-firewoodRadio').click(function (e) {

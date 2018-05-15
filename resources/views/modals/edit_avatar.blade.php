@@ -9,11 +9,11 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="box-for-avatar" style="width: 400px; float:left;">
+                        <div class="box-for-avatar" style="width: 400px; height: 400px; float:left;">
                             <img src="{{ $user->avatar }}" alt="头像" id="avatar-cropper" style="max-width: 100%;">
                         </div>
                         <div class="avatar-preview-wrapper">
-                            <p class="text-center"><span style="color: #777777;">头像预览</span></p>
+                            <p class="text-center"><span style="color: #777777; ">头像预览</span></p>
                             <div class="avatar-preview">
 
                             </div>

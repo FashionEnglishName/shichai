@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Notifications\Refunded;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use Auth;
@@ -42,14 +43,15 @@ class ArticlesController extends Controller
         return view('articles.show',compact('article', 'firewood_sum'));
     }
 
-    public function update($id, ArticleRequest $request, ImageUploadHandler $uploader){
+    public function update($id, Request $request, ImageUploadHandler $uploader){
+        dd($request);
         $article = Article::find($id);
         $data = $request->all();
 
-        $result = $uploader->save($request->cover, 'cover', $id, 1024);
-        if($result){
-            $data['cover'] = $result['path'];
-        }
+//        $result = $uploader->save($request->cover, 'cover', $id, 1024);
+//        if($result){
+//            $data['cover'] = $result['path'];
+//        }
 
         $article->update($data);
         return redirect()->route('articles.show', $id)->with('success', '修改成功！');
@@ -67,11 +69,8 @@ class ArticlesController extends Controller
         $id = Auth::id();
         $data['user_id'] = $id;
 
+        $data['cover'] = $request->cover;
 
-        $result = $uploader->save($request->cover, 'cover', $id, 1024);
-        if($result){
-            $data['cover'] = $result['path'];
-        }
         $article->fill($data);
         $article->user_id = $data['user_id'];
         $article->save();
@@ -96,6 +95,13 @@ class ArticlesController extends Controller
             $data['file_path'] = $result['path'];
         }
         return $data;
+    }
+
+    public function uploadCover(Request $request){
+        $path = uploadFileThumbnail($request->imgBase, 'cover', Auth::id(), 422, 316);
+        return response()->json([
+            'path' => $path
+        ]);
     }
 
 

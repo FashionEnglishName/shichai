@@ -67,7 +67,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $this->authorize('update', $user);
 
-        $data = uploadFileThumbnail($request->imgBase, 'avatars', 3, 200, 200);
+        $data = uploadFileThumbnail($request->imgBase, 'avatars', $id, 200, 200);
         $user->avatar = $data;
         $user->save();
         return response()->json([

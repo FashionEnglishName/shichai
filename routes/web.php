@@ -36,6 +36,7 @@ Route::patch("articles/{id}", "ArticlesController@update")->name('articles.updat
 Route::get("articles/{id}", "ArticlesController@show")->name('articles.show');
 Route::delete("articles/{id}", "ArticlesController@destroy")->name('articles.destroy');
 Route::post("upload_image", "ArticlesController@uploadImage")->name('articles.upload_image');
+Route::post("upload_cover", "ArticlesController@uploadCover")->name('articles.upload_cover');
 
 Route::post('articles/{id}/collect', "CollectionsController@store")->name('collections.store');
 Route::delete('articles{id}/collect', 'CollectionsController@destroy')->name('collections.destroy');
