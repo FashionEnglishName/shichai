@@ -9,10 +9,10 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="box-for-cover now-you-cannot-see-me" style="width: 400px; height: 400px; float:left;">
+                        <div class="box-for-cover {{ isset($article->cover) ? '' : 'now-you-cannot-see-me' }} " style="width: 400px; height: 400px; float:left;">
                             <img src="{{ isset($article->cover) ? $article->cover : '' }}" alt="封面" id="cover-cropper" style="max-width: 100%;">
                         </div>
-                        <div class="box-for-non-cover" style="width: 400px; height: 400px; float:left; font-size: 20px; color: #ffffff; background-color: #7b7b7b">
+                        <div class=" {{ isset($article->cover) ? 'now-you-cannot-see-me' : '' }} box-for-non-cover" style="width: 400px; height: 400px; float:left; font-size: 20px; color: #ffffff; background-color: #7b7b7b">
                             <p class="text-center"></p>
                         </div>
 

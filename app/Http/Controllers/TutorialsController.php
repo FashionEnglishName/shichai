@@ -56,10 +56,6 @@ class TutorialsController extends Controller
         $tutorial->work_id = $work->id;
         $tutorial->user_id = $work->user_id;
         $tutorial->category_id = $work->category_id;
-        $result = $uploader->save($request->cover, 'cover', '$work_id', '1024');
-        if($result) {
-            $tutorial->cover = $result['path'];
-        }
         $tutorial->save();
         $work->tutorial_id = $tutorial->id;
         $work->save();

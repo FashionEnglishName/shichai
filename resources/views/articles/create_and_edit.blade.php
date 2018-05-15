@@ -111,14 +111,16 @@
             </div>
         </div>
         <div class="row icon-row">
-            <div class="col-xs-10 col-xs-offset-1 background-block">
-                <div class="center-block">
-                    <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
-                    <div class="icon-text-list">
-                        <p>返　　回</p>
+            <a href="{{ url()->previous() }}">
+                <div class="col-xs-10 col-xs-offset-1 background-block">
+                    <div class="center-block">
+                        <img src="/imgs/bought-icon.png" alt="bought" class="icon-list center-block">
+                        <div class="icon-text-list">
+                            <p>返　　回</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     @endsection
 
@@ -172,20 +174,15 @@
                                     {{--@endif--}}
                             </form>
                             <div>
-                                <img class="now-you-cannot-see-me" id="cover-preview-out-of-modal" src="{{ $article->cover }}" alt="封面" style="width: 211px; height: 158px;">
-                                <div id="non-cover-preview-out-of-modal" style="width: 211px; height: 158px; border: dotted 1px #dddddd;"></div>
+                                <img class="{{ isset($article->cover) ? '' : 'now-you-cannot-see-me' }}" id="cover-preview-out-of-modal" src="{{ $article->cover }}" alt="封面" style="width: 211px; height: 158px;">
+                                <div id="non-cover-preview-out-of-modal" class=" {{ isset($article->cover) ? 'now-you-cannot-see-me' : '' }}" style="width: 211px; height: 158px; border: dotted 1px #dddddd;"></div>
                             </div>
                             <button type="button" id="edit-cover">上传封面</button>
 
             </div>
         </div>
     </div>
-
     @include('modals.edit_cover')
 
 
 @endsection
-
-
-@section('script')
-@stop

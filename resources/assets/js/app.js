@@ -342,7 +342,10 @@ $(function(){
     });
     $('#edit-article-form-submit').click(function(){
         $("#edit-article-form").submit();
-    })
+    });
+    $('#edit-tutorial-form-submit').click(function(){
+        $("#edit-tutorial-form").submit();
+    });
 
     //  添柴选择柴火数量
     $('.btn-firewoodRadio').click(function (e){
