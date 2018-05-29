@@ -26,7 +26,7 @@
                             </a>
                         </div>
                         <div class="row icon-row">
-                            <form action="{{ route('articles.destroy', $article->id) }}" method="post" id="delete-article-form">
+                            <form action="{{ route('articles.destroy', $article->id) }}" method="post" id="delete-article-form" hidden>
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                             </form>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         @else
-                            @if(!$article->work_or_tutorial)
+                            @if(!$article->work_or_tutorial && $article->firewood_count>0)
                                 <div class="row icon-row">
                                     <form action="{{ route('purchases.ignite', $article->id) }}" method="post" class="ignite-form" hidden>
                                         {{ csrf_field() }}

@@ -215,6 +215,7 @@ class User extends Authenticatable
 
     }
 
+    //  购买者可以refund
     public function refund($article_id){
         $article = Article::find($article_id);
         $firewood_sum = 0;
@@ -226,6 +227,20 @@ class User extends Authenticatable
         $this->save();
         $article->firewood_count -= $firewood_sum;
         $article->save();
+    }
+
+    //  作者会missDeadline
+    public function missDeadline($article){
+//        $article_firewood_change = $article->firewood_count;
+        foreach($article->purchaser as $purchaser){
+            $user_firewood_change = $purchaser->firewood_count + $purchaser->pivot->firewood_count;
+//            $article_firewood_change -= $article->pivot->firewood_count;
+            DB::table('users')->where('id', $purchaser->id)->update(['firewood_count' => $user_firewood_change]);
+        }
+        $all_purchaser_ids = $article->purchaser->pluck('id')->toArray();
+        $article->purchaser()->detach($all_purchaser_ids);
+        $article->is_assigned = 0;
+//        DB::table('articles')->where('id', $article->id)->update(['firewood_count' => 0, 'is_assigned' => 0]);
     }
 
     public function setPasswordAttribute($value){

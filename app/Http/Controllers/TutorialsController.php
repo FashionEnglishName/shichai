@@ -29,8 +29,8 @@ class TutorialsController extends Controller
         $user = Auth::user();
         $type = 'waiting';
         $articles = $user->articles()->where([
-            ['is_assigned', '=', 1],
-            ['tutorial_id', '=', 0]
+            ['firewood_count', '>', 0],
+            ['tutorial_id', '=', null]
             ])->orderBy('created_at', 'desc')->paginate(20);
         return view('tutorials.index', compact('articles', 'type'));
     }

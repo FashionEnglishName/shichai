@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|between:3,25',
+            'name' => 'required|between:3,20',
             'age' => 'required',
             'gender' => 'required',
             'province_id' => 'required',
@@ -37,7 +37,7 @@ class UserRequest extends FormRequest
     public function messages(){
         return [
           'name.required' => '用户名不能为空！',
-          'name.between' => '用户名必须介于3到25个字符之间！',
+          'name.between' => '用户名必须介于3到20个字符之间！',
           'age.required' => '未选择年龄！',
           'gender.required' => '未选择性别！',
           'province_id.required' => '未选择城市！',
