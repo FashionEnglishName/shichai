@@ -14,7 +14,7 @@ class ArticlesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'show']);
+        $this->middleware('auth');
     }
 
     public function create(Article $article){
@@ -30,12 +30,9 @@ class ArticlesController extends Controller
 
     public function show($id){
         $article = Article::find($id);
-        $user = Auth::user();
-        if(!$user->purchased_articles->pluck('id')->contains($id) && $user->id !== $article->user->id && $article->work_or_tutorial){
-            $work = $article->work;
-            return redirect()->route('articles.show', compact('work'))->with('error', '请先为作品添柴！');
-        }
-//        $this->authorize('canRead', $article);
+//        $user = Auth::user();
+
+        $this->authorize('canRead', $article);
         $firewood_sum = 0;
         foreach($article->purchaser->where('id', '=', Auth::id()) as $item){
             $firewood_sum += $item->pivot->firewood_count;

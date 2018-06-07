@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title','分类')
+@section('title','已购项目')
 
 
 @section("functions")

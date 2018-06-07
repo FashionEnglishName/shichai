@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Notifications\AuthorHasMissed;
+use App\Notifications\Missed;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
@@ -232,15 +234,17 @@ class User extends Authenticatable
     //  作者会missDeadline
     public function missDeadline($article){
 //        $article_firewood_change = $article->firewood_count;
+        $author = $article->user;
+        $author->notify(new Missed($article, $author));
         foreach($article->purchaser as $purchaser){
+            $purchaser->notify(new AuthorHasMissed($article, $author));
             $user_firewood_change = $purchaser->firewood_count + $purchaser->pivot->firewood_count;
 //            $article_firewood_change -= $article->pivot->firewood_count;
             DB::table('users')->where('id', $purchaser->id)->update(['firewood_count' => $user_firewood_change]);
         }
         $all_purchaser_ids = $article->purchaser->pluck('id')->toArray();
         $article->purchaser()->detach($all_purchaser_ids);
-        $article->is_assigned = 0;
-//        DB::table('articles')->where('id', $article->id)->update(['firewood_count' => 0, 'is_assigned' => 0]);
+        DB::table('articles')->where('id', $article->id)->update(['firewood_count' => 0, 'is_assigned' => 0]);
     }
 
     public function setPasswordAttribute($value){

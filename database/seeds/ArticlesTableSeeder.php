@@ -19,13 +19,13 @@ class ArticlesTableSeeder extends Seeder
         $user_id = User::all()->pluck('id')->toArray();
 
         $cover  = [
-            '/cover/cover1.jpg',
-            '/cover/cover2.jpg',
-            '/cover/cover3.jpg',
-            '/cover/cover4.jpg',
-            '/cover/cover5.jpg',
-            '/cover/cover6.jpg',
-            '/cover/cover7.jpg'
+            'http://p9nmr7txh.bkt.clouddn.com/1.JPG',
+            'http://p9nmr7txh.bkt.clouddn.com/2.JPG',
+            'http://p9nmr7txh.bkt.clouddn.com/3.JPG',
+            'http://p9nmr7txh.bkt.clouddn.com/4.JPG',
+            'http://p9nmr7txh.bkt.clouddn.com/5.JPG',
+            'http://p9nmr7txh.bkt.clouddn.com/6.JPG',
+            'http://p9nmr7txh.bkt.clouddn.com/7.JPG'
         ];
 
 

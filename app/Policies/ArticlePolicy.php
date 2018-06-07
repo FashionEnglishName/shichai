@@ -34,4 +34,9 @@ class ArticlePolicy
     public function refund(User $currentUser, Article $article){
         return $currentUser->purchased_articles->pluck('id')->contains($article->id);
     }
+
+    public function isAuthor(User $currentUser, Article $article){
+
+    }
+
 }

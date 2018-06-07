@@ -15,12 +15,11 @@ class UsersTableSeeder extends Seeder
         $faker = app(Faker\Generator::class);
 
         $avatars = [
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/s5ehp11z6s.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/Lhd1SHqu86.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/LOnMrqbHJn.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/xAuDMxteQy.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/NDnzMutoxX.png?imageView2/1/w/200/h/200',
+            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover1.jpg',
+            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover2.jpg',
+            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover3.JPG',
+            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover4.jpg',
+            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover5.JPG'
         ];
 
         $users = factory(User::class)
@@ -30,6 +29,7 @@ class UsersTableSeeder extends Seeder
                         use($faker, $avatars)
                  {
                     $user->avatar = $faker->randomElement($avatars);
+                    $user->name = make_excerpt($user->name, 10);
                  });
 
         // 让隐藏字段可见，并将数据集合转换为数组
@@ -42,6 +42,7 @@ class UsersTableSeeder extends Seeder
         $user->name = 'dmh';
         $user->password = bcrypt('dddddd');
         $user->email = 'dmh@qq.com';
+        $user->avatar = 'http://p9nmr7txh.bkt.clouddn.com/presentation/cover1.jpg';
         $user->save();
 
         $user->assignRole('Founder');

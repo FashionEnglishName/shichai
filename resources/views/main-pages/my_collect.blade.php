@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title','分类')
+@section('title','我的收藏')
 
 
 @section("functions")
@@ -51,8 +51,8 @@
             <div class="navbar navbar-default" id="second-navbar" role="navigation">
                 <div class="container">
                     <ul class="nav navbar-nav" id="second-navbar-text">
-                        <li class="li-active"><a href="#">最热</a></li>
-                        <li><a href="#">最新</a></li>
+                        <li @if($article_type === 'tutorial' || !isset($article_type))class="li-active" @endif><a href="{{ Request::url()}}?type=tutorial">教程</a></li>
+                        <li @if($article_type === 'work') class="li-active" @endif><a href="{{ Request::url() }}?type=work">作品</a></li>
                     </ul>
                 </div>
             </div>

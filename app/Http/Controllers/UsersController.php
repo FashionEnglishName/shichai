@@ -22,7 +22,6 @@ class UsersController extends Controller
     }
 
     public function store(Request $request){
-
         $this->validate($request,[
            'name' => 'required|max:50',
             'email' => 'required|email|unique:users|max:255',
@@ -37,7 +36,6 @@ class UsersController extends Controller
 
         Auth::login($user);
         return response()->json($user);
-//        return redirect("users/{$user->id}");
     }
 
     public function show($id, Request $request){
@@ -47,17 +45,10 @@ class UsersController extends Controller
         return view("users.show", compact('user', 'articles', 'order'));
     }
 
-    public function update_info(UserRequest $request, ImageUploadHandler $uploader){
+    public function update_info(UserRequest $request){
         $user = User::find($request->id);
         $this->authorize('update', $user);
 
-//        $data = ;
-//        if($request->avatar){
-//            $result = $uploader->save($request->avatar, 'avatars', $id, 362);
-//            if($result){
-//                $data['avatar'] = $result['path'];
-//            }
-//        }
         $user->update($request->all());
 
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
@@ -101,14 +92,14 @@ class UsersController extends Controller
     }
 
     public function add_firewood(){
-            $user = User::find(Auth::user()->id);
-            $user->firewood_count += 5;
-            $user->save();
-            return response()->json("成功");
+        $user = Auth::user();
+        $user->firewood_count += 5;
+        $user->save();
+        return response()->json("成功");
     }
 
     public function check_firewood(){
-        $user = User::find(Auth::user()->id);
+        $user = Auth::user();
         return response()->json([
            'firewood' => $user->firewood_count
         ]);
