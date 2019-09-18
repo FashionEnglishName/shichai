@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
         $user->name = 'dmh';
         $user->password = bcrypt('dddddd');
         $user->email = 'dmh@qq.com';
-        $user->avatar = 'http://p9nmr7txh.bkt.clouddn.com/presentation/cover1.jpg';
+        $user->avatar = 'https://cdn.learnku.com/uploads/images/201710/14/1/NDnzMutoxX.png';
         $user->save();
 
         $user->assignRole('Founder');
