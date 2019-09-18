@@ -15,11 +15,12 @@ class UsersTableSeeder extends Seeder
         $faker = app(Faker\Generator::class);
 
         $avatars = [
-            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover1.jpg',
-            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover2.jpg',
-            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover3.JPG',
-            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover4.jpg',
-            'http://p9nmr7txh.bkt.clouddn.com/presentation/cover5.JPG'
+            'https://cdn.learnku.com/uploads/images/201710/14/1/s5ehp11z6s.png',
+            'https://cdn.learnku.com/uploads/images/201710/14/1/Lhd1SHqu86.png',
+            'https://cdn.learnku.com/uploads/images/201710/14/1/LOnMrqbHJn.png',
+            'https://cdn.learnku.com/uploads/images/201710/14/1/xAuDMxteQy.png',
+            'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png',
+            'https://cdn.learnku.com/uploads/images/201710/14/1/NDnzMutoxX.png',
         ];
 
         $users = factory(User::class)
