@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cropper.css') }}">
     @yield("style")
-    <script language="JavaScript" src="/js/app.js"></script>
-    <script language="JavaScript" src="/js/toastr.js"></script>
-    <script language="JavaScript" src="/js/cropper.js"></script>
+    <script language="JavaScript" src="{{ asset('js/app.js') }}"></script>
+    <script language="JavaScript" src="{{ asset('js/toastr.js') }}"></script>
+    <script language="JavaScript" src="{{ asset('js/cropper.js') }}"></script>
     <script>
         toastr.options.positionClass = "toast-top-center";
         toastr.options.timeOut = 3000;
