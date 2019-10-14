@@ -18,12 +18,12 @@ function uploadFileThumbnail($file, $folder, $file_prefix,  $width, $height)
 {
     $folder_name = "uploads/images/$folder" . date("Ym/d", time());
     $dir = public_path() . '/' . "uploads/images/$folder" . date("Ym/d", time());
+    dd($dir);
     if(!file_exists($dir)) {
         mkdir($dir, 0777, true);
     }
     if(!empty($file)) {
         $destinationPath = public_path() . '/' . $folder_name;
-
         $file = str_replace('data:image/jpeg;base64,', '', $file);
         $img = str_replace(' ', '+', $file);
         $data = base64_decode($img);
