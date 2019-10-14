@@ -21,8 +21,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -84,8 +84,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -132,8 +132,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -179,8 +179,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -218,8 +218,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -291,8 +291,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -351,8 +351,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -414,8 +414,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -465,8 +465,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -528,8 +528,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -599,8 +599,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -675,8 +675,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -724,8 +724,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -774,8 +774,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -914,8 +914,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -988,8 +988,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1057,8 +1057,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1146,8 +1146,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1230,8 +1230,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1280,8 +1280,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1339,8 +1339,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1396,8 +1396,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1453,8 +1453,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1507,8 +1507,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1563,8 +1563,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1618,8 +1618,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1674,8 +1674,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1727,8 +1727,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1781,8 +1781,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1859,8 +1859,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -1945,8 +1945,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2015,8 +2015,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2082,8 +2082,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2143,8 +2143,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2218,8 +2218,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2277,8 +2277,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2339,8 +2339,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2408,8 +2408,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2463,8 +2463,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2523,8 +2523,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2617,8 +2617,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2682,8 +2682,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2747,8 +2747,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2802,8 +2802,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2886,8 +2886,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -2960,8 +2960,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3035,8 +3035,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3088,8 +3088,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3146,8 +3146,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3220,8 +3220,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3280,8 +3280,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3347,8 +3347,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3403,8 +3403,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3457,8 +3457,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3524,8 +3524,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3595,8 +3595,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3646,8 +3646,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3707,8 +3707,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3760,8 +3760,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3820,8 +3820,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3877,8 +3877,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3930,8 +3930,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -3999,8 +3999,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4068,8 +4068,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4121,8 +4121,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4168,8 +4168,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4223,8 +4223,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4278,8 +4278,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4368,8 +4368,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4433,8 +4433,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4484,8 +4484,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4554,8 +4554,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4612,8 +4612,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4668,8 +4668,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4741,8 +4741,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4798,8 +4798,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4851,8 +4851,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4902,8 +4902,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -4961,8 +4961,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -5009,8 +5009,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -5058,8 +5058,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -5107,8 +5107,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
@@ -5153,8 +5153,8 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
+                        "url": "https://repo.packagist.org/%package%/%reference%.%type%",
+                        "preferred": false
                     }
                 ]
             },
