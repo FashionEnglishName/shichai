@@ -15,12 +15,11 @@ class UsersTableSeeder extends Seeder
         $faker = app(Faker\Generator::class);
 
         $avatars = [
-            'https://cdn.learnku.com/uploads/images/201710/14/1/s5ehp11z6s.png',
-            'https://cdn.learnku.com/uploads/images/201710/14/1/Lhd1SHqu86.png',
-            'https://cdn.learnku.com/uploads/images/201710/14/1/LOnMrqbHJn.png',
-            'https://cdn.learnku.com/uploads/images/201710/14/1/xAuDMxteQy.png',
-            'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png',
-            'https://cdn.learnku.com/uploads/images/201710/14/1/NDnzMutoxX.png',
+            'http://codemoney.tech/avatar/1.jpg',
+            'http://codemoney.tech/avatar/2.jpg',
+            'http://codemoney.tech/avatar/3.jpg',
+            'http://codemoney.tech/avatar/4.jpg',
+            'http://codemoney.tech/avatar/5.jpg',
         ];
 
         $users = factory(User::class)
@@ -43,7 +42,7 @@ class UsersTableSeeder extends Seeder
         $user->name = 'dmh';
         $user->password = bcrypt('dddddd');
         $user->email = 'dmh@qq.com';
-        $user->avatar = 'https://cdn.learnku.com/uploads/images/201710/14/1/NDnzMutoxX.png';
+        $user->avatar = 'http://codemoney.tech/avatar/1.jpg';
         $user->save();
 
         $user->assignRole('Founder');
